@@ -466,6 +466,15 @@ function Nav() {
                   {l.label}
                 </a>
               ))}
+              <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10 pt-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-white/80">Theme</span>
+                  <ThemeToggle />
+                </div>
+                <a href="#contact" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-navy-deep">
+                  Get in touch <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
@@ -1004,8 +1013,10 @@ function Hero() {
           </div>
         </div>
 
-        <motion.div style={{ x: mx, y: my }} className="relative">
-          <HeroDashboard slideIndex={index} tone={tone} />
+        <motion.div style={{ x: mx, y: my }} className="relative mt-8 flex justify-center md:mt-0 md:block max-w-full -mb-32 md:-mb-0">
+          <div className="origin-top scale-[0.55] sm:scale-[0.7] md:scale-100 md:origin-left">
+            <HeroDashboard slideIndex={index} tone={tone} />
+          </div>
         </motion.div>
 
       </motion.div>
@@ -1209,7 +1220,7 @@ function About() {
 
           <div className="relative">
             <Reveal delay={0.2}>
-              <div className="relative rounded-3xl bg-navy-deep p-10 text-white shadow-glow overflow-hidden">
+              <div className="relative rounded-3xl bg-navy-deep p-6 sm:p-10 text-white shadow-glow overflow-hidden">
                 <div className="absolute inset-0 grid-lines opacity-20" />
                 <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-brand-gradient opacity-30 blur-3xl" />
                 <div className="relative">
@@ -1373,9 +1384,9 @@ function TechStack() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Side: Half Circular Roulette Carousel */}
-          <div className="relative h-[600px] flex items-center overflow-hidden lg:overflow-visible order-last lg:order-first">
+          <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] flex items-center overflow-hidden lg:overflow-visible order-last lg:order-first">
             {/* Center the circle on the left edge */}
-            <div className="absolute left-[-280px] top-1/2 -translate-y-1/2 h-[680px] w-[680px]"
+            <div className="absolute left-[-120px] sm:left-[-180px] lg:left-[-280px] top-1/2 -translate-y-1/2 h-[680px] w-[680px] scale-[0.6] sm:scale-[0.75] lg:scale-100 origin-center"
               onMouseEnter={() => { isPaused.current = true; }}
               onMouseLeave={() => { isPaused.current = false; setHoveredIdx(null); }}
             >
@@ -2212,9 +2223,9 @@ function Footer() {
               <div className="text-lg font-semibold">Get the Acceleron dispatch</div>
               <div className="text-sm text-white/60">One email a month. Enterprise transformation, decoded.</div>
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <input type="email" placeholder="you@company.com" className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm outline-none placeholder:text-white/40 focus:border-cyan md:w-72" />
-              <button className="rounded-full bg-brand-gradient px-6 py-3 text-sm font-medium shadow-glow transition-all hover:scale-105">Subscribe</button>
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 mt-4 md:mt-0">
+              <input type="email" placeholder="you@company.com" className="w-full sm:w-auto min-w-0 flex-1 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm outline-none placeholder:text-white/40 focus:border-cyan md:w-72" />
+              <button className="w-full sm:w-auto rounded-full bg-brand-gradient px-6 py-3 text-sm font-medium shadow-glow transition-all hover:scale-105">Subscribe</button>
             </form>
           </div>
         </div>
