@@ -189,7 +189,7 @@ function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="grid h-9 w-9 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-105"
+      className="grid h-9 w-9 place-items-center rounded-full border border-white/20 bg-muted/10 text-foreground transition-all hover:bg-muted/20 hover:scale-105"
     >
       {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
@@ -276,7 +276,7 @@ function InitialLoader({ onComplete }: { onComplete: () => void }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-muted"
     >
       <motion.div
         animate={{ scale: [0.95, 1, 0.95], opacity: [0.5, 1, 0.5] }}
@@ -298,8 +298,8 @@ function MagneticButton({
   const sy = useSpring(y, { stiffness: 200, damping: 15 });
   const base = "group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium transition-all duration-300";
   const styles = variant === "primary"
-    ? "bg-red-gradient text-white shadow-red-glow hover:shadow-[0_28px_100px_-18px_rgba(222,30,36,0.75)] hover:scale-[1.02]"
-    : "border border-white/25 text-white hover:bg-white/10 backdrop-blur hover:border-white/40";
+    ? "bg-red-gradient text-[#FFFFFF] shadow-red-glow hover:shadow-[0_28px_100px_-18px_rgba(222,30,36,0.75)] hover:scale-[1.02]"
+    : "border border-border text-foreground hover:bg-muted/10 backdrop-blur hover:border-border";
 
   return (
     <motion.a
@@ -394,12 +394,12 @@ function Nav() {
     <motion.header
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-dark border-b border-white/10 py-3" : "bg-transparent py-5"
+        scrolled ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm" : "bg-transparent py-5"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center text-white">
-          <img src="/logo.png" alt="Acceleron Solutions" className="h-8 object-contain brightness-0 invert opacity-95 transition-opacity hover:opacity-100" />
+        <a href="#top" className="flex items-center text-foreground">
+          <img src="/logo.png" alt="Acceleron Solutions" className="h-8 object-contain dark:brightness-0 dark:invert opacity-95 transition-opacity hover:opacity-100" />
         </a>
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((l) => (
@@ -408,7 +408,7 @@ function Nav() {
               onMouseEnter={() => l.dropdown && setShowProducts(true)}
               onMouseLeave={() => l.dropdown && setShowProducts(false)}
             >
-              <a href={l.href} className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-white/80 transition-colors hover:text-white hover:bg-white/[0.06]">
+              <a href={l.href} className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-foreground/80 transition-colors hover:text-foreground hover:bg-muted/[0.06]">
                 {l.label}
                 {l.dropdown && <ChevronDown className="h-3.5 w-3.5" />}
               </a>
@@ -422,16 +422,16 @@ function Nav() {
                     <div className="glass-dark rounded-2xl p-4 shadow-glow">
                       <div className="grid grid-cols-2 gap-2">
                         {PRODUCTS.map((p) => (
-                          <a key={p.name} href="#products" className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5">
+                          <a key={p.name} href="#products" className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/5">
                             <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${p.gradient}`}>
-                              <p.icon className="h-5 w-5 text-white" />
+                              <p.icon className="h-5 w-5 text-foreground" />
                             </div>
                             <div className="min-w-0">
-                              <div className="flex items-center gap-1.5 text-sm font-medium text-white">
+                              <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
                                 {p.name}
                                 <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
                               </div>
-                              <div className="truncate text-xs text-white/60">{p.desc}</div>
+                              <div className="truncate text-xs text-foreground/60">{p.desc}</div>
                             </div>
                           </a>
                         ))}
@@ -445,12 +445,12 @@ function Nav() {
         </nav>
         <div className="hidden lg:flex items-center gap-2">
           <ThemeToggle />
-          <a href="#contact" className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-navy-deep transition-all hover:scale-105 hover:shadow-soft">
+          <a href="#contact" className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all hover:scale-105 hover:shadow-soft">
             Get in touch <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
 
-        <button className="lg:hidden text-white" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -458,20 +458,20 @@ function Nav() {
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden glass-dark border-t border-white/10 mt-3"
+            className="lg:hidden overflow-hidden glass-dark border-t border-border mt-3"
           >
             <div className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-1">
               {NAV_LINKS.map((l) => (
-                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm text-white/80 hover:bg-white/5">
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:bg-muted/5">
                   {l.label}
                 </a>
               ))}
-              <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10 pt-4">
+              <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border pt-4">
                 <div className="flex items-center gap-4">
-                  <span className="text-sm text-white/80">Theme</span>
+                  <span className="text-sm text-foreground/80">Theme</span>
                   <ThemeToggle />
                 </div>
-                <a href="#contact" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-navy-deep">
+                <a href="#contact" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background">
                   Get in touch <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
@@ -501,10 +501,10 @@ function SlideSAP() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_70%,oklch(0.62_0.22_300/0.4),transparent_65%)]" />
       <motion.div
         animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-        className="absolute right-[-10%] top-1/2 h-[720px] w-[720px] -translate-y-1/2 rounded-full border border-white/8"
+        className="absolute right-[-10%] top-1/2 h-[720px] w-[720px] -translate-y-1/2 rounded-full border border-foreground/10"
       >
-        <div className="absolute inset-14 rounded-full border border-white/8" />
-        <div className="absolute inset-28 rounded-full border border-white/8" />
+        <div className="absolute inset-14 rounded-full border border-foreground/10" />
+        <div className="absolute inset-28 rounded-full border border-foreground/10" />
         <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_30px_var(--cyan-brand)]" />
         <div className="absolute bottom-8 right-8 h-2.5 w-2.5 rounded-full bg-electric shadow-[0_0_30px_var(--electric)]" />
       </motion.div>
@@ -573,7 +573,7 @@ function SlideZoho() {
             key={i}
             initial={{ opacity: 0, rotateY: -60 }} animate={{ opacity: 1, rotateY: 0 }}
             transition={{ delay: i * 0.04, duration: 0.8 }}
-            className="h-14 w-14 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm"
+            className="h-14 w-14 rounded-xl border border-border bg-muted/[0.03] backdrop-blur-sm"
             style={{
               background: i % 3 === 0 ? "linear-gradient(135deg,oklch(0.62 0.22 260/0.5),transparent)"
                 : i % 3 === 1 ? "linear-gradient(135deg,oklch(0.82 0.14 210/0.5),transparent)"
@@ -748,39 +748,39 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
           className="relative h-full w-full"
           style={{ transformStyle: "preserve-3d" }}
         >
-          <div className="absolute inset-0 rounded-3xl border border-white/12 bg-white/[0.04] backdrop-blur-2xl shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] overflow-hidden">
+          <div className="absolute inset-0 rounded-3xl border border-border bg-muted/[0.04] backdrop-blur-2xl shadow-[0_40px_120px_-30px_rgba(0,0,0,0.15)] dark:shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] overflow-hidden">
             <div className="absolute inset-0 opacity-40"
               style={{ background: `radial-gradient(ellipse at 20% 0%, ${tone}55, transparent 55%)` }} />
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
+            <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
               <div className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
               </div>
-              <div className="text-[10px] font-medium uppercase tracking-[0.25em] text-white/55">{c.app}</div>
+              <div className="text-[10px] font-medium uppercase tracking-[0.25em] text-foreground/55">{c.app}</div>
               <div className="flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: tone }} />
-                <span className="text-[9px] uppercase tracking-widest text-white/45">live</span>
+                <span className="text-[9px] uppercase tracking-widest text-foreground/45">live</span>
               </div>
             </div>
             <div className="grid grid-cols-5 gap-0 h-[calc(100%-49px)]">
-              <div className="col-span-1 border-r border-white/10 p-3 space-y-1.5">
+              <div className="col-span-1 border-r border-border p-3 space-y-1.5">
                 <div className="mb-2 flex items-center gap-1.5 rounded-md px-2 py-1.5"
                   style={{ background: `${tone}22`, border: `1px solid ${tone}55` }}>
-                  <span className="grid h-4 w-4 place-items-center rounded text-[9px] font-bold text-white" style={{ background: tone }}>
+                  <span className="grid h-4 w-4 place-items-center rounded text-[9px] font-bold text-foreground" style={{ background: tone }}>
                     {c.brand.charAt(0)}
                   </span>
-                  <span className="truncate text-[10px] font-semibold text-white">{c.brand}</span>
+                  <span className="truncate text-[10px] font-semibold text-foreground">{c.brand}</span>
                 </div>
                 {c.nav.map((n, i) => (
                   <div key={n}
-                    className={`rounded-lg px-2.5 py-1.5 text-[11px] ${i === 0 ? "bg-white/10 text-white" : "text-white/50"}`}
+                    className={`rounded-lg px-2.5 py-1.5 text-[11px] ${i === 0 ? "bg-muted/10 text-foreground" : "text-foreground/50"}`}
                   >{n}</div>
                 ))}
-                <div className="mt-6 h-px bg-white/10" />
-                <div className="mt-4 rounded-lg border border-white/10 p-2">
-                  <div className="text-[9px] uppercase tracking-widest text-white/40">Region</div>
-                  <div className="mt-1 text-[11px] text-white/80">{c.region}</div>
+                <div className="mt-6 h-px bg-muted/10" />
+                <div className="mt-4 rounded-lg border border-border p-2">
+                  <div className="text-[9px] uppercase tracking-widest text-foreground/40">Region</div>
+                  <div className="mt-1 text-[11px] text-foreground/80">{c.region}</div>
                 </div>
               </div>
               <div className="col-span-4 p-5 space-y-4">
@@ -790,18 +790,18 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
                       key={`${slideIndex}-${k}`}
                       initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15 + k * 0.08, duration: 0.5 }}
-                      className="rounded-xl border border-white/10 bg-white/[0.04] p-3"
+                      className="rounded-xl border border-border bg-muted/[0.04] p-3"
                     >
-                      <div className="text-[9px] uppercase tracking-widest text-white/45">{m.label}</div>
-                      <div className="mt-1.5 text-xl font-semibold text-white">{m.v}</div>
-                      <div className="mt-0.5 text-[10px] text-white/50">{m.d}</div>
+                      <div className="text-[9px] uppercase tracking-widest text-foreground/45">{m.label}</div>
+                      <div className="mt-1.5 text-xl font-semibold text-foreground">{m.v}</div>
+                      <div className="mt-0.5 text-[10px] text-foreground/50">{m.d}</div>
                     </motion.div>
                   ))}
                 </div>
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="rounded-xl border border-border bg-muted/[0.03] p-4">
                   <div className="flex items-center justify-between">
-                    <div className="text-[10px] uppercase tracking-widest text-white/50">{c.chartLabel}</div>
-                    <div className="text-[10px] text-white/60">live</div>
+                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.chartLabel}</div>
+                    <div className="text-[10px] text-foreground/60">live</div>
                   </div>
                   <svg viewBox="0 0 400 90" className="mt-2 h-24 w-full">
                     <defs>
@@ -821,27 +821,27 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
                   </svg>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5">
-                    <div className="text-[10px] uppercase tracking-widest text-white/50">{c.slaLabel}</div>
+                  <div className="rounded-xl border border-border bg-muted/[0.03] p-3.5">
+                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.slaLabel}</div>
                     <div className="mt-2.5 space-y-1.5">
                       {c.slaRows.map((r, k) => (
                         <div key={k} className="flex items-center gap-2">
-                          <span className="w-12 text-[9px] uppercase tracking-widest text-white/50">{r.label}</span>
-                          <div className="h-1.5 flex-1 rounded-full bg-white/8 overflow-hidden">
+                          <span className="w-12 text-[9px] uppercase tracking-widest text-foreground/50">{r.label}</span>
+                          <div className="h-1.5 flex-1 rounded-full bg-muted/8 overflow-hidden">
                             <motion.div key={`${slideIndex}-${k}`}
                               initial={{ width: 0 }} animate={{ width: `${r.value}%` }}
                               transition={{ delay: 0.4 + k * 0.1, duration: 0.9 }}
                               className="h-full rounded-full"
                               style={{ background: tone }} />
                           </div>
-                          <span className="w-8 text-right text-[9px] text-white/45">{r.value}%</span>
+                          <span className="w-8 text-right text-[9px] text-foreground/45">{r.value}%</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5">
-                    <div className="text-[10px] uppercase tracking-widest text-white/50">{c.eventsLabel}</div>
-                    <div className="mt-2.5 space-y-1.5 text-[10px] text-white/70">
+                  <div className="rounded-xl border border-border bg-muted/[0.03] p-3.5">
+                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.eventsLabel}</div>
+                    <div className="mt-2.5 space-y-1.5 text-[10px] text-foreground/70">
                       {c.events.map((e) => (
                         <div key={e} className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full" style={{ background: tone }} />
@@ -856,15 +856,15 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
           </div>
           <motion.div
             animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-4 top-10 rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
+            className="absolute -right-4 top-10 rounded-2xl border border-border bg-muted/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
             style={{ transform: "translateZ(80px)" }}
           >
-            <div className="text-[9px] uppercase tracking-widest text-white/50">{c.floater.label}</div>
-            <div className="text-lg font-semibold text-white">{c.floater.value}</div>
+            <div className="text-[9px] uppercase tracking-widest text-foreground/50">{c.floater.label}</div>
+            <div className="text-lg font-semibold text-foreground">{c.floater.value}</div>
           </motion.div>
           <motion.div
             animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-6 bottom-8 rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
+            className="absolute -left-6 bottom-8 rounded-2xl border border-border bg-muted/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
             style={{ transform: "translateZ(100px)" }}
           >
             <div className="flex items-center gap-2.5">
@@ -872,8 +872,8 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
                 <BadgeIcon className="h-4 w-4" style={{ color: tone }} />
               </span>
               <div>
-                <div className="text-[9px] uppercase tracking-widest text-white/60">{c.badge.kicker}</div>
-                <div className="text-xs font-semibold text-white">{c.badge.text}</div>
+                <div className="text-[9px] uppercase tracking-widest text-foreground/60">{c.badge.kicker}</div>
+                <div className="text-xs font-semibold text-foreground">{c.badge.text}</div>
               </div>
             </div>
           </motion.div>
@@ -909,7 +909,7 @@ function Hero() {
   ];
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-navy-deep">
+    <section id="top" className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.08]" />
       <AnimatePresence mode="sync">
@@ -944,15 +944,15 @@ function Hero() {
                 {s.eyebrow}
               </div>
 
-              <h1 className="mt-7 text-5xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+              <h1 className="mt-7 text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
                 <span className="block">{s.title.trim()}</span>
-                <span className="block bg-gradient-to-r from-white via-white to-[color:var(--tone,#4c5a8a)] bg-clip-text text-transparent"
+                <span className="block bg-gradient-to-r from-foreground via-foreground/90 to-[color:var(--tone,#4c5a8a)] bg-clip-text text-transparent"
                   style={{ ["--tone" as string]: tone } as React.CSSProperties }>
                   {s.accent}
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-lg text-lg leading-relaxed text-white/85 md:text-xl">
+              <p className="mt-7 max-w-lg text-lg leading-relaxed text-foreground/85 md:text-xl">
                 {s.sub}
               </p>
             </motion.div>
@@ -966,9 +966,9 @@ function Hero() {
               Start your journey <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </MagneticButton>
             <a href="#services"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-white/25 px-6 py-4 text-sm font-medium text-white transition-all hover:border-white/60 hover:bg-white/5">
-              <span className="grid h-6 w-6 place-items-center rounded-full border border-white/40 transition-transform group-hover:scale-110">
-                <Play className="h-2.5 w-2.5 fill-white" />
+              className="group inline-flex items-center gap-2.5 rounded-full border border-border px-6 py-4 text-sm font-medium text-foreground transition-all hover:border-border hover:bg-muted/5">
+              <span className="grid h-6 w-6 place-items-center rounded-full border border-border transition-transform group-hover:scale-110">
+                <Play className="h-2.5 w-2.5 fill-foreground" />
               </span>
               Watch the story
             </a>
@@ -977,11 +977,11 @@ function Hero() {
           <motion.a
             href="#story"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
-            className="mt-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/60 transition-colors hover:text-white"
+            className="mt-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-foreground/60 transition-colors hover:text-foreground"
           >
             <motion.span
               animate={{ y: [0, 5, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="grid h-8 w-8 place-items-center rounded-full border border-white/25"
+              className="grid h-8 w-8 place-items-center rounded-full border border-border"
             >
               <ArrowDown className="h-3.5 w-3.5" />
             </motion.span>
@@ -994,7 +994,7 @@ function Hero() {
                 <button
                   key={i}
                   onClick={() => setIndex(i)}
-                  className="group relative h-1 w-10 overflow-hidden rounded-full bg-white/15"
+                  className="group relative h-1 w-10 overflow-hidden rounded-full bg-muted/15"
                   aria-label={`Slide ${i + 1}`}
                 >
                   {i === index && (
@@ -1007,7 +1007,7 @@ function Hero() {
                 </button>
               ))}
             </div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-white/50">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
               {String(index + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
             </div>
           </div>
@@ -1061,8 +1061,8 @@ function ScrollStory() {
   useEffect(() => step.on("change", (v) => setActive(Math.max(0, Math.min(2, Math.round(v))))), [step]);
 
   return (
-    <section ref={ref} id="story" className="relative bg-navy-deep h-[300vh]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center text-white">
+    <section ref={ref} id="story" className="relative bg-background h-[300vh]">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center text-foreground">
         <div className="absolute inset-0 grid-lines opacity-10" />
         <motion.div
           animate={{ background: `radial-gradient(ellipse 70% 50% at 70% 40%, ${STORY_CHAPTERS[active].tone}55, transparent 60%)` }}
@@ -1075,7 +1075,7 @@ function ScrollStory() {
             {/* scroll progress indicator */}
             <div className="mt-6 flex gap-2">
               {STORY_CHAPTERS.map((_, i) => (
-                <div key={i} className="h-0.5 flex-1 rounded-full overflow-hidden bg-white/10">
+                <div key={i} className="h-0.5 flex-1 rounded-full overflow-hidden bg-muted/10">
                   <motion.div
                     animate={{ width: active >= i ? "100%" : "0%" }}
                     transition={{ duration: 0.6 }}
@@ -1094,14 +1094,14 @@ function ScrollStory() {
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="flex items-center gap-4 text-sm text-white/50">
+                  <div className="flex items-center gap-4 text-sm text-foreground/50">
                     <span className="text-brand-red font-semibold">{STORY_CHAPTERS[active].n}</span>
                     <span>{STORY_CHAPTERS[active].kicker}</span>
                   </div>
                   <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
                     {STORY_CHAPTERS[active].title}
                   </h3>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-white/60">
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-foreground/60">
                     {STORY_CHAPTERS[active].body}
                   </p>
                 </motion.div>
@@ -1109,7 +1109,7 @@ function ScrollStory() {
             </div>
           </div>
 
-          <div className="relative hidden h-[520px] lg:block overflow-hidden rounded-3xl shadow-glow border border-white/10">
+          <div className="relative hidden h-[520px] lg:block overflow-hidden rounded-3xl shadow-glow border border-border">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -1117,7 +1117,7 @@ function ScrollStory() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 bg-navy-deep"
+                className="absolute inset-0 bg-background"
               >
                 <div className="absolute inset-0" style={{ background: `radial-gradient(circle at center, ${STORY_CHAPTERS[active].tone}66, transparent 60%)`, zIndex: 10 }} />
                 <img src={STORY_CHAPTERS[active].image} alt={STORY_CHAPTERS[active].title} className="absolute inset-0 h-full w-full object-cover opacity-70" style={{ zIndex: 0 }} />
@@ -1136,7 +1136,7 @@ function ScrollStory() {
 
 function Challenge() {
   return (
-    <section className="relative overflow-hidden bg-navy-deep py-32 text-white">
+    <section className="relative overflow-hidden bg-background py-32 text-foreground">
       <div className="absolute inset-0 grid-lines opacity-20" />
       <div className="absolute -top-40 left-1/2 h-96 w-[600px] -translate-x-1/2 rounded-full bg-electric/20 blur-[140px]" />
       <div className="mx-auto max-w-6xl px-6">
@@ -1144,8 +1144,8 @@ function Challenge() {
           <div className="text-xs uppercase tracking-[0.4em] text-brand-red">The Challenge</div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-white md:text-6xl">
-            Enterprises today face a paradox: <span className="text-white/75">move faster, without breaking what works.</span>
+          <h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-6xl">
+            Enterprises today face a paradox: <span className="text-foreground/75">move faster, without breaking what works.</span>
           </h2>
         </Reveal>
         <div className="mt-20 grid gap-6 md:grid-cols-3">
@@ -1158,13 +1158,13 @@ function Challenge() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="group relative h-full rounded-2xl border border-white/15 bg-white/[0.04] p-8 transition-all hover:border-white/30 hover:bg-white/[0.07]"
+                className="group relative h-full rounded-2xl border border-border bg-muted/[0.04] p-8 transition-all hover:border-foreground/30 hover:bg-muted/[0.07]"
               >
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient shadow-glow">
-                  <p.icon className="h-5 w-5 text-white" />
+                  <p.icon className="h-5 w-5 text-primary-foreground" />
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">{p.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/80">{p.d}</p>
+                <h3 className="mt-6 text-xl font-semibold text-foreground">{p.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/80">{p.d}</p>
               </motion.div>
             </Reveal>
           ))}
@@ -1178,7 +1178,7 @@ function Challenge() {
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-offwhite py-32">
+    <section id="about" className="relative overflow-hidden bg-muted py-32">
       {/* diagonal stripes pattern — unique to About */}
       <div className="absolute inset-0 diagonal-stripes" />
       <div className="absolute top-20 -right-40 h-96 w-96 rounded-full bg-electric/10 blur-[120px]" />
@@ -1208,7 +1208,7 @@ function About() {
                   { icon: HeartPulse, t: "Human-first", d: "Technology in service of people." },
                   { icon: Award, t: "Excellence", d: "Enterprise-grade, always." },
                 ].map((v) => (
-                  <motion.div key={v.t} whileHover={{ y: -4 }} className="rounded-xl border border-border bg-white p-5 shadow-card transition-shadow hover:shadow-soft">
+                  <motion.div key={v.t} whileHover={{ y: -4 }} className="rounded-xl border border-border bg-muted p-5 shadow-card transition-shadow hover:shadow-soft">
                     <v.icon className="h-5 w-5 text-electric" />
                     <div className="mt-3 text-sm font-semibold">{v.t}</div>
                     <div className="mt-1 text-xs leading-relaxed text-muted-foreground">{v.d}</div>
@@ -1220,7 +1220,7 @@ function About() {
 
           <div className="relative">
             <Reveal delay={0.2}>
-              <div className="relative rounded-3xl bg-navy-deep p-6 sm:p-10 text-white shadow-glow overflow-hidden">
+              <div className="relative rounded-3xl bg-background p-6 sm:p-10 text-foreground shadow-glow overflow-hidden">
                 <div className="absolute inset-0 grid-lines opacity-20" />
                 <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-brand-gradient opacity-30 blur-3xl" />
                 <div className="relative">
@@ -1245,7 +1245,7 @@ function About() {
                         <div className="w-14 shrink-0 text-sm font-semibold text-brand-red">{m.y}</div>
                         <div className="min-w-0">
                           <div className="text-sm font-medium">{m.t}</div>
-                          <div className="text-xs text-white/50">{m.d}</div>
+                          <div className="text-xs text-foreground/50">{m.d}</div>
                         </div>
                       </motion.div>
                     ))}
@@ -1275,7 +1275,7 @@ const SERVICES = [
 
 function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-white py-32">
+    <section id="services" className="relative overflow-hidden bg-muted py-32">
       {/* radial spotlight — unique to Services */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-6">
@@ -1299,13 +1299,13 @@ function Services() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="group relative h-full overflow-hidden rounded-2xl border border-border bg-white p-7 shadow-card transition-all hover:shadow-glow"
+                className="group relative h-full overflow-hidden rounded-2xl border border-border bg-muted p-7 shadow-card transition-all hover:shadow-glow"
               >
                 <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-[0.04]" />
                 <div className="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{ background: "linear-gradient(135deg, transparent, oklch(0.62 0.22 260 / 0.3), transparent) border-box", WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)", WebkitMaskComposite: "xor", padding: "1px" }} />
                 <div className="relative">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow">
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-primary-foreground shadow-glow">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold">{s.t}</h3>
@@ -1375,7 +1375,7 @@ function TechStack() {
   const activeTech = displayIdx !== null ? TECH_ITEMS[displayIdx] : null;
 
   return (
-    <section className="relative overflow-hidden bg-navy-deep py-24 text-white">
+    <section className="relative overflow-hidden bg-background py-24 text-foreground">
       {/* starfield pattern — unique to Tech Stack */}
       <div className="absolute inset-0 starfield" />
       <div className="absolute inset-0 grid-lines opacity-[0.06]" />
@@ -1420,8 +1420,8 @@ function TechStack() {
                   >
                     <div className={`grid h-[70px] w-[70px] place-items-center rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
                       isHovered
-                        ? "border-white/40 bg-white/[0.18] shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)]"
-                        : "border-white/10 bg-white/[0.06]"
+                        ? "border-border bg-muted/[0.18] shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)]"
+                        : "border-border bg-muted/[0.06]"
                     }`} style={isHovered ? { borderColor: `${tech.color}88`, boxShadow: `0 0 40px -8px ${tech.color}55` } : {}}>
                       {tech.iconUrl ? (
                         <img src={tech.iconUrl} alt={tech.n} className="h-8 w-8 object-contain" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
@@ -1456,7 +1456,7 @@ function TechStack() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.3 }}
-                      className="rounded-3xl border border-white/20 bg-white/[0.05] p-8 shadow-glow backdrop-blur-xl"
+                      className="rounded-3xl border border-white/20 bg-muted/[0.05] p-8 shadow-glow backdrop-blur-xl"
                       style={{ borderLeftColor: activeTech.color, borderLeftWidth: 4 }}
                     >
                       <div className="flex items-center gap-4">
@@ -1468,16 +1468,16 @@ function TechStack() {
                           )}
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-white">{activeTech.n}</div>
-                          <div className="text-[10px] uppercase tracking-widest text-white/50 mt-1">Ecosystem Partner</div>
+                          <div className="text-2xl font-bold text-foreground">{activeTech.n}</div>
+                          <div className="text-[10px] uppercase tracking-widest text-foreground/50 mt-1">Ecosystem Partner</div>
                         </div>
                       </div>
-                      <div className="mt-6 flex items-center gap-8 border-t border-white/10 pt-5">
+                      <div className="mt-6 flex items-center gap-8 border-t border-border pt-5">
                         <div>
-                          <div className="text-3xl font-semibold text-white">{activeTech.projects}</div>
-                          <div className="text-[10px] uppercase tracking-widest text-white/50 mt-1">Deployments</div>
+                          <div className="text-3xl font-semibold text-foreground">{activeTech.projects}</div>
+                          <div className="text-[10px] uppercase tracking-widest text-foreground/50 mt-1">Deployments</div>
                         </div>
-                        <p className="text-sm leading-relaxed text-white/70 flex-1">
+                        <p className="text-sm leading-relaxed text-foreground/70 flex-1">
                           {activeTech.desc}
                         </p>
                       </div>
@@ -1488,11 +1488,11 @@ function TechStack() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 h-full flex flex-col justify-center items-center text-center backdrop-blur-md border-dashed"
+                      className="rounded-3xl border border-border bg-muted/[0.02] p-8 h-full flex flex-col justify-center items-center text-center backdrop-blur-md border-dashed"
                     >
-                      <Layers className="h-8 w-8 text-white/20 mb-4" />
-                      <div className="text-lg font-medium text-white/60">Hover over any technology</div>
-                      <div className="text-sm text-white/40 mt-2">to see our enterprise footprint.</div>
+                      <Layers className="h-8 w-8 text-foreground/20 mb-4" />
+                      <div className="text-lg font-medium text-foreground/60">Hover over any technology</div>
+                      <div className="text-sm text-foreground/40 mt-2">to see our enterprise footprint.</div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -1501,10 +1501,10 @@ function TechStack() {
             
             {/* bottom info text */}
             <Reveal delay={0.3}>
-              <div className="mt-12 flex items-center gap-6 text-sm text-white/60 border-l border-white/10 pl-6">
-                <div><span className="text-white font-medium">Cloud-native</span> architecture</div>
-                <div className="h-1 w-1 rounded-full bg-white/20" />
-                <div><span className="text-white font-medium">AI-first</span> integrations</div>
+              <div className="mt-12 flex items-center gap-6 text-sm text-foreground/60 border-l border-border pl-6">
+                <div><span className="text-foreground font-medium">Cloud-native</span> architecture</div>
+                <div className="h-1 w-1 rounded-full bg-muted/20" />
+                <div><span className="text-foreground font-medium">AI-first</span> integrations</div>
               </div>
             </Reveal>
           </div>
@@ -1531,20 +1531,20 @@ const PRODUCT_DETAILS: Record<string, {
     mock: () => (
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <div className="text-[10px] uppercase tracking-widest text-white/60">Live orders</div>
-          <div className="text-lg font-semibold text-white">1,284/min</div>
+          <div className="text-[10px] uppercase tracking-widest text-foreground/60">Live orders</div>
+          <div className="text-lg font-semibold text-foreground">1,284/min</div>
         </div>
         <div className="grid grid-cols-4 gap-2">
           {[0,1,2,3,4,5,6,7].map((i) => (
-            <div key={i} className="aspect-square rounded-lg border border-white/10 bg-white/[0.05] p-2">
+            <div key={i} className="aspect-square rounded-lg border border-border bg-muted/[0.05] p-2">
               <div className="h-full rounded-md bg-gradient-to-br from-white/20 to-white/5" />
             </div>
           ))}
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.05] p-3">
-          <div className="text-[10px] uppercase tracking-widest text-white/50">Conversion · today</div>
-          <div className="mt-1 text-2xl font-semibold text-white">4.87%</div>
-          <div className="mt-1.5 h-1 rounded-full bg-white/10"><div className="h-full w-3/4 rounded-full bg-white/80" /></div>
+        <div className="rounded-lg border border-border bg-muted/[0.05] p-3">
+          <div className="text-[10px] uppercase tracking-widest text-foreground/50">Conversion · today</div>
+          <div className="mt-1 text-2xl font-semibold text-foreground">4.87%</div>
+          <div className="mt-1.5 h-1 rounded-full bg-muted/10"><div className="h-full w-3/4 rounded-full bg-muted/80" /></div>
         </div>
       </div>
     ),
@@ -1556,8 +1556,8 @@ const PRODUCT_DETAILS: Record<string, {
     features: ["Route optimization", "Offline-first mobile app", "IoT diagnostics", "SLA-aware scheduling"],
     mock: () => (
       <div className="space-y-3">
-        <div className="rounded-lg border border-white/10 bg-white/[0.05] p-3">
-          <div className="text-[10px] uppercase tracking-widest text-white/50">Today's routes</div>
+        <div className="rounded-lg border border-border bg-muted/[0.05] p-3">
+          <div className="text-[10px] uppercase tracking-widest text-foreground/50">Today's routes</div>
           <div className="mt-2 h-24 rounded bg-[radial-gradient(ellipse_at_30%_50%,rgba(255,255,255,0.15),transparent_60%)] relative overflow-hidden">
             <svg viewBox="0 0 200 80" className="absolute inset-0 h-full w-full">
               <path d="M10,60 Q60,10 100,40 T190,20" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeDasharray="3 3" />
@@ -1569,9 +1569,9 @@ const PRODUCT_DETAILS: Record<string, {
         </div>
         <div className="grid grid-cols-2 gap-2">
           {[["Open","124"],["In transit","38"],["Completed","412"],["SLA at risk","3"]].map(([l,v])=>(
-            <div key={l} className="rounded-lg border border-white/10 bg-white/[0.05] p-2.5">
-              <div className="text-[9px] uppercase tracking-widest text-white/50">{l}</div>
-              <div className="text-lg font-semibold text-white">{v}</div>
+            <div key={l} className="rounded-lg border border-border bg-muted/[0.05] p-2.5">
+              <div className="text-[9px] uppercase tracking-widest text-foreground/50">{l}</div>
+              <div className="text-lg font-semibold text-foreground">{v}</div>
             </div>
           ))}
         </div>
@@ -1587,20 +1587,20 @@ const PRODUCT_DETAILS: Record<string, {
       <div className="space-y-3">
         <div className="grid grid-cols-3 gap-2">
           {[["Hot","342","#de1e24"],["Warm","1,024","#4c5a8a"],["Cold","2,158","#3a497f"]].map(([l,v,c])=>(
-            <div key={l} className="rounded-lg border border-white/10 bg-white/[0.05] p-2.5">
+            <div key={l} className="rounded-lg border border-border bg-muted/[0.05] p-2.5">
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full" style={{background:c as string}}/>
-                <span className="text-[9px] uppercase tracking-widest text-white/60">{l}</span>
+                <span className="text-[9px] uppercase tracking-widest text-foreground/60">{l}</span>
               </div>
-              <div className="mt-1 text-base font-semibold text-white">{v}</div>
+              <div className="mt-1 text-base font-semibold text-foreground">{v}</div>
             </div>
           ))}
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.05] p-3 space-y-2">
+        <div className="rounded-lg border border-border bg-muted/[0.05] p-3 space-y-2">
           {[["Acme Corp","96"],["Globex","88"],["Initech","71"]].map(([n,s])=>(
             <div key={n} className="flex items-center justify-between text-xs">
-              <span className="text-white/85">{n}</span>
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-white">{s}</span>
+              <span className="text-foreground/85">{n}</span>
+              <span className="rounded-full bg-muted/10 px-2 py-0.5 text-foreground">{s}</span>
             </div>
           ))}
         </div>
@@ -1615,9 +1615,9 @@ const PRODUCT_DETAILS: Record<string, {
     mock: () => (
       <div className="space-y-2">
         {[["WO-4821","Approved","#4c5a8a"],["WO-4822","Pending","#de1e24"],["WO-4823","In progress","#3a497f"],["WO-4824","Completed","#4c5a8a"]].map(([id,st,c])=>(
-          <div key={id} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.05] px-3 py-2 text-xs">
-            <span className="text-white/85 font-medium">{id}</span>
-            <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full" style={{background:c as string}}/><span className="text-white/70">{st}</span></span>
+          <div key={id} className="flex items-center justify-between rounded-lg border border-border bg-muted/[0.05] px-3 py-2 text-xs">
+            <span className="text-foreground/85 font-medium">{id}</span>
+            <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full" style={{background:c as string}}/><span className="text-foreground/70">{st}</span></span>
           </div>
         ))}
       </div>
@@ -1630,21 +1630,21 @@ const PRODUCT_DETAILS: Record<string, {
     features: ["AI PPE detection", "Geofence alerts", "Incident triage", "Regulatory reporting"],
     mock: () => (
       <div className="space-y-3">
-        <div className="rounded-lg border border-white/10 bg-white/[0.05] p-3">
-          <div className="text-[10px] uppercase tracking-widest text-white/50">Compliance today</div>
+        <div className="rounded-lg border border-border bg-muted/[0.05] p-3">
+          <div className="text-[10px] uppercase tracking-widest text-foreground/50">Compliance today</div>
           <div className="mt-2 flex items-end gap-2">
-            <div className="text-3xl font-semibold text-white">98.6%</div>
-            <div className="pb-1 text-[10px] text-white/60">+2.1 vs. week</div>
+            <div className="text-3xl font-semibold text-foreground">98.6%</div>
+            <div className="pb-1 text-[10px] text-foreground/60">+2.1 vs. week</div>
           </div>
           <div className="mt-2 flex gap-1">
             {[80,90,72,95,88,92,98].map((h,i)=>(
-              <div key={i} className="flex-1 rounded-t bg-white/70" style={{height:`${h*0.3}px`}}/>
+              <div key={i} className="flex-1 rounded-t bg-muted/70" style={{height:`${h*0.3}px`}}/>
             ))}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2 text-xs">
-          <div className="rounded-lg border border-white/10 bg-white/[0.05] p-2.5"><div className="text-[9px] uppercase tracking-widest text-white/50">PPE checks</div><div className="text-white font-semibold">14,208</div></div>
-          <div className="rounded-lg border border-white/10 bg-white/[0.05] p-2.5"><div className="text-[9px] uppercase tracking-widest text-white/50">Open incidents</div><div className="text-white font-semibold">2</div></div>
+          <div className="rounded-lg border border-border bg-muted/[0.05] p-2.5"><div className="text-[9px] uppercase tracking-widest text-foreground/50">PPE checks</div><div className="text-foreground font-semibold">14,208</div></div>
+          <div className="rounded-lg border border-border bg-muted/[0.05] p-2.5"><div className="text-[9px] uppercase tracking-widest text-foreground/50">Open incidents</div><div className="text-foreground font-semibold">2</div></div>
         </div>
       </div>
     ),
@@ -1658,17 +1658,17 @@ const PRODUCT_DETAILS: Record<string, {
       <div className="space-y-3">
         <div className="grid grid-cols-4 gap-2">
           {[1,2,3,4,5,6,7,8].map(i=>(
-            <div key={i} className={`aspect-square rounded-lg border ${i%3===0?"border-white/40 bg-white/15":"border-white/10 bg-white/[0.05]"}`}>
-              <div className="grid h-full place-items-center text-[10px] text-white/70">B{i}</div>
+            <div key={i} className={`aspect-square rounded-lg border ${i%3===0?"border-border bg-muted/15":"border-border bg-muted/[0.05]"}`}>
+              <div className="grid h-full place-items-center text-[10px] text-foreground/70">B{i}</div>
             </div>
           ))}
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.05] p-3">
+        <div className="rounded-lg border border-border bg-muted/[0.05] p-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-white/60">Takt time</span>
-            <span className="font-semibold text-white">42s / 45s</span>
+            <span className="text-foreground/60">Takt time</span>
+            <span className="font-semibold text-foreground">42s / 45s</span>
           </div>
-          <div className="mt-1.5 h-1 rounded-full bg-white/10"><div className="h-full w-[93%] rounded-full bg-white/80"/></div>
+          <div className="mt-1.5 h-1 rounded-full bg-muted/10"><div className="h-full w-[93%] rounded-full bg-muted/80"/></div>
         </div>
       </div>
     ),
@@ -1695,31 +1695,31 @@ function ProductCard({ prod, index }: { prod: typeof PRODUCTS[0]; index: number 
         >
           {/* ─── FRONT ─── */}
           <div
-            className="absolute inset-0 overflow-hidden rounded-3xl border border-border bg-white shadow-card"
+            className="absolute inset-0 overflow-hidden rounded-3xl border border-border bg-muted shadow-card"
             style={{ backfaceVisibility: "hidden" }}
           >
             {/* gradient header area */}
             <div className={`relative h-44 bg-gradient-to-br ${prod.gradient} overflow-hidden`}>
               <div className="absolute inset-0 grid-lines opacity-20" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              <div className="absolute left-5 top-5 rounded-lg bg-white/15 backdrop-blur-md px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/90">
+              <div className="absolute left-5 top-5 rounded-lg bg-muted/15 backdrop-blur-md px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/90">
                 0{index + 1}
               </div>
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/20 backdrop-blur-md">
-                  <prod.icon className="h-6 w-6 text-white" />
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-muted/20 backdrop-blur-md">
+                  <prod.icon className="h-6 w-6 text-foreground" />
                 </div>
               </div>
             </div>
             {/* content */}
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-navy">{prod.name}</h3>
+              <h3 className="text-xl font-semibold text-foreground">{prod.name}</h3>
               <p className="mt-1 text-sm text-electric">{d.tagline}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">{d.body}</p>
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {d.stats.map((s) => (
                   <div key={s.label} className="text-center">
-                    <div className="text-lg font-semibold text-navy">{s.value}</div>
+                    <div className="text-lg font-semibold text-foreground">{s.value}</div>
                     <div className="text-[9px] uppercase tracking-widest text-muted-foreground">{s.label}</div>
                   </div>
                 ))}
@@ -1738,31 +1738,31 @@ function ProductCard({ prod, index }: { prod: typeof PRODUCTS[0]; index: number 
             style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
           >
             <div className="absolute inset-0 grid-lines opacity-15" />
-            <div className="relative flex h-full flex-col p-6 text-white">
+            <div className="relative flex h-full flex-col p-6 text-foreground">
               <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/15 backdrop-blur-md">
-                  <prod.icon className="h-5 w-5 text-white" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-muted/15 backdrop-blur-md">
+                  <prod.icon className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
                   <div className="text-lg font-semibold">{prod.name}</div>
-                  <div className="text-xs text-white/70">{prod.desc}</div>
+                  <div className="text-xs text-foreground/70">{prod.desc}</div>
                 </div>
               </div>
 
-              <div className="mt-5 flex-1 overflow-hidden rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-md p-4">
+              <div className="mt-5 flex-1 overflow-hidden rounded-xl border border-border bg-muted/[0.06] backdrop-blur-md p-4">
                 {d.mock()}
               </div>
 
               <div className="mt-4 space-y-1.5">
                 {d.features.slice(0, 3).map((f) => (
-                  <div key={f} className="flex items-center gap-2 text-xs text-white/80">
-                    <span className="h-1 w-1 rounded-full bg-white/60" />
+                  <div key={f} className="flex items-center gap-2 text-xs text-foreground/80">
+                    <span className="h-1 w-1 rounded-full bg-muted/60" />
                     {f}
                   </div>
                 ))}
               </div>
 
-              <a href="#contact" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-white hover:gap-2.5 transition-all">
+              <a href="#contact" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:gap-2.5 transition-all">
                 See it in action <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -1775,7 +1775,7 @@ function ProductCard({ prod, index }: { prod: typeof PRODUCTS[0]; index: number 
 
 function Products() {
   return (
-    <section id="products" className="relative overflow-hidden bg-offwhite py-32">
+    <section id="products" className="relative overflow-hidden bg-muted py-32">
       {/* soft wave SVG bg — unique to Products */}
       <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.03]" preserveAspectRatio="none">
         <defs>
@@ -1818,7 +1818,7 @@ function Cases() {
     { client: "National Logistics Provider", metric: "68%", label: "Fewer safety incidents", desc: "Suraksha rollout to 12,000 field workers with real-time compliance.", gradient: "from-cyan-600 to-blue-700" },
   ];
   return (
-    <section className="relative overflow-hidden bg-white py-32">
+    <section className="relative overflow-hidden bg-muted py-32">
       {/* spotlight — unique to Cases */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgb(58_73_127/0.04),transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-6">
@@ -1834,11 +1834,11 @@ function Cases() {
           {cases.map((c, i) => (
             <Reveal key={c.client} delay={i * 0.12}>
               <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 300 }}
-                className="group relative overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-glow"
+                className="group relative overflow-hidden rounded-3xl border border-border bg-muted p-8 shadow-card transition-shadow hover:shadow-glow"
               >
                 <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${c.gradient} opacity-20 blur-2xl transition-opacity group-hover:opacity-40`} />
                 {/* watermark number */}
-                <div className="pointer-events-none absolute -right-4 -bottom-6 text-[120px] font-bold leading-none text-navy/[0.03] select-none">
+                <div className="pointer-events-none absolute -right-4 -bottom-6 text-[120px] font-bold leading-none text-foreground/[0.03] select-none">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="relative">
@@ -1848,7 +1848,7 @@ function Cases() {
                     <div className="mt-1 text-sm font-medium">{c.label}</div>
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
-                  <div className="mt-8 flex items-center gap-1.5 text-sm font-medium text-navy">
+                  <div className="mt-8 flex items-center gap-1.5 text-sm font-medium text-foreground">
                     Read case study <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>
@@ -1877,7 +1877,7 @@ const INDUSTRIES = [
 
 function Industries() {
   return (
-    <section id="industries" className="relative overflow-hidden bg-navy-deep py-32 text-white">
+    <section id="industries" className="relative overflow-hidden bg-background py-32 text-foreground">
       <div className="absolute inset-0 grid-lines opacity-10" />
       {/* dotted world-map-like pattern — unique to Industries */}
       <div className="absolute inset-0 starfield opacity-40" />
@@ -1896,18 +1896,18 @@ function Industries() {
           {INDUSTRIES.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.06}>
               <motion.div whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all hover:border-electric/40 hover:bg-white/[0.05]"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-muted/[0.02] p-8 transition-all hover:border-electric/40 hover:bg-muted/[0.05]"
               >
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-electric/0 blur-2xl transition-all group-hover:bg-electric/30" />
                 <div className="relative flex items-center gap-4">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white/[0.06] transition-colors group-hover:bg-brand-gradient">
+                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-muted/[0.06] transition-colors group-hover:bg-brand-gradient">
                     <it.icon className="h-6 w-6 text-cyan transition-colors group-hover:text-white" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-lg font-semibold">{it.t}</div>
-                    <div className="text-xs text-white/50">Industry practice</div>
+                    <div className="text-xs text-foreground/50">Industry practice</div>
                   </div>
-                  <ArrowUpRight className="ml-auto h-5 w-5 text-white/30 transition-all group-hover:text-cyan group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="ml-auto h-5 w-5 text-foreground/30 transition-all group-hover:text-cyan group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
               </motion.div>
             </Reveal>
@@ -1930,7 +1930,7 @@ function Process() {
     { s: "Support", d: "24/7 steady-state" },
   ];
   return (
-    <section className="relative overflow-hidden bg-white py-32">
+    <section className="relative overflow-hidden bg-muted py-32">
       {/* blueprint grid — unique to Process */}
       <div className="absolute inset-0 blueprint-grid" />
       <div className="mx-auto max-w-7xl px-6">
@@ -1971,7 +1971,7 @@ function Process() {
                   <motion.div
                     variants={{ hover: { scale: 1.12, y: -4 } }}
                     transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                    className="relative z-10 grid h-16 w-16 place-items-center rounded-full bg-white shadow-card"
+                    className="relative z-10 grid h-16 w-16 place-items-center rounded-full bg-muted shadow-card"
                   >
                     <div className="absolute inset-0 rounded-full bg-brand-gradient opacity-90" />
                     <motion.div
@@ -1982,7 +1982,7 @@ function Process() {
                     <span className="relative text-lg font-bold text-white tabular-nums">{String(i + 1).padStart(2, "0")}</span>
                   </motion.div>
                   <div className="mt-5 text-center">
-                    <div className="text-base font-semibold text-navy">{step.s}</div>
+                    <div className="text-base font-semibold text-foreground">{step.s}</div>
                     <div className="mt-1 text-xs text-muted-foreground">{step.d}</div>
                   </div>
                 </motion.div>
@@ -2005,7 +2005,7 @@ function Careers() {
     { r: "Product Designer", loc: "Bangalore · Onsite", d: "Design Systems" },
   ];
   return (
-    <section id="careers" className="relative overflow-hidden bg-navy-deep py-32 text-white">
+    <section id="careers" className="relative overflow-hidden bg-background py-32 text-foreground">
       <div className="absolute inset-0 grid-lines opacity-15" />
       {/* aurora effect — unique to Careers */}
       <div className="absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-electric/25 blur-[140px]" />
@@ -2023,7 +2023,7 @@ function Careers() {
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
+              <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/70">
                 Join a team where craft meets scale — where the code you ship touches millions
                 and the culture keeps you human.
               </p>
@@ -2036,9 +2036,9 @@ function Careers() {
                   { t: "Flex work", d: "Hybrid + remote" },
                   { t: "Equity", d: "For everyone" },
                 ].map((b) => (
-                  <motion.div key={b.t} whileHover={{ y: -3 }} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all hover:bg-white/[0.06]">
+                  <motion.div key={b.t} whileHover={{ y: -3 }} className="rounded-xl border border-border bg-muted/[0.03] p-4 transition-all hover:bg-muted/[0.06]">
                     <div className="text-sm font-semibold">{b.t}</div>
-                    <div className="text-xs text-white/60">{b.d}</div>
+                    <div className="text-xs text-foreground/60">{b.d}</div>
                   </motion.div>
                 ))}
               </div>
@@ -2046,17 +2046,17 @@ function Careers() {
           </div>
           <div>
             <Reveal delay={0.2}>
-              <div className="text-xs uppercase tracking-[0.3em] text-white/50">Open positions</div>
-              <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.02]">
+              <div className="text-xs uppercase tracking-[0.3em] text-foreground/50">Open positions</div>
+              <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-border bg-muted/[0.02]">
                 {jobs.map((j) => (
                   <motion.a key={j.r} href="#contact" whileHover={{ x: 4 }}
-                    className="group flex items-center justify-between p-6 transition-colors hover:bg-white/[0.04]"
+                    className="group flex items-center justify-between p-6 transition-colors hover:bg-muted/[0.04]"
                   >
                     <div className="min-w-0">
                       <div className="text-base font-medium">{j.r}</div>
-                      <div className="mt-1 text-xs text-white/60">{j.loc} · {j.d}</div>
+                      <div className="mt-1 text-xs text-foreground/60">{j.loc} · {j.d}</div>
                     </div>
-                    <ArrowUpRight className="h-5 w-5 text-white/40 transition-colors group-hover:text-cyan" />
+                    <ArrowUpRight className="h-5 w-5 text-foreground/40 transition-colors group-hover:text-cyan" />
                   </motion.a>
                 ))}
               </div>
@@ -2075,7 +2075,7 @@ function Careers() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-offwhite py-32">
+    <section id="contact" className="relative overflow-hidden bg-muted py-32">
       {/* animated gradient mesh blob — unique to Contact */}
       <div className="absolute top-40 left-1/4 h-96 w-96 rounded-full bg-electric/10 blur-[140px] animate-float-slow" />
       <div className="absolute bottom-20 right-1/3 h-64 w-64 rounded-full bg-brand-red/8 blur-[120px] animate-float-med" />
@@ -2105,7 +2105,7 @@ function Contact() {
                   { icon: Phone, l: "+91 80 4567 8900" },
                 ].map((c) => (
                   <div key={c.l} className="flex items-center gap-4">
-                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-card">
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-muted shadow-card">
                       <c.icon className="h-4 w-4 text-electric" />
                     </div>
                     <div className="text-sm">{c.l}</div>
@@ -2117,7 +2117,7 @@ function Contact() {
             <Reveal delay={0.4}>
               <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
                 {["Bangalore", "London", "Dubai", "Singapore"].map((city) => (
-                  <motion.div key={city} whileHover={{ y: -3 }} className="rounded-xl border border-border bg-white p-4 shadow-card transition-shadow hover:shadow-soft">
+                  <motion.div key={city} whileHover={{ y: -3 }} className="rounded-xl border border-border bg-muted p-4 shadow-card transition-shadow hover:shadow-soft">
                     <Globe className="h-4 w-4 text-electric" />
                     <div className="mt-3 text-sm font-semibold">{city}</div>
                     <div className="text-xs text-muted-foreground">HQ region</div>
@@ -2128,7 +2128,7 @@ function Contact() {
           </div>
 
           <Reveal delay={0.2}>
-            <form onSubmit={(e) => e.preventDefault()} className="relative rounded-3xl border border-border bg-white p-8 shadow-soft md:p-10">
+            <form onSubmit={(e) => e.preventDefault()} className="relative rounded-3xl border border-border bg-muted p-8 shadow-soft md:p-10">
               <div className="absolute -inset-px rounded-3xl bg-brand-gradient opacity-20 blur-xl -z-10" />
               <div className="space-y-5">
                 {[
@@ -2139,15 +2139,15 @@ function Contact() {
                   <div key={f.l}>
                     <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">{f.l}</label>
                     <input type={f.t} placeholder={f.p}
-                      className="mt-2 w-full rounded-xl border border-transparent bg-white/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-white focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
+                      className="mt-2 w-full rounded-xl border border-transparent bg-muted/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-muted focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
                   </div>
                 ))}
                 <div>
                   <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">How can we help?</label>
                   <textarea rows={4} placeholder="Tell us about your project…"
-                    className="mt-2 w-full rounded-xl border border-transparent bg-white/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-white focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
+                    className="mt-2 w-full rounded-xl border border-transparent bg-muted/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-muted focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
                 </div>
-                <button type="submit" className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-sm font-medium text-white shadow-glow transition-all hover:scale-[1.02] hover:shadow-[0_28px_80px_-18px_rgb(37_47_97/0.7)]">
+                <button type="submit" className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-sm font-medium text-[#FFFFFF] shadow-glow transition-all hover:scale-[1.02] hover:shadow-[0_28px_80px_-18px_rgb(37_47_97/0.7)]">
                   Send message <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
@@ -2163,7 +2163,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy-deep pt-24 pb-10 text-white">
+    <footer className="relative overflow-hidden bg-background pt-24 pb-10 text-foreground">
       <div className="absolute inset-0 grid-lines opacity-10" />
       <svg className="absolute inset-x-0 top-0 h-16 w-full" preserveAspectRatio="none" viewBox="0 0 1440 60">
         <motion.path
@@ -2182,9 +2182,9 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center">
-              <img src="/logo.png" alt="Acceleron Solutions" className="h-10 object-contain brightness-0 invert opacity-90" />
+              <img src="/logo.png" alt="Acceleron Solutions" className="h-10 object-contain dark:brightness-0 dark:invert opacity-90" />
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-foreground/60">
               Engineering digital excellence for the enterprises shaping tomorrow.
             </p>
             {/* Real social icons */}
@@ -2195,7 +2195,7 @@ function Footer() {
                 { Icon: GitHubIcon, label: "GitHub" },
                 { Icon: InstagramIcon, label: "Instagram" },
               ].map((s) => (
-                <a key={s.label} href="#" aria-label={s.label} className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-cyan hover:text-cyan hover:scale-110">
+                <a key={s.label} href="#" aria-label={s.label} className="grid h-9 w-9 place-items-center rounded-full border border-border text-foreground/70 transition-all hover:border-cyan hover:text-cyan hover:scale-110">
                   <s.Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -2207,35 +2207,35 @@ function Footer() {
             { t: "Products", l: ["Vanijya", "FSM", "Suraksha", "QMS"] },
           ].map((c) => (
             <div key={c.t}>
-              <div className="text-xs font-semibold uppercase tracking-widest text-white/50">{c.t}</div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-foreground/50">{c.t}</div>
               <div className="mt-5 space-y-3">
                 {c.l.map((li) => (
-                  <a key={li} href="#" className="block text-sm text-white/70 transition-colors hover:text-white">{li}</a>
+                  <a key={li} href="#" className="block text-sm text-foreground/70 transition-colors hover:text-foreground">{li}</a>
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+        <div className="mt-16 rounded-2xl border border-border bg-muted/[0.03] p-6 md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <div className="text-lg font-semibold">Get the Acceleron dispatch</div>
-              <div className="text-sm text-white/60">One email a month. Enterprise transformation, decoded.</div>
+              <div className="text-sm text-foreground/60">One email a month. Enterprise transformation, decoded.</div>
             </div>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 mt-4 md:mt-0">
-              <input type="email" placeholder="you@company.com" className="w-full sm:w-auto min-w-0 flex-1 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm outline-none placeholder:text-white/40 focus:border-cyan md:w-72" />
-              <button className="w-full sm:w-auto rounded-full bg-brand-gradient px-6 py-3 text-sm font-medium shadow-glow transition-all hover:scale-105">Subscribe</button>
+              <input type="email" placeholder="you@company.com" className="w-full sm:w-auto min-w-0 flex-1 rounded-full border border-border bg-muted/5 px-5 py-3 text-sm outline-none placeholder:text-foreground/40 focus:border-cyan md:w-72" />
+              <button className="w-full sm:w-auto rounded-full bg-brand-gradient px-6 py-3 text-sm font-medium text-[#FFFFFF] shadow-glow transition-all hover:scale-105">Subscribe</button>
             </form>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center">
-          <div className="text-xs text-white/50">© {new Date().getFullYear()} Acceleron Solutions. All rights reserved.</div>
-          <div className="flex gap-6 text-xs text-white/50">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Security</a>
+        <div className="mt-12 flex flex-col-reverse items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
+          <div className="text-xs text-foreground/50">© {new Date().getFullYear()} Acceleron Solutions. All rights reserved.</div>
+          <div className="flex gap-6 text-xs text-foreground/50">
+            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
+            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+            <a href="#" className="hover:text-foreground transition-colors">Security</a>
           </div>
         </div>
       </div>

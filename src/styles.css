@@ -46,19 +46,68 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
 }
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-electric: var(--electric);
+  --color-cyan: var(--cyan-brand);
+  --color-violet: var(--violet-brand);
+  --color-offwhite: var(--offwhite);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-dark: var(--brand-red-dark);
+
+  --font-display: "League Spartan", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+}
+
 
 :root {
   --radius: 0.75rem;
 
-  /* Acceleron brand palette */
-  --navy-deep: #212f60;          /* logo blue / primary */
-  --navy: #252F61;               /* primary blue */
-  --electric: #3a497f;           /* second blue */
-  --cyan-brand: #4c5a8a;         /* third blue */
+  /* Acceleron brand palette - PROPER LIGHT THEME */
+  --navy-deep: #FFFFFF;          
+  --navy: #F5F7FB;               
+  --electric: #212f60;           
+  --cyan-brand: #4c5a8a;         
   --violet-brand: #3a497f;
-  --offwhite: #F5F7FB;           /* secondary white */
-  --brand-red: #de1e24;          /* logo red */
-  --brand-red-dark: #b60f14;     /* secondary red */
+  --offwhite: #FFFFFF;           
+  --brand-red: #de1e24;          
+  --brand-red-dark: #b60f14;     
   --secondary-blue-soft: #232f6146;
 
   --background: #FFFFFF;
@@ -69,8 +118,8 @@
   --popover-foreground: #212f60;
   --primary: #252F61;
   --primary-foreground: #FFFFFF;
-  --secondary: #3a497f;
-  --secondary-foreground: #FFFFFF;
+  --secondary: #F5F7FB;
+  --secondary-foreground: #212f60;
   --muted: #F5F7FB;
   --muted-foreground: #4c5a8a;
   --accent: #F5F7FB;
@@ -81,19 +130,18 @@
   --input: #e6e9f2;
   --ring: #3a497f;
 
-  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, rgb(58 73 127 / 0.55), transparent 60%),
-                   radial-gradient(ellipse 60% 50% at 80% 40%, rgb(76 90 138 / 0.4), transparent 60%),
-                   radial-gradient(ellipse 50% 40% at 20% 60%, rgb(222 30 36 / 0.18), transparent 60%),
-                   linear-gradient(180deg, #171f42 0%, #212f60 100%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, rgb(58 73 127 / 0.1), transparent 60%),
+                   radial-gradient(ellipse 60% 50% at 80% 40%, rgb(76 90 138 / 0.05), transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 20% 60%, rgb(222 30 36 / 0.05), transparent 60%),
+                   linear-gradient(180deg, #F5F7FB 0%, #FFFFFF 100%);
   --gradient-brand: linear-gradient(135deg, #212f60, #3a497f);
   --gradient-cyan: linear-gradient(135deg, #4c5a8a, #252F61);
-  --gradient-mesh: conic-gradient(from 180deg at 50% 50%, rgb(37 47 97 / 0.5), rgb(58 73 127 / 0.45), rgb(76 90 138 / 0.4), rgb(222 30 36 / 0.25), rgb(37 47 97 / 0.5));
+  --gradient-mesh: conic-gradient(from 180deg at 50% 50%, rgb(37 47 97 / 0.05), rgb(58 73 127 / 0.05), rgb(76 90 138 / 0.05), rgb(222 30 36 / 0.05), rgb(37 47 97 / 0.05));
 
-  --shadow-glow: 0 20px 80px -20px rgb(37 47 97 / 0.55);
-  --shadow-soft: 0 12px 40px -12px rgb(33 47 96 / 0.22);
+  --shadow-glow: 0 20px 80px -20px rgb(37 47 97 / 0.15);
+  --shadow-soft: 0 12px 40px -12px rgb(33 47 96 / 0.05);
   --shadow-card: 0 1px 2px rgb(33 47 96 / 0.06), 0 8px 32px -8px rgb(33 47 96 / 0.14);
 }
-
 .dark {
   --background: #0d1330;
   --foreground: #F5F7FB;
@@ -117,6 +165,7 @@
 
   --navy-deep: #050914;
   --navy: #0d1330;
+  --electric: #e6e9f2;
   --offwhite: #F5F7FB;
 
   --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, rgb(58 73 127 / 0.6), transparent 60%),
