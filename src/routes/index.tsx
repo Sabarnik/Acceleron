@@ -887,9 +887,10 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
 
 function Hero() {
   const [index, setIndex] = useState(0);
-  const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 800], [0, 120]);
-  const heroOpacity = useTransform(scrollY, [0, 700], [1, 0]);
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
   const { x: mx, y: my } = useMouseParallax(10);
 
   useEffect(() => {
@@ -911,7 +912,7 @@ function Hero() {
   ];
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-background">
+    <section ref={ref} id="top" className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.08]" />
       <AnimatePresence mode="sync">
