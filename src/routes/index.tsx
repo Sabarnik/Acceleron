@@ -1015,8 +1015,8 @@ function Hero() {
           </div>
         </div>
 
-        <motion.div style={{ x: mx, y: my }} className="relative mt-8 flex justify-center md:mt-0 md:block max-w-full -mb-32 md:-mb-0">
-          <div className="origin-top scale-[0.55] sm:scale-[0.7] md:scale-100 md:origin-left">
+        <motion.div style={{ x: mx, y: my }} className="relative mt-8 flex justify-center md:mt-0 md:block w-full -mb-32 md:-mb-0">
+          <div className="origin-top scale-[0.55] sm:scale-[0.7] md:scale-100 md:origin-left w-[600px] sm:w-[700px] md:w-full">
             <HeroDashboard slideIndex={index} tone={tone} />
           </div>
         </motion.div>
