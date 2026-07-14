@@ -283,7 +283,7 @@ function InitialLoader({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         className="relative"
       >
-        <img src="/logo.png" alt="Acceleron Solutions" className="h-16 md:h-24 object-contain drop-shadow-xl" />
+        <img src="/logo.png" alt="Acceleron Solutions" className="h-16 md:h-24 object-contain drop-shadow-xl dark:brightness-0 dark:invert" />
       </motion.div>
     </motion.div>
   );
@@ -372,13 +372,15 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const PRODUCTS = [
-  { name: "Vanijya", desc: "Enterprise Ecommerce Platform", icon: ShoppingBag, gradient: "from-blue-500 to-indigo-600" },
-  { name: "FSM", desc: "Field Service Management", icon: Wrench, gradient: "from-cyan-500 to-blue-600" },
-  { name: "LMS", desc: "Lead Management System", icon: TrendingUp, gradient: "from-violet-500 to-purple-600" },
-  { name: "WOMS", desc: "Work Order Management System", icon: Boxes, gradient: "from-indigo-500 to-blue-600" },
-  { name: "Suraksha", desc: "Field Safety Platform", icon: ShieldCheck, gradient: "from-teal-500 to-cyan-600" },
-  { name: "QMS", desc: "Workshop Management System", icon: Layers, gradient: "from-fuchsia-500 to-violet-600" },
+type ProductItem = { name: string; desc: string; img?: string; icon: any; gradient: string };
+
+const PRODUCTS: ProductItem[] = [
+  { name: "Vanijya", desc: "Enterprise Ecommerce Platform", img: "/vanijya.png", icon: ShoppingBag, gradient: "from-blue-500 to-indigo-600" },
+  { name: "FSM", desc: "Field Service Management", img: "/IFSM.png", icon: Wrench, gradient: "from-cyan-500 to-blue-600" },
+  { name: "LMS", desc: "Lead Management System", img: "/LMS.png", icon: TrendingUp, gradient: "from-violet-500 to-purple-600" },
+  { name: "WOMS", desc: "Work Order Management System", img: "/woms.png", icon: Boxes, gradient: "from-indigo-500 to-blue-600" },
+  { name: "Suraksha", desc: "Field Safety Platform", img: "/suraksha.png", icon: ShieldCheck, gradient: "from-teal-500 to-cyan-600" },
+  { name: "QMS", desc: "Workshop Management System", img: "/qms.png", icon: Layers, gradient: "from-fuchsia-500 to-violet-600" },
 ];
 
 function Nav() {
@@ -419,12 +421,12 @@ function Nav() {
                     transition={{ duration: 0.25 }}
                     className="absolute left-1/2 top-full mt-3 w-[640px] -translate-x-1/2"
                   >
-                    <div className="glass-dark rounded-2xl p-4 shadow-glow">
+                    <div className="bg-background/95 backdrop-blur-md border border-border rounded-2xl p-4 shadow-glow">
                       <div className="grid grid-cols-2 gap-2">
                         {PRODUCTS.map((p) => (
-                          <a key={p.name} href="#products" className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/5">
-                            <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${p.gradient}`}>
-                              <p.icon className="h-5 w-5 text-foreground" />
+                          <a key={p.name} href="#products" className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/40 dark:hover:bg-muted/10">
+                            <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${p.gradient} overflow-hidden p-1`}>
+                              {p.img ? <img src={p.img} alt={p.name} className="h-full w-full object-contain drop-shadow-md" /> : <p.icon className="h-5 w-5 text-white" />}
                             </div>
                             <div className="min-w-0">
                               <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
@@ -1706,8 +1708,8 @@ function ProductCard({ prod, index }: { prod: typeof PRODUCTS[0]; index: number 
                 0{index + 1}
               </div>
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-muted/20 backdrop-blur-md">
-                  <prod.icon className="h-6 w-6 text-foreground" />
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-muted/20 backdrop-blur-md overflow-hidden p-1.5">
+                  {prod.img ? <img src={prod.img} alt={prod.name} className="h-full w-full object-contain drop-shadow-md" /> : <prod.icon className="h-6 w-6 text-foreground" />}
                 </div>
               </div>
             </div>
@@ -1740,8 +1742,8 @@ function ProductCard({ prod, index }: { prod: typeof PRODUCTS[0]; index: number 
             <div className="absolute inset-0 grid-lines opacity-15" />
             <div className="relative flex h-full flex-col p-6 text-foreground">
               <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-muted/15 backdrop-blur-md">
-                  <prod.icon className="h-5 w-5 text-foreground" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-muted/15 backdrop-blur-md overflow-hidden p-1.5">
+                  {prod.img ? <img src={prod.img} alt={prod.name} className="h-full w-full object-contain drop-shadow-md" /> : <prod.icon className="h-5 w-5 text-foreground" />}
                 </div>
                 <div>
                   <div className="text-lg font-semibold">{prod.name}</div>
