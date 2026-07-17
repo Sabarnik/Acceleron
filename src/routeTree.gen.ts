@@ -9,38 +9,331 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
+import { Route as ServicesSdaasRouteImport } from './routes/services/sdaas'
+import { Route as ServicesEasRouteImport } from './routes/services/eas'
+import { Route as ServicesD3sRouteImport } from './routes/services/d3s'
+import { Route as ServicesCissRouteImport } from './routes/services/ciss'
+import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
+import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
+import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
+import { Route as ProductsQmsRouteImport } from './routes/products/qms'
+import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
+import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
+import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
+import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
+import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSdaasRoute = ServicesSdaasRouteImport.update({
+  id: '/services/sdaas',
+  path: '/services/sdaas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesEasRoute = ServicesEasRouteImport.update({
+  id: '/services/eas',
+  path: '/services/eas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesD3sRoute = ServicesD3sRouteImport.update({
+  id: '/services/d3s',
+  path: '/services/d3s',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCissRoute = ServicesCissRouteImport.update({
+  id: '/services/ciss',
+  path: '/services/ciss',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
+  id: '/products/tyre-health',
+  path: '/products/tyre-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSurakshaRoute = ProductsSurakshaRouteImport.update({
+  id: '/products/suraksha',
+  path: '/products/suraksha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSupplierPortalRoute = ProductsSupplierPortalRouteImport.update({
+  id: '/products/supplier-portal',
+  path: '/products/supplier-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsQmsRoute = ProductsQmsRouteImport.update({
+  id: '/products/qms',
+  path: '/products/qms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsPjpRoute = ProductsPjpRouteImport.update({
+  id: '/products/pjp',
+  path: '/products/pjp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsCwmsRoute = ProductsCwmsRouteImport.update({
+  id: '/products/cwms',
+  path: '/products/cwms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesUtilitiesRoute = IndustriesUtilitiesRouteImport.update({
+  id: '/industries/utilities',
+  path: '/industries/utilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
+  id: '/industries/mining',
+  path: '/industries/mining',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesDiscreteManufacturingRoute =
+  IndustriesDiscreteManufacturingRouteImport.update({
+    id: '/industries/discrete-manufacturing',
+    path: '/industries/discrete-manufacturing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
+  '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/cwms': typeof ProductsCwmsRoute
+  '/products/pjp': typeof ProductsPjpRoute
+  '/products/qms': typeof ProductsQmsRoute
+  '/products/supplier-portal': typeof ProductsSupplierPortalRoute
+  '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/services/ciss': typeof ServicesCissRoute
+  '/services/d3s': typeof ServicesD3sRoute
+  '/services/eas': typeof ServicesEasRoute
+  '/services/sdaas': typeof ServicesSdaasRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
+  '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/cwms': typeof ProductsCwmsRoute
+  '/products/pjp': typeof ProductsPjpRoute
+  '/products/qms': typeof ProductsQmsRoute
+  '/products/supplier-portal': typeof ProductsSupplierPortalRoute
+  '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/services/ciss': typeof ServicesCissRoute
+  '/services/d3s': typeof ServicesD3sRoute
+  '/services/eas': typeof ServicesEasRoute
+  '/services/sdaas': typeof ServicesSdaasRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/products': typeof ProductsIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
+  '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/cwms': typeof ProductsCwmsRoute
+  '/products/pjp': typeof ProductsPjpRoute
+  '/products/qms': typeof ProductsQmsRoute
+  '/products/supplier-portal': typeof ProductsSupplierPortalRoute
+  '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/services/ciss': typeof ServicesCissRoute
+  '/services/d3s': typeof ServicesD3sRoute
+  '/services/eas': typeof ServicesEasRoute
+  '/services/sdaas': typeof ServicesSdaasRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/team'
+    | '/industries/discrete-manufacturing'
+    | '/industries/mining'
+    | '/industries/utilities'
+    | '/products/cwms'
+    | '/products/pjp'
+    | '/products/qms'
+    | '/products/supplier-portal'
+    | '/products/suraksha'
+    | '/products/tyre-health'
+    | '/services/ciss'
+    | '/services/d3s'
+    | '/services/eas'
+    | '/services/sdaas'
+    | '/industries/'
+    | '/products/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/team'
+    | '/industries/discrete-manufacturing'
+    | '/industries/mining'
+    | '/industries/utilities'
+    | '/products/cwms'
+    | '/products/pjp'
+    | '/products/qms'
+    | '/products/supplier-portal'
+    | '/products/suraksha'
+    | '/products/tyre-health'
+    | '/services/ciss'
+    | '/services/d3s'
+    | '/services/eas'
+    | '/services/sdaas'
+    | '/industries'
+    | '/products'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/team'
+    | '/industries/discrete-manufacturing'
+    | '/industries/mining'
+    | '/industries/utilities'
+    | '/products/cwms'
+    | '/products/pjp'
+    | '/products/qms'
+    | '/products/supplier-portal'
+    | '/products/suraksha'
+    | '/products/tyre-health'
+    | '/services/ciss'
+    | '/services/d3s'
+    | '/services/eas'
+    | '/services/sdaas'
+    | '/industries/'
+    | '/products/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
+  TeamRoute: typeof TeamRoute
+  IndustriesDiscreteManufacturingRoute: typeof IndustriesDiscreteManufacturingRoute
+  IndustriesMiningRoute: typeof IndustriesMiningRoute
+  IndustriesUtilitiesRoute: typeof IndustriesUtilitiesRoute
+  ProductsCwmsRoute: typeof ProductsCwmsRoute
+  ProductsPjpRoute: typeof ProductsPjpRoute
+  ProductsQmsRoute: typeof ProductsQmsRoute
+  ProductsSupplierPortalRoute: typeof ProductsSupplierPortalRoute
+  ProductsSurakshaRoute: typeof ProductsSurakshaRoute
+  ProductsTyreHealthRoute: typeof ProductsTyreHealthRoute
+  ServicesCissRoute: typeof ServicesCissRoute
+  ServicesD3sRoute: typeof ServicesD3sRoute
+  ServicesEasRoute: typeof ServicesEasRoute
+  ServicesSdaasRoute: typeof ServicesSdaasRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +341,143 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/sdaas': {
+      id: '/services/sdaas'
+      path: '/services/sdaas'
+      fullPath: '/services/sdaas'
+      preLoaderRoute: typeof ServicesSdaasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/eas': {
+      id: '/services/eas'
+      path: '/services/eas'
+      fullPath: '/services/eas'
+      preLoaderRoute: typeof ServicesEasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/d3s': {
+      id: '/services/d3s'
+      path: '/services/d3s'
+      fullPath: '/services/d3s'
+      preLoaderRoute: typeof ServicesD3sRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/ciss': {
+      id: '/services/ciss'
+      path: '/services/ciss'
+      fullPath: '/services/ciss'
+      preLoaderRoute: typeof ServicesCissRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/tyre-health': {
+      id: '/products/tyre-health'
+      path: '/products/tyre-health'
+      fullPath: '/products/tyre-health'
+      preLoaderRoute: typeof ProductsTyreHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/suraksha': {
+      id: '/products/suraksha'
+      path: '/products/suraksha'
+      fullPath: '/products/suraksha'
+      preLoaderRoute: typeof ProductsSurakshaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/supplier-portal': {
+      id: '/products/supplier-portal'
+      path: '/products/supplier-portal'
+      fullPath: '/products/supplier-portal'
+      preLoaderRoute: typeof ProductsSupplierPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/qms': {
+      id: '/products/qms'
+      path: '/products/qms'
+      fullPath: '/products/qms'
+      preLoaderRoute: typeof ProductsQmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/pjp': {
+      id: '/products/pjp'
+      path: '/products/pjp'
+      fullPath: '/products/pjp'
+      preLoaderRoute: typeof ProductsPjpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/cwms': {
+      id: '/products/cwms'
+      path: '/products/cwms'
+      fullPath: '/products/cwms'
+      preLoaderRoute: typeof ProductsCwmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/utilities': {
+      id: '/industries/utilities'
+      path: '/industries/utilities'
+      fullPath: '/industries/utilities'
+      preLoaderRoute: typeof IndustriesUtilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/mining': {
+      id: '/industries/mining'
+      path: '/industries/mining'
+      fullPath: '/industries/mining'
+      preLoaderRoute: typeof IndustriesMiningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/discrete-manufacturing': {
+      id: '/industries/discrete-manufacturing'
+      path: '/industries/discrete-manufacturing'
+      fullPath: '/industries/discrete-manufacturing'
+      preLoaderRoute: typeof IndustriesDiscreteManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
+  TeamRoute: TeamRoute,
+  IndustriesDiscreteManufacturingRoute: IndustriesDiscreteManufacturingRoute,
+  IndustriesMiningRoute: IndustriesMiningRoute,
+  IndustriesUtilitiesRoute: IndustriesUtilitiesRoute,
+  ProductsCwmsRoute: ProductsCwmsRoute,
+  ProductsPjpRoute: ProductsPjpRoute,
+  ProductsQmsRoute: ProductsQmsRoute,
+  ProductsSupplierPortalRoute: ProductsSupplierPortalRoute,
+  ProductsSurakshaRoute: ProductsSurakshaRoute,
+  ProductsTyreHealthRoute: ProductsTyreHealthRoute,
+  ServicesCissRoute: ServicesCissRoute,
+  ServicesD3sRoute: ServicesD3sRoute,
+  ServicesEasRoute: ServicesEasRoute,
+  ServicesSdaasRoute: ServicesSdaasRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
