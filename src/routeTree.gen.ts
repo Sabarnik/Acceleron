@@ -17,10 +17,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
-import { Route as ServicesSdaasRouteImport } from './routes/services/sdaas'
-import { Route as ServicesEasRouteImport } from './routes/services/eas'
-import { Route as ServicesD3sRouteImport } from './routes/services/d3s'
-import { Route as ServicesCissRouteImport } from './routes/services/ciss'
+import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
+import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
+import { Route as ServicesSapRouteImport } from './routes/services/sap'
+import { Route as ServicesSalesforceRouteImport } from './routes/services/salesforce'
+import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
+import { Route as ServicesCyberSecurityRouteImport } from './routes/services/cyber-security'
+import { Route as ServicesCxoAdvisoryRouteImport } from './routes/services/cxo-advisory'
+import { Route as ServicesAnalyticsRouteImport } from './routes/services/analytics'
 import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
 import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
 import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
@@ -30,6 +34,8 @@ import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
 import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
 import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
 import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
+import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
+import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
@@ -71,24 +77,46 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   path: '/industries/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSdaasRoute = ServicesSdaasRouteImport.update({
-  id: '/services/sdaas',
-  path: '/services/sdaas',
+const ServicesZohoRoute = ServicesZohoRouteImport.update({
+  id: '/services/zoho',
+  path: '/services/zoho',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesEasRoute = ServicesEasRouteImport.update({
-  id: '/services/eas',
-  path: '/services/eas',
+const ServicesSoftwareDevelopmentRoute =
+  ServicesSoftwareDevelopmentRouteImport.update({
+    id: '/services/software-development',
+    path: '/services/software-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesSapRoute = ServicesSapRouteImport.update({
+  id: '/services/sap',
+  path: '/services/sap',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesD3sRoute = ServicesD3sRouteImport.update({
-  id: '/services/d3s',
-  path: '/services/d3s',
+const ServicesSalesforceRoute = ServicesSalesforceRouteImport.update({
+  id: '/services/salesforce',
+  path: '/services/salesforce',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesCissRoute = ServicesCissRouteImport.update({
-  id: '/services/ciss',
-  path: '/services/ciss',
+const ServicesItInfrastructureRoute =
+  ServicesItInfrastructureRouteImport.update({
+    id: '/services/it-infrastructure',
+    path: '/services/it-infrastructure',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCyberSecurityRoute = ServicesCyberSecurityRouteImport.update({
+  id: '/services/cyber-security',
+  path: '/services/cyber-security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCxoAdvisoryRoute = ServicesCxoAdvisoryRouteImport.update({
+  id: '/services/cxo-advisory',
+  path: '/services/cxo-advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
+  id: '/services/analytics',
+  path: '/services/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
@@ -137,6 +165,16 @@ const IndustriesDiscreteManufacturingRoute =
     path: '/industries/discrete-manufacturing',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ServicesDetailSlugRoute = ServicesDetailSlugRouteImport.update({
+  id: '/services/detail/$slug',
+  path: '/services/detail/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCategoryServiceRoute = ServicesCategoryServiceRouteImport.update({
+  id: '/services/$category/$service',
+  path: '/services/$category/$service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -153,13 +191,19 @@ export interface FileRoutesByFullPath {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/ciss': typeof ServicesCissRoute
-  '/services/d3s': typeof ServicesD3sRoute
-  '/services/eas': typeof ServicesEasRoute
-  '/services/sdaas': typeof ServicesSdaasRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/salesforce': typeof ServicesSalesforceRoute
+  '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
+  '/services/zoho': typeof ServicesZohoRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/$category/$service': typeof ServicesCategoryServiceRoute
+  '/services/detail/$slug': typeof ServicesDetailSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -176,13 +220,19 @@ export interface FileRoutesByTo {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/ciss': typeof ServicesCissRoute
-  '/services/d3s': typeof ServicesD3sRoute
-  '/services/eas': typeof ServicesEasRoute
-  '/services/sdaas': typeof ServicesSdaasRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/salesforce': typeof ServicesSalesforceRoute
+  '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
+  '/services/zoho': typeof ServicesZohoRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/services/$category/$service': typeof ServicesCategoryServiceRoute
+  '/services/detail/$slug': typeof ServicesDetailSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -200,13 +250,19 @@ export interface FileRoutesById {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/ciss': typeof ServicesCissRoute
-  '/services/d3s': typeof ServicesD3sRoute
-  '/services/eas': typeof ServicesEasRoute
-  '/services/sdaas': typeof ServicesSdaasRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/salesforce': typeof ServicesSalesforceRoute
+  '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
+  '/services/zoho': typeof ServicesZohoRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/$category/$service': typeof ServicesCategoryServiceRoute
+  '/services/detail/$slug': typeof ServicesDetailSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -225,13 +281,19 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/ciss'
-    | '/services/d3s'
-    | '/services/eas'
-    | '/services/sdaas'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
+    | '/services/it-infrastructure'
+    | '/services/salesforce'
+    | '/services/sap'
+    | '/services/software-development'
+    | '/services/zoho'
     | '/industries/'
     | '/products/'
     | '/services/'
+    | '/services/$category/$service'
+    | '/services/detail/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -248,13 +310,19 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/ciss'
-    | '/services/d3s'
-    | '/services/eas'
-    | '/services/sdaas'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
+    | '/services/it-infrastructure'
+    | '/services/salesforce'
+    | '/services/sap'
+    | '/services/software-development'
+    | '/services/zoho'
     | '/industries'
     | '/products'
     | '/services'
+    | '/services/$category/$service'
+    | '/services/detail/$slug'
   id:
     | '__root__'
     | '/'
@@ -271,13 +339,19 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/ciss'
-    | '/services/d3s'
-    | '/services/eas'
-    | '/services/sdaas'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
+    | '/services/it-infrastructure'
+    | '/services/salesforce'
+    | '/services/sap'
+    | '/services/software-development'
+    | '/services/zoho'
     | '/industries/'
     | '/products/'
     | '/services/'
+    | '/services/$category/$service'
+    | '/services/detail/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -295,13 +369,19 @@ export interface RootRouteChildren {
   ProductsSupplierPortalRoute: typeof ProductsSupplierPortalRoute
   ProductsSurakshaRoute: typeof ProductsSurakshaRoute
   ProductsTyreHealthRoute: typeof ProductsTyreHealthRoute
-  ServicesCissRoute: typeof ServicesCissRoute
-  ServicesD3sRoute: typeof ServicesD3sRoute
-  ServicesEasRoute: typeof ServicesEasRoute
-  ServicesSdaasRoute: typeof ServicesSdaasRoute
+  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesCxoAdvisoryRoute: typeof ServicesCxoAdvisoryRoute
+  ServicesCyberSecurityRoute: typeof ServicesCyberSecurityRoute
+  ServicesItInfrastructureRoute: typeof ServicesItInfrastructureRoute
+  ServicesSalesforceRoute: typeof ServicesSalesforceRoute
+  ServicesSapRoute: typeof ServicesSapRoute
+  ServicesSoftwareDevelopmentRoute: typeof ServicesSoftwareDevelopmentRoute
+  ServicesZohoRoute: typeof ServicesZohoRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  ServicesCategoryServiceRoute: typeof ServicesCategoryServiceRoute
+  ServicesDetailSlugRoute: typeof ServicesDetailSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -362,32 +442,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/sdaas': {
-      id: '/services/sdaas'
-      path: '/services/sdaas'
-      fullPath: '/services/sdaas'
-      preLoaderRoute: typeof ServicesSdaasRouteImport
+    '/services/zoho': {
+      id: '/services/zoho'
+      path: '/services/zoho'
+      fullPath: '/services/zoho'
+      preLoaderRoute: typeof ServicesZohoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/eas': {
-      id: '/services/eas'
-      path: '/services/eas'
-      fullPath: '/services/eas'
-      preLoaderRoute: typeof ServicesEasRouteImport
+    '/services/software-development': {
+      id: '/services/software-development'
+      path: '/services/software-development'
+      fullPath: '/services/software-development'
+      preLoaderRoute: typeof ServicesSoftwareDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/d3s': {
-      id: '/services/d3s'
-      path: '/services/d3s'
-      fullPath: '/services/d3s'
-      preLoaderRoute: typeof ServicesD3sRouteImport
+    '/services/sap': {
+      id: '/services/sap'
+      path: '/services/sap'
+      fullPath: '/services/sap'
+      preLoaderRoute: typeof ServicesSapRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/ciss': {
-      id: '/services/ciss'
-      path: '/services/ciss'
-      fullPath: '/services/ciss'
-      preLoaderRoute: typeof ServicesCissRouteImport
+    '/services/salesforce': {
+      id: '/services/salesforce'
+      path: '/services/salesforce'
+      fullPath: '/services/salesforce'
+      preLoaderRoute: typeof ServicesSalesforceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/it-infrastructure': {
+      id: '/services/it-infrastructure'
+      path: '/services/it-infrastructure'
+      fullPath: '/services/it-infrastructure'
+      preLoaderRoute: typeof ServicesItInfrastructureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/cyber-security': {
+      id: '/services/cyber-security'
+      path: '/services/cyber-security'
+      fullPath: '/services/cyber-security'
+      preLoaderRoute: typeof ServicesCyberSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/cxo-advisory': {
+      id: '/services/cxo-advisory'
+      path: '/services/cxo-advisory'
+      fullPath: '/services/cxo-advisory'
+      preLoaderRoute: typeof ServicesCxoAdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/analytics': {
+      id: '/services/analytics'
+      path: '/services/analytics'
+      fullPath: '/services/analytics'
+      preLoaderRoute: typeof ServicesAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/tyre-health': {
@@ -453,6 +561,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesDiscreteManufacturingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/detail/$slug': {
+      id: '/services/detail/$slug'
+      path: '/services/detail/$slug'
+      fullPath: '/services/detail/$slug'
+      preLoaderRoute: typeof ServicesDetailSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$category/$service': {
+      id: '/services/$category/$service'
+      path: '/services/$category/$service'
+      fullPath: '/services/$category/$service'
+      preLoaderRoute: typeof ServicesCategoryServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -471,13 +593,19 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsSupplierPortalRoute: ProductsSupplierPortalRoute,
   ProductsSurakshaRoute: ProductsSurakshaRoute,
   ProductsTyreHealthRoute: ProductsTyreHealthRoute,
-  ServicesCissRoute: ServicesCissRoute,
-  ServicesD3sRoute: ServicesD3sRoute,
-  ServicesEasRoute: ServicesEasRoute,
-  ServicesSdaasRoute: ServicesSdaasRoute,
+  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesCxoAdvisoryRoute: ServicesCxoAdvisoryRoute,
+  ServicesCyberSecurityRoute: ServicesCyberSecurityRoute,
+  ServicesItInfrastructureRoute: ServicesItInfrastructureRoute,
+  ServicesSalesforceRoute: ServicesSalesforceRoute,
+  ServicesSapRoute: ServicesSapRoute,
+  ServicesSoftwareDevelopmentRoute: ServicesSoftwareDevelopmentRoute,
+  ServicesZohoRoute: ServicesZohoRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  ServicesCategoryServiceRoute: ServicesCategoryServiceRoute,
+  ServicesDetailSlugRoute: ServicesDetailSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

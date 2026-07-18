@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-
 export function useMouseParallax(strength = 20) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -140,15 +139,24 @@ export function Counter({ to, suffix = "", duration = 2 }: { to: number; suffix?
 /* ─────── wave section divider ─────── */
 
 export function WaveDivider({ from = 'transparent', to = 'transparent', flip = false }: { from?: string; to?: string; flip?: boolean }) {
-  const fromColor = from === "dark" ? "#212f60" : "#F5F7FB";
-  const toColor = to === "dark" ? "#212f60" : to === "white" ? "#ffffff" : "#F5F7FB";
+  const getBgClass = (type: string) => {
+    if (type === "dark") return "wave-bg-dark";
+    if (type === "white" || type === "background") return "wave-bg-white";
+    if (type === "light" || type === "muted") return "wave-bg-light";
+    return "wave-bg-transparent";
+  };
+  const getFillClass = (type: string) => {
+    if (type === "dark") return "wave-fill-dark";
+    if (type === "white" || type === "background") return "wave-fill-white";
+    if (type === "light" || type === "muted") return "wave-fill-light";
+    return "wave-fill-transparent";
+  };
+
   return (
-    <div className="relative h-20 -mt-px" style={{ background: fromColor, transform: flip ? "scaleY(-1)" : undefined }}>
+    <div className={`relative h-20 -mt-px ${getBgClass(from)}`} style={{ transform: flip ? "scaleY(-1)" : undefined }}>
       <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full">
-        <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill={toColor} />
+        <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" className={getFillClass(to)} />
       </svg>
     </div>
   );
 }
-
-

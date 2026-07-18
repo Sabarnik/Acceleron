@@ -48,8 +48,7 @@ function ContactPage() {
                 <div className="space-y-6">
                   {[
                     "Kolkata, India",
-                    "Delhi NCR, India",
-                    "Bangalore, India",
+                    "Delhi NCR, India",    
                     "West Virginia, USA",
                     "NSW, Australia",
                     "Singapore"

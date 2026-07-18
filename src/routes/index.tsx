@@ -1,11 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ArrowRight, ArrowUpRight, Sparkles, Cpu, Cloud, ShieldCheck, LineChart, Boxes,
   Blocks, Rocket, Compass, Layers, Code2, Wrench, HeartPulse, ShoppingBag, Truck,
   GraduationCap, Landmark, Banknote, HardHat, Factory, Flame, MapPin, Mail, Phone,
-  ChevronDown, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette,
+  ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette,
   ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon,
 } from "lucide-react";
 
@@ -138,15 +138,7 @@ const SLIDES: Slide[] = [
     Visual: SlideSAP,
   },
   {
-    eyebrow: "Chapter 02 · Customer 360",
-    title: "Salesforce, ",
-    accent: "reimagined.",
-    sub: "Sales, Service, Marketing and Data Cloud — CRM engineered around your customer.",
-    gradient: "from-[oklch(0.16_0.07_250)] to-[oklch(0.22_0.09_255)]",
-    Visual: SlideSalesforce,
-  },
-  {
-    eyebrow: "Chapter 03 · Applied AI",
+    eyebrow: "Chapter 02 · Applied AI",
     title: "Intelligence, ",
     accent: "operationalized.",
     sub: "Generative agents, predictive systems and RAG pipelines — in production.",
@@ -154,12 +146,20 @@ const SLIDES: Slide[] = [
     Visual: SlideAI,
   },
   {
-    eyebrow: "Chapter 04 · Zoho Premium Partner",
+    eyebrow: "Chapter 03 · Zoho Premium Partner",
     title: "Business apps, ",
     accent: "in weeks.",
     sub: "Zoho One, CRM, Creator and Analytics — deployed and adopted, end to end.",
     gradient: "from-[oklch(0.16_0.07_20)] to-[oklch(0.2_0.09_265)]",
     Visual: SlideZoho,
+  },
+  {
+    eyebrow: "Chapter 04 · Customer 360",
+    title: "Salesforce, ",
+    accent: "reimagined.",
+    sub: "Sales, Service, Marketing and Data Cloud — CRM engineered around your customer.",
+    gradient: "from-[oklch(0.16_0.07_250)] to-[oklch(0.22_0.09_255)]",
+    Visual: SlideSalesforce,
   },
 ];
 
@@ -201,29 +201,6 @@ const CONSOLES: ConsoleData[] = [
     events: ["Close · month-end run OK", "IDoc · vendor sync 4,208", "BTP · CAP service deployed"],
     floater: { label: "Uptime", value: "99.98%" },
     badge: { icon: Cpu, kicker: "SAP Gold Partner", text: "Certified since 2016" },
-  },
-  {
-    brand: "Salesforce",
-    app: "acceleron · crm ops",
-    nav: ["Sales Cloud", "Service Cloud", "Marketing", "Data Cloud", "Einstein"],
-    region: "us-east-1",
-    metrics: [
-      { label: "Pipeline generated", v: "$48M", d: "trailing 90 days" },
-      { label: "Case resolution", v: "3.2×", d: "faster with Einstein" },
-      { label: "Unified profiles", v: "12.4M", d: "in Data Cloud" },
-    ],
-    chartLabel: "Opportunities · 24h",
-    slaLabel: "Case SLA by queue",
-    slaRows: [
-      { label: "Tier 1", value: 94 },
-      { label: "Tier 2", value: 81 },
-      { label: "Field", value: 76 },
-      { label: "VIP", value: 98 },
-    ],
-    eventsLabel: "Flow events",
-    events: ["Einstein · lead scored ×214", "Flow · opp stage → Closed Won", "Data Cloud · segment refreshed"],
-    floater: { label: "NPS", value: "72" },
-    badge: { icon: Cloud, kicker: "Salesforce Consulting", text: "Summit Partner" },
   },
   {
     brand: "Applied AI",
@@ -270,6 +247,29 @@ const CONSOLES: ConsoleData[] = [
     events: ["Creator · app published v1.4", "CRM · 128 new leads scored", "Desk · SLA breach avoided"],
     floater: { label: "Zoho apps", value: "45+" },
     badge: { icon: Award, kicker: "Zoho Premium Partner", text: "Advanced tier · 2025" },
+  },
+  {
+    brand: "Salesforce",
+    app: "acceleron · crm ops",
+    nav: ["Sales Cloud", "Service Cloud", "Marketing", "Data Cloud", "Einstein"],
+    region: "us-east-1",
+    metrics: [
+      { label: "Pipeline generated", v: "$48M", d: "trailing 90 days" },
+      { label: "Case resolution", v: "3.2×", d: "faster with Einstein" },
+      { label: "Unified profiles", v: "12.4M", d: "in Data Cloud" },
+    ],
+    chartLabel: "Opportunities · 24h",
+    slaLabel: "Case SLA by queue",
+    slaRows: [
+      { label: "Tier 1", value: 94 },
+      { label: "Tier 2", value: 81 },
+      { label: "Field", value: 76 },
+      { label: "VIP", value: 98 },
+    ],
+    eventsLabel: "Flow events",
+    events: ["Einstein · lead scored ×214", "Flow · opp stage → Closed Won", "Data Cloud · segment refreshed"],
+    floater: { label: "NPS", value: "72" },
+    badge: { icon: Cloud, kicker: "Salesforce Consulting", text: "Summit Partner" },
   },
 ];
 
@@ -439,7 +439,7 @@ function Hero() {
   }, []);
 
   const s = SLIDES[index];
-  const TONES = ["#4c5a8a", "#3a497f", "#de1e24", "#4c5a8a"];
+  const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#3a497f"];
   const tone = TONES[index];
 
   /* partner logos with real SVGs */
@@ -515,6 +515,16 @@ function Hero() {
               </span>
               Watch the story
             </a>
+            <Link
+              to="/careers"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-brand-red/30 bg-brand-red/10 px-6 py-4 text-sm font-medium text-brand-red transition-all hover:bg-brand-red/20 hover:border-brand-red hover:scale-[1.02] shadow-sm"
+            >
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-brand-red/20 transition-transform group-hover:scale-110">
+                <Briefcase className="h-3.5 w-3.5 text-brand-red" />
+              </span>
+              Explore Careers
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </motion.div>
 
           <motion.a
@@ -767,28 +777,30 @@ function About() {
                 <div className="absolute inset-0 grid-lines opacity-20" />
                 <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-brand-gradient opacity-30 blur-3xl" />
                 <div className="relative">
-                  <div className="text-xs uppercase tracking-[0.3em] text-cyan/70">Milestones</div>
+                  <div className="text-xs uppercase tracking-[0.3em] text-brand-red">Milestones</div>
                   <div className="mt-8 space-y-6">
                     {[
-                      { y: "2010", t: "Founded in Bangalore", d: "3 engineers, one workshop." },
-                      { y: "2014", t: "First SAP S/4HANA delivery", d: "Enterprise-grade from day one." },
-                      { y: "2018", t: "Salesforce Platinum Partner", d: "CRM at scale." },
-                      { y: "2022", t: "AI practice launched", d: "Generative + predictive, in production." },
-                      { y: "2025", t: "200+ enterprises. 28 countries.", d: "And we're just getting started." },
+                      { t: "Gainwell Group Heritage", d: "Built as the technology engine of the 80-year-old Gainwell Group, rooted in mining, engineering, and heavy-equipment operations." },
+                      { t: "Global Delivery Expansion", d: "Established strategic delivery hubs across Kolkata (HQ), Delhi NCR, Bangalore, Singapore, West Virginia, and NSW." },
+                      { t: "Enterprise Practice Leadership", d: "Scaled dedicated, certified centers of excellence in SAP S/4HANA, Salesforce, Zoho Suite, Cloud Infrastructure, and Cyber Security." },
+                      { t: "Global Digital Transformation", d: "Modernized core ERP and customer intelligence for 200+ enterprise clients across 28 countries." },
+                      { t: "Next-Gen Analytics & AI Deployment", d: "Launched advanced data lake architectures and predictive, generative AI agents running live in production." },
                     ].map((m, i) => (
                       <motion.div
-                        key={m.y}
+                        key={m.t}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1, duration: 0.6 }}
-                        className="relative flex gap-6 border-l border-white/15 pl-6"
+                        className="relative flex gap-4 border-l border-border pl-6 py-1"
                       >
-                        <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-cyan shadow-[0_0_20px_var(--cyan-brand)]" />
-                        <div className="w-14 shrink-0 text-sm font-semibold text-brand-red">{m.y}</div>
+                        <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-brand shadow-[0_0_20px_var(--brand)]" />
                         <div className="min-w-0">
-                          <div className="text-sm font-medium">{m.t}</div>
-                          <div className="text-xs text-foreground/50">{m.d}</div>
+                          <div className="text-sm font-bold text-foreground flex items-center gap-2">
+                            <span className="text-xs font-semibold text-brand-red px-2 py-0.5 rounded bg-brand-red/10">0{i + 1}</span>
+                            {m.t}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{m.d}</div>
                         </div>
                       </motion.div>
                     ))}
@@ -806,14 +818,14 @@ function About() {
 /* ═══════════════════ SERVICES ═══════════════════ */
 
 const SERVICES = [
-  { icon: Database, t: "SAP", d: "S/4HANA, BTP, RISE — end-to-end SAP transformation for the intelligent enterprise." },
-  { icon: Cloud, t: "Salesforce", d: "Sales, Service, Marketing, Data Cloud — CRM engineered around your customer." },
-  { icon: LineChart, t: "Analytics & AI", d: "From dashboards to generative agents. Turn data into direction." },
-  { icon: Blocks, t: "Zoho Suite", d: "Rapid business apps across finance, ops, CX — deployed in weeks, not quarters." },
-  { icon: Code2, t: "Software Development", d: "Custom platforms in React, Node, Flutter — enterprise-grade code, product-grade craft." },
-  { icon: Cpu, t: "IT Infrastructure", d: "Cloud, hybrid, on-prem. AWS, Azure, Kubernetes — resilient by design." },
-  { icon: Briefcase, t: "CXO Advisory", d: "Board-level guidance on tech strategy, M&A, and digital operating models." },
-  { icon: ShieldCheck, t: "Cyber Security", d: "Zero-trust architectures, SOC modernization, and compliance you can prove." },
+  { icon: Database, t: "SAP", d: "S/4HANA, BTP, RISE — end-to-end SAP transformation for the intelligent enterprise.", url: "/services/sap" },
+  { icon: Cloud, t: "Salesforce", d: "Sales, Service, Marketing, Data Cloud — CRM engineered around your customer.", url: "/services/salesforce" },
+  { icon: LineChart, t: "Analytics & AI", d: "From dashboards to generative agents. Turn data into direction.", url: "/services/analytics" },
+  { icon: Blocks, t: "Zoho Suite", d: "Rapid business apps across finance, ops, CX — deployed in weeks, not quarters.", url: "/services/zoho" },
+  { icon: Code2, t: "Software Development", d: "Custom platforms in React, Node, Flutter — enterprise-grade code, product-grade craft.", url: "/services/software-development" },
+  { icon: Cpu, t: "IT Infrastructure", d: "Cloud, hybrid, on-prem. AWS, Azure, Kubernetes — resilient by design.", url: "/services/it-infrastructure" },
+  { icon: Briefcase, t: "CXO Advisory", d: "Board-level guidance on tech strategy, M&A, and digital operating models.", url: "/services/cxo-advisory" },
+  { icon: ShieldCheck, t: "Cyber Security", d: "Zero-trust architectures, SOC modernization, and compliance you can prove.", url: "/services/cyber-security" },
 ];
 
 function Services() {
@@ -839,25 +851,29 @@ function Services() {
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
             <Reveal key={s.t} delay={i * 0.06}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="group relative h-full overflow-hidden rounded-2xl border border-border bg-muted p-7 shadow-card transition-all hover:shadow-glow"
-              >
-                <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-[0.04]" />
-                <div className="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: "linear-gradient(135deg, transparent, oklch(0.62 0.22 260 / 0.3), transparent) border-box", WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)", WebkitMaskComposite: "xor", padding: "1px" }} />
-                <div className="relative">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-primary-foreground shadow-glow">
-                    <s.icon className="h-5 w-5" />
+              <Link to={s.url as any} className="block h-full cursor-pointer">
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="group relative h-full overflow-hidden rounded-2xl border border-border bg-muted p-7 shadow-card transition-all hover:shadow-glow hover:border-brand/40"
+                >
+                  <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-[0.04]" />
+                  <div className="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{ background: "linear-gradient(135deg, transparent, oklch(0.62 0.22 260 / 0.3), transparent) border-box", WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)", WebkitMaskComposite: "xor", padding: "1px" }} />
+                  <div className="relative flex flex-col h-full justify-between">
+                    <div>
+                      <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-primary-foreground shadow-glow">
+                        <s.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="mt-5 text-lg font-semibold text-foreground group-hover:text-brand transition-colors">{s.t}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+                    </div>
+                    <div className="mt-6 flex items-center gap-1.5 text-xs font-medium text-electric opacity-80 transition-opacity group-hover:opacity-100">
+                      Learn more & explore <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold">{s.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-                  <div className="mt-6 flex items-center gap-1.5 text-xs font-medium text-electric opacity-0 transition-opacity group-hover:opacity-100">
-                    Learn more <ArrowUpRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -1544,6 +1560,190 @@ function Process() {
   );
 }
 
+/* ═══════════════════ EVENTS & SLIDESHOW ═══════════════════ */
+
+function Events() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const eventSlides = [
+    {
+      id: 1,
+      title: "Acceleron Global Tech Summit 2025",
+      date: "March 14, 2025",
+      location: "Bangalore Innovation Hub",
+      category: "Summit",
+      desc: "Our annual leadership summit exploring enterprise AI adoption, SAP S/4HANA transformations, and next-gen cybersecurity frameworks with 500+ industry executives.",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
+      customImage: undefined
+    },
+    {
+      id: 2,
+      title: "CXO Advisory & Cloud Transformation Workshop",
+      date: "February 22, 2025",
+      location: "Singapore / Hybrid",
+      category: "Workshop",
+      desc: "An exclusive round-table workshop where C-suite leaders align strategic multi-cloud investments with tangible operational ROI and risk mitigation.",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop",
+      customImage: undefined
+    },
+    {
+      id: 3,
+      title: "Zoho & Salesforce Ecosystem Hackathon",
+      date: "January 18, 2025",
+      location: "Delhi NCR Tech Center",
+      category: "Hackathon",
+      desc: "Over 200 developers and solution architects competing to build automated custom CRM workflows, AI agents, and enterprise integrations in 48 hours.",
+      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop",
+      customImage: undefined
+    },
+    {
+      id: 4,
+      title: "Industrial Safety & Suraksha Launch Event",
+      date: "December 05, 2024",
+      location: "Kolkata Delivery Center",
+      category: "Product Launch",
+      desc: "Official unveiling of our Suraksha Field Safety and Tyre Health platforms tailored for heavy manufacturing, mining, and logistics fleets across India.",
+      image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?q=80&w=2070&auto=format&fit=crop",
+      customImage: undefined
+    }
+  ];
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % eventSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isPaused, eventSlides.length]);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % eventSlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + eventSlides.length) % eventSlides.length);
+
+  return (
+    <section id="events" className="section-dark relative overflow-hidden bg-muted py-32 text-foreground">
+      <div className="absolute inset-0 diagonal-stripes opacity-10" />
+      <div className="absolute top-1/4 right-10 h-80 w-80 rounded-full bg-brand/15 blur-[140px]" />
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Community & Highlights</div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
+                Events & <span className="text-gradient">Moments in Tech</span>
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.2}>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={prevSlide}
+                aria-label="Previous Slide"
+                className="grid h-12 w-12 place-items-center rounded-full border border-border bg-background/80 hover:bg-brand hover:text-white hover:border-brand transition-all shadow-soft"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextSlide}
+                aria-label="Next Slide"
+                className="grid h-12 w-12 place-items-center rounded-full border border-border bg-background/80 hover:bg-brand hover:text-white hover:border-brand transition-all shadow-soft"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Slideshow Container */}
+        <div
+          className="relative rounded-3xl border border-border bg-background/60 backdrop-blur-xl overflow-hidden shadow-glow"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="grid lg:grid-cols-12 min-h-[480px]">
+            {/* Image Section */}
+            <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-full bg-muted/30">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0"
+                >
+                  <img
+                    src={eventSlides[currentSlide].customImage || eventSlides[currentSlide].image}
+                    alt={eventSlides[currentSlide].title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute top-6 left-6 z-10">
+                <span className="inline-flex items-center rounded-full bg-brand-gradient px-4 py-1.5 text-xs font-bold text-white shadow-md">
+                  {eventSlides[currentSlide].category}
+                </span>
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="lg:col-span-5 p-8 md:p-12 flex flex-col justify-between relative z-10">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-brand-red">
+                      <Calendar className="h-4 w-4" /> {eventSlides[currentSlide].date}
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="h-4 w-4 text-brand" /> {eventSlides[currentSlide].location}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
+                    {eventSlides[currentSlide].title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                    {eventSlides[currentSlide].desc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Indicators */}
+              <div className="flex items-center justify-between pt-8 border-t border-border mt-8">
+                <div className="flex gap-2">
+                  {eventSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        idx === currentSlide ? "w-8 bg-brand-gradient shadow-sm" : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+                <span className="text-xs font-bold text-muted-foreground tabular-nums">
+                  {String(currentSlide + 1).padStart(2, "0")} / {String(eventSlides.length).padStart(2, "0")}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ═══════════════════ CAREERS ═══════════════════ */
 
 function Careers() {
@@ -1596,22 +1796,33 @@ function Careers() {
           <div>
             <Reveal delay={0.2}>
               <div className="text-xs uppercase tracking-[0.3em] text-foreground/50">Open positions</div>
-              <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-border bg-muted/[0.02]">
+              <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-muted/[0.02] overflow-hidden">
                 {jobs.map((j) => (
-                  <motion.a key={j.r} href="#contact" whileHover={{ x: 4 }}
-                    className="group flex items-center justify-between p-6 transition-colors hover:bg-muted/[0.04]"
-                  >
-                    <div className="min-w-0">
-                      <div className="text-base font-medium">{j.r}</div>
-                      <div className="mt-1 text-xs text-foreground/60">{j.loc} · {j.d}</div>
-                    </div>
-                    <ArrowUpRight className="h-5 w-5 text-foreground/40 transition-colors group-hover:text-cyan" />
-                  </motion.a>
+                  <motion.div key={j.r} whileHover={{ x: 4 }} className="relative z-10">
+                    <Link
+                      to="/careers"
+                      className="group flex items-center justify-between p-6 transition-colors hover:bg-muted/[0.06] block w-full cursor-pointer"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-base font-medium text-foreground group-hover:text-brand-red transition-colors">{j.r}</div>
+                        <div className="mt-1 text-xs text-muted-foreground">{j.loc} · {j.d}</div>
+                      </div>
+                      <span className="grid h-8 w-8 place-items-center rounded-full border border-border bg-background transition-all group-hover:border-brand-red group-hover:bg-brand-red/10">
+                        <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-brand-red" />
+                      </span>
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
-              <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-sm text-cyan hover:gap-3 transition-all">
-                See all openings <ArrowRight className="h-4 w-4" />
-              </a>
+              <div className="mt-8">
+                <Link
+                  to="/careers"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-red-gradient px-7 py-3.5 text-sm font-medium text-[#FFFFFF] shadow-red-glow transition-all hover:scale-[1.02] hover:shadow-[0_28px_100px_-18px_rgba(222,30,36,0.75)] cursor-pointer relative z-10"
+                >
+                  Explore All Open Positions & Culture
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -1624,83 +1835,59 @@ function Careers() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-muted py-32">
+    <section id="contact" className="section-dark relative overflow-hidden bg-muted py-32">
       {/* animated gradient mesh blob — unique to Contact */}
-      <div className="absolute top-40 left-1/4 h-96 w-96 rounded-full bg-electric/10 blur-[140px] animate-float-slow" />
+      <div className="absolute top-40 left-1/4 h-96 w-96 rounded-full bg-brand/10 blur-[140px] animate-float-slow" />
       <div className="absolute bottom-20 right-1/3 h-64 w-64 rounded-full bg-brand-red/8 blur-[120px] animate-float-med" />
-      <div className="absolute inset-0 diagonal-stripes opacity-50" />
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <Reveal>
-              <div className="text-xs uppercase tracking-[0.4em] text-electric">Contact</div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Let's build the <span className="text-gradient">next chapter.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-                Tell us where you're headed. We'll bring the team, the technology, and the accountability.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <div className="mt-10 space-y-4">
-                {[
-                  { icon: MapPin, l: "Bangalore · London · Dubai · Singapore" },
-                  { icon: Mail, l: "hello@acceleron.solutions" },
-                  { icon: Phone, l: "+91 80 4567 8900" },
-                ].map((c) => (
-                  <div key={c.l} className="flex items-center gap-4">
-                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-muted shadow-card">
-                      <c.icon className="h-4 w-4 text-electric" />
-                    </div>
-                    <div className="text-sm">{c.l}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.4}>
-              <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-                {["Bangalore", "London", "Dubai", "Singapore"].map((city) => (
-                  <motion.div key={city} whileHover={{ y: -3 }} className="rounded-xl border border-border bg-muted p-4 shadow-card transition-shadow hover:shadow-soft">
-                    <Globe className="h-4 w-4 text-electric" />
-                    <div className="mt-3 text-sm font-semibold">{city}</div>
-                    <div className="text-xs text-muted-foreground">HQ region</div>
-                  </motion.div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.2}>
-            <form onSubmit={(e) => e.preventDefault()} className="relative rounded-3xl border border-border bg-muted p-8 shadow-soft md:p-10">
-              <div className="absolute -inset-px rounded-3xl bg-brand-gradient opacity-20 blur-xl -z-10" />
-              <div className="space-y-5">
-                {[
-                  { l: "Full name", t: "text", p: "Ada Lovelace" },
-                  { l: "Work email", t: "email", p: "ada@company.com" },
-                  { l: "Company", t: "text", p: "Company Ltd." },
-                ].map((f) => (
-                  <div key={f.l}>
-                    <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">{f.l}</label>
-                    <input type={f.t} placeholder={f.p}
-                      className="mt-2 w-full rounded-xl border border-transparent bg-muted/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-muted focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
-                  </div>
-                ))}
+      <div className="absolute inset-0 diagonal-stripes opacity-20" />
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="grid md:grid-cols-2 gap-16">
+          <Reveal delay={0.1}>
+            <div className="rounded-3xl border border-border/50 bg-background/50 p-10 backdrop-blur-xl h-full">
+              <h2 className="text-2xl font-bold text-foreground mb-8">Send us a message</h2>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
-                  <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">How can we help?</label>
-                  <textarea rows={4} placeholder="Tell us about your project…"
-                    className="mt-2 w-full rounded-xl border border-transparent bg-muted/70 backdrop-blur px-4 py-3.5 text-sm outline-none shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.08),0_2px_8px_-2px_rgb(37_47_97_/_0.08)] transition-all placeholder:text-navy/35 hover:shadow-[inset_0_0_0_1px_rgb(37_47_97_/_0.16),0_4px_14px_-4px_rgb(37_47_97_/_0.12)] focus:bg-muted focus:shadow-[inset_0_0_0_1.5px_rgb(58_73_127_/_0.6),0_0_0_5px_rgb(58_73_127_/_0.12)]" />
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">Name</label>
+                  <input type="text" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
-                <button type="submit" className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-sm font-medium text-[#FFFFFF] shadow-glow transition-all hover:scale-[1.02] hover:shadow-[0_28px_80px_-18px_rgb(37_47_97/0.7)]">
-                  Send message <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                <div>
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">Email</label>
+                  <input type="email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-muted-foreground mb-2">Message</label>
+                  <textarea rows={4} className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                </div>
+                <button type="submit" className="w-full rounded-xl bg-brand-gradient py-4 text-white font-bold shadow-glow hover:scale-[1.02] transition-transform">Send Message</button>
+              </form>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="flex flex-col justify-between h-full py-4">
+              <div>
+                <Reveal>
+                  <div className="text-xs uppercase tracking-[0.4em] text-brand-red">Connect</div>
+                </Reveal>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 leading-tight">
+                  Let's build the <span className="text-gradient">next chapter.</span>
+                </h2>
               </div>
-            </form>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Global Delivery Centers</h2>
+              <div className="space-y-6">
+                {[
+                  "Kolkata, India",
+                  "Delhi NCR, India",
+                  "Bangalore, India",
+                  "West Virginia, USA",
+                  "NSW, Australia",
+                  "Singapore"
+                ].map((loc, i) => (
+                  <div key={i} className="flex items-center gap-4 text-muted-foreground">
+                    <MapPin className="h-5 w-5 text-brand" /> <span>{loc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -1735,8 +1922,10 @@ function Home() {
         <WaveDivider from="dark" to="white" />
         <Process />
         <WaveDivider from="white" to="dark" />
+        <Events />
+        <WaveDivider from="dark" to="white" />
         <Careers />
-        <WaveDivider from="dark" to="light" />
+        <WaveDivider from="white" to="dark" />
         <Contact />
       </main>
     </div>

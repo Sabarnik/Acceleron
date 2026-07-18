@@ -44,70 +44,20 @@
 
   --font-display: "League Spartan", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-
 }
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  --color-navy: var(--navy);
-  --color-navy-deep: var(--navy-deep);
-  --color-electric: var(--electric);
-  --color-cyan: var(--cyan-brand);
-  --color-violet: var(--violet-brand);
-  --color-offwhite: var(--offwhite);
-  --color-brand-red: var(--brand-red);
-  --color-brand-red-dark: var(--brand-red-dark);
-
-  --font-display: "League Spartan", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-
-}
-
 
 :root {
   --radius: 0.75rem;
 
-  /* Acceleron brand palette - PROPER LIGHT THEME */
-  --navy-deep: #FFFFFF;          
-  --navy: #F5F7FB;               
-  --electric: #212f60;           
-  --cyan-brand: #4c5a8a;         
+  /* Acceleron brand palette - LIGHT THEME */
+  --navy-deep: #FFFFFF;
+  --navy: #F5F7FB;
+  --electric: #212f60;
+  --cyan-brand: #4c5a8a;
   --violet-brand: #3a497f;
-  --offwhite: #FFFFFF;           
-  --brand-red: #de1e24;          
-  --brand-red-dark: #b60f14;     
+  --offwhite: #FFFFFF;
+  --brand-red: #de1e24;
+  --brand-red-dark: #b60f14;
   --secondary-blue-soft: #232f6146;
 
   --background: #FFFFFF;
@@ -142,6 +92,7 @@
   --shadow-soft: 0 12px 40px -12px rgb(33 47 96 / 0.05);
   --shadow-card: 0 1px 2px rgb(33 47 96 / 0.06), 0 8px 32px -8px rgb(33 47 96 / 0.14);
 }
+
 .dark {
   --background: #0d1330;
   --foreground: #F5F7FB;
@@ -174,9 +125,6 @@
                    linear-gradient(180deg, #050914 0%, #0d1330 100%);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 32px -8px rgb(0 0 0 / 0.5);
 }
-
-
-
 
 @layer base {
   * {
@@ -401,4 +349,94 @@
   width: 100%;
   height: 100%;
 }
-.section-dark { background-color: #212f60; color: white; } .section-dark .text-foreground { color: white; } .section-dark .text-muted-foreground { color: rgba(255, 255, 255, 0.7); } .section-dark .bg-muted\/20 { background-color: rgba(255, 255, 255, 0.05); } .section-dark .bg-muted\/30 { background-color: rgba(255, 255, 255, 0.08); } .section-dark .border-border { border-color: rgba(255, 255, 255, 0.1); } .section-dark .border-border\/50 { border-color: rgba(255, 255, 255, 0.05); }
+
+/* ───── section-dark (light mode - strictly light in light theme) ───── */
+
+.section-dark {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+.section-dark .text-foreground { color: var(--foreground); }
+.section-dark .text-muted-foreground { color: var(--muted-foreground); }
+.section-dark .bg-muted\/20 { background-color: rgba(33, 47, 96, 0.03); }
+.section-dark .bg-muted\/30 { background-color: rgba(33, 47, 96, 0.05); }
+.section-dark .bg-muted\/40 { background-color: rgba(33, 47, 96, 0.07); }
+.section-dark .bg-muted\/50 { background-color: rgba(33, 47, 96, 0.1); }
+.section-dark .bg-background { background-color: var(--background); }
+.section-dark .bg-background\/50 { background-color: rgba(255, 255, 255, 0.5); }
+.section-dark .border-border { border-color: var(--border); }
+.section-dark .border-border\/50 { border-color: rgba(230, 233, 242, 0.6); }
+.section-dark .text-brand { color: var(--electric); }
+
+/* ───── section-dark (dark mode - strictly dark in dark theme) ───── */
+
+.dark .section-dark {
+  background-color: #141c3d;
+  color: #F5F7FB;
+}
+.dark .section-dark .text-foreground { color: #F5F7FB; }
+.dark .section-dark .text-muted-foreground { color: #a8b0cc; }
+.dark .section-dark .bg-muted\/20 { background-color: rgba(255, 255, 255, 0.04); }
+.dark .section-dark .bg-muted\/30 { background-color: rgba(255, 255, 255, 0.06); }
+.dark .section-dark .bg-muted\/40 { background-color: rgba(255, 255, 255, 0.08); }
+.dark .section-dark .bg-muted\/50 { background-color: rgba(255, 255, 255, 0.1); }
+.dark .section-dark .bg-background { background-color: rgba(255, 255, 255, 0.04); }
+.dark .section-dark .bg-background\/50 { background-color: rgba(255, 255, 255, 0.03); }
+.dark .section-dark .border-border { border-color: rgba(255, 255, 255, 0.08); }
+.dark .section-dark .border-border\/50 { border-color: rgba(255, 255, 255, 0.04); }
+.dark .section-dark .text-brand { color: #7b8ec8; }
+
+/* ───── section-dark form elements ───── */
+
+.section-dark input,
+.section-dark textarea,
+.section-dark select {
+  color: var(--foreground);
+  background-color: var(--background);
+  border-color: var(--border);
+}
+.section-dark input::placeholder,
+.section-dark textarea::placeholder {
+  color: var(--muted-foreground);
+}
+.section-dark input:focus,
+.section-dark textarea:focus,
+.section-dark select:focus {
+  border-color: var(--ring);
+  background-color: var(--background);
+}
+
+.dark .section-dark input,
+.dark .section-dark textarea,
+.dark .section-dark select {
+  color: #F5F7FB;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.dark .section-dark input::placeholder,
+.dark .section-dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.dark .section-dark input:focus,
+.dark .section-dark textarea:focus,
+.dark .section-dark select:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ───── Wave divider theme utilities ───── */
+
+.wave-bg-dark { background-color: var(--muted); }
+.dark .wave-bg-dark { background-color: #141c3d; }
+
+.wave-fill-dark { fill: var(--muted); }
+.dark .wave-fill-dark { fill: #141c3d; }
+
+.wave-bg-white { background-color: var(--background); }
+.wave-fill-white { fill: var(--background); }
+
+.wave-bg-light { background-color: var(--muted); }
+.wave-fill-light { fill: var(--muted); }
+
+.wave-bg-transparent { background-color: transparent; }
+.wave-fill-transparent { fill: transparent; }

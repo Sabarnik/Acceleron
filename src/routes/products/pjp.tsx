@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
-import { ArrowUpRight, TrendingUp, CheckCircle } from "lucide-react";
+import { ArrowUpRight, TrendingUp, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
 

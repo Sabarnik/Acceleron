@@ -1,62 +1,99 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Cloud, Code2, ShieldCheck, Cpu } from "lucide-react";
+import { ArrowUpRight, Code2, Server, ShieldCheck, Briefcase, BarChart3, Cloud } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
+import { SAPLogo, SalesforceLogo, ZohoLogo } from "../../components/ui/Icons";
+import { getSubServiceUrlByTitle } from "../../data/servicesData";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesHub,
 });
 
-function ServicesHub() {
-  const SERVICES = [
-    {
-      title: "Enterprise Application Services (EAS)",
-      desc: "Enterprise-grade SAP, Salesforce, and Zoho consulting, implementation, and managed services built on decades of hands-on delivery experience.",
-      icon: Cloud,
-      url: "/services/eas",
-      points: [
-        "SAP S/4HANA & RISE with SAP: Greenfield deployments, cloud migrations.",
-        "Salesforce Cloud Ecosystem: CPQ, Sales Cloud, Service Cloud, and Lightning.",
-        "Zoho Suite: Zoho Books, Zoho People (HRMS), and Zoho CRM optimized."
-      ]
-    },
-    {
-      title: "Software Development as a Service (SDaaS)",
-      desc: "Custom web, mobile, and enterprise software built using modern tech stacks and AI-assisted code generation to reduce development cycles.",
-      icon: Code2,
-      url: "/services/sdaas",
-      points: [
-        "Full Stack Development: Specialized teams in React, Next.js, Node.js, Python.",
-        "Mobile Apps: Native and cross-platform builds (Swift, Kotlin, Flutter).",
-        "Modernization: Migrating and updating legacy systems to secure architectures."
-      ]
-    },
-    {
-      title: "Digital, Data & Decision Services (D3S)",
-      desc: "Transforming connected physical assets into actionable intelligence and automated operational outcomes.",
-      icon: Cpu,
-      url: "/services/d3s",
-      points: [
-        "Connected Assets: Machine and equipment intelligence using advanced IoT pipelines.",
-        "Mining & Industrial Solutions: Deep learning algorithms deployed for operational optimization.",
-        "Operational Dashboards: Real-time asset health monitoring and performance visualization."
-      ]
-    },
-    {
-      title: "Cloud, Infrastructure & Security Services (CISS)",
-      desc: "The proactive operational backbone that keeps your enterprise protected and running smoothly 24/7.",
-      icon: ShieldCheck,
-      url: "/services/ciss",
-      points: [
-        "Multi-Cloud Managed Services: Infrastructure design and continuous optimization.",
-        "Zero-Trust Cybersecurity: ISO 27001 readiness, automated threat detection, VAPT.",
-        "Email & Collaboration Setup: Managed support for Microsoft 365, Google Workspace."
-      ]
-    }
-  ];
+type ServiceCategoryCard = {
+  title: string;
+  desc: string;
+  url: string;
+  Logo?: any;
+  useLogo?: boolean;
+  icon?: any;
+  gradient: string;
+  subs: string[];
+  img?: string;
+};
 
+const SERVICES: ServiceCategoryCard[] = [
+  {
+    title: "SAP",
+    desc: "End-to-end SAP consulting — from S/4HANA transformation and RISE with SAP to managed services and cloud migration.",
+    url: "/services/sap",
+    Logo: SAPLogo,
+    useLogo: true,
+    gradient: "from-blue-600 to-indigo-700",
+    subs: ["SAP HXM, CX", "SAP Analytics", "SAP Cloud Migration", "SAP Managed Services", "RISE with SAP", "SAP S/4 HANA Transformation"],
+  },
+  {
+    title: "Zoho",
+    desc: "Premium Zoho partner deploying CRM, ERP, Analytics, and the full Zoho One suite in weeks.",
+    url: "/services/zoho",
+    Logo: ZohoLogo,
+    useLogo: true,
+    gradient: "from-red-500 to-orange-600",
+    subs: ["Zoho WorkDrive", "Zoho Analytics", "Zoho CRM", "Zoho People & Payroll", "Zoho Books", "Zoho ERP"],
+  },
+  {
+    title: "Software Development",
+    desc: "Custom web, mobile, and enterprise software built with modern tech stacks and AI-assisted development.",
+    url: "/services/software-development",
+    icon: Code2,
+    gradient: "from-emerald-500 to-teal-600",
+    subs: ["Automation Solutions", "Software Development", "Web Development", "Mobile/Web App Development"],
+  },
+  {
+    title: "IT Infrastructure",
+    desc: "The operational backbone that keeps your enterprise running — network, cloud, email, and AMC.",
+    url: "/services/it-infrastructure",
+    icon: Server,
+    gradient: "from-slate-500 to-zinc-600",
+    subs: ["Infrastructure AMC", "Network Setup & Monitoring", "Cloud Infrastructure Management", "Email Management"],
+  },
+  {
+    title: "Salesforce",
+    desc: "Sales, Service, Marketing and Data Cloud — CRM engineered around your customer journey.",
+    url: "/services/salesforce",
+    Logo: SalesforceLogo,
+    useLogo: true,
+    gradient: "from-sky-500 to-blue-600",
+    subs: ["Salesforce Migration", "Implementation, AMS, ADS", "Lightning Platform", "Service Cloud", "Sales Cloud", "Salesforce CPQ"],
+  },
+  {
+    title: "Cyber Security",
+    desc: "Zero-trust security, ISO 27001 readiness, automated threat detection, and penetration testing.",
+    url: "/services/cyber-security",
+    icon: ShieldCheck,
+    gradient: "from-amber-500 to-orange-600",
+    subs: ["ISO 27001 Certification", "Awareness Programs", "VAPT", "Email Security", "Detection on Demand", "Network Security & Forensics", "Endpoint Security"],
+  },
+  {
+    title: "CXO Advisory",
+    desc: "Strategic technology advisory for C-suite executives bridging business vision and IT execution.",
+    url: "/services/cxo-advisory",
+    icon: Briefcase,
+    gradient: "from-violet-500 to-purple-600",
+    subs: ["Business Excellence via Technology", "Digital Transformation", "IT Roadmap Creation", "Strategic IT Investment"],
+  },
+  {
+    title: "Analytics",
+    desc: "Turn raw data into intelligence — from data lake architecture to real-time dashboards and BI.",
+    url: "/services/analytics",
+    icon: BarChart3,
+    gradient: "from-cyan-500 to-blue-600",
+    subs: ["Data Lake Solutions", "Data Visualization & Reporting", "Enterprise Data Warehousing", "Advisory Services"],
+  },
+];
+
+function ServicesHub() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
@@ -69,35 +106,51 @@ function ServicesHub() {
       {/* Services Grid */}
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <div className="grid lg:grid-cols-2 gap-8">
-          {SERVICES.map((srv, idx) => (
-            <Reveal key={srv.title} delay={0.1 * idx}>
-              <Link to={srv.url as any} className="block h-full">
+          {SERVICES.map((srv, idx) => {
+            const IconComp = srv.icon;
+            return (
+              <Reveal key={srv.title} delay={0.08 * idx}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="rounded-3xl border border-border/50 bg-background/50 p-10 hover:border-brand/30 transition-all hover:shadow-soft group backdrop-blur-xl h-full flex flex-col"
+                  className="rounded-3xl border border-border bg-card p-10 hover:border-brand/30 transition-all hover:shadow-soft group h-full flex flex-col justify-between"
                 >
-                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow group-hover:scale-110 transition-transform">
-                    <srv.icon className="h-8 w-8" />
+                  <div>
+                    <Link to={srv.url as any} className="block cursor-pointer">
+                      <div className="mb-8 flex items-center gap-4">
+                        <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${srv.gradient} overflow-hidden p-2 shadow-glow group-hover:scale-110 transition-transform`}>
+                          {srv.img ? (
+                            <img src={srv.img} alt={srv.title} className="h-full w-full object-cover rounded-xl" />
+                          ) : srv.useLogo && srv.Logo ? (
+                            <srv.Logo className="h-8 w-8" />
+                          ) : IconComp ? (
+                            <IconComp className="h-7 w-7 text-white" />
+                          ) : null}
+                        </div>
+                        <h3 className="text-2xl font-bold text-foreground group-hover:text-brand transition-colors">{srv.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">{srv.desc}</p>
+                    </Link>
+
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {srv.subs.map((sub) => (
+                        <Link
+                          key={sub}
+                          to={getSubServiceUrlByTitle(srv.url, sub) as any}
+                          className="inline-block rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs text-muted-foreground hover:border-brand hover:bg-brand/10 hover:text-brand transition-all font-medium cursor-pointer"
+                        >
+                          {sub} →
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-brand transition-colors">{srv.title}</h3>
-                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                    {srv.desc}
-                  </p>
-                  <ul className="space-y-4 mb-8 flex-1">
-                    {srv.points.map((pt, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="mt-2 h-2 w-2 rounded-full bg-brand shrink-0" />
-                        <p className="text-muted-foreground">{pt}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto flex items-center text-sm font-semibold text-brand">
-                    Explore Service <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </div>
+
+                  <Link to={srv.url as any} className="mt-auto flex items-center text-sm font-semibold text-brand pt-4 border-t border-border/40 hover:gap-2 transition-all cursor-pointer block">
+                    Explore {srv.title} Hub <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 inline" />
+                  </Link>
                 </motion.div>
-              </Link>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </main>

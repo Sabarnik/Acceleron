@@ -10,17 +10,16 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const MILESTONES = [
-    { y: "2010", t: "Founded in Bangalore", d: "3 engineers, one workshop." },
-    { y: "2014", t: "First SAP S/4HANA delivery", d: "Enterprise-grade from day one." },
-    { y: "2018", t: "Salesforce Platinum Partner", d: "CRM at scale." },
-    { y: "2022", t: "AI practice launched", d: "Generative + predictive, in production." },
-    { y: "2025", t: "200+ enterprises. 28 countries.", d: "And we're just getting started." },
+    { t: "Gainwell Group Heritage", d: "Built as the technology engine of the 80-year-old Gainwell Group, rooted in mining, engineering, and heavy-equipment operations." },
+    { t: "Global Delivery Expansion", d: "Established strategic delivery hubs across Kolkata (HQ), Delhi NCR, Singapore, West Virginia, and NSW." },
+    { t: "Enterprise Practice Leadership", d: "Scaled dedicated, certified centers of excellence in SAP S/4HANA, Salesforce, Zoho Suite, Cloud Infrastructure, and Cyber Security." },
+    { t: "Global Digital Transformation", d: "Modernized core ERP and customer intelligence for 200+ enterprise clients across 28 countries." },
+    { t: "Next-Gen Analytics & AI Deployment", d: "Launched advanced data lake architectures and predictive, generative AI agents running live in production." },
   ];
 
   const OFFICES = [
     { city: "Kolkata", country: "India", label: "HQ & Delivery Center" },
     { city: "Delhi NCR", country: "India", label: "Delivery Center" },
-    { city: "Bangalore", country: "India", label: "Engineering Hub" },
     { city: "Singapore", country: "Singapore", label: "APAC Office" },
     { city: "West Virginia", country: "USA", label: "Americas Office" },
     { city: "NSW", country: "Australia", label: "APAC Office" },
@@ -65,18 +64,20 @@ function AboutPage() {
                 <div className="mt-8 space-y-6">
                   {MILESTONES.map((m, i) => (
                     <motion.div
-                      key={m.y}
+                      key={m.t}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6 }}
-                      className="relative flex gap-6 border-l border-border pl-6"
+                      className="relative flex gap-4 border-l border-border pl-6 py-1"
                     >
-                      <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand shadow-[0_0_20px_oklch(0.62_0.22_260)]" />
-                      <div className="w-14 shrink-0 text-sm font-semibold text-brand-red">{m.y}</div>
+                      <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-brand shadow-[0_0_20px_oklch(0.62_0.22_260)]" />
                       <div className="min-w-0">
-                        <div className="text-sm font-medium">{m.t}</div>
-                        <div className="text-xs text-foreground/50">{m.d}</div>
+                        <div className="text-sm font-bold text-foreground flex items-center gap-2">
+                          <span className="text-xs font-semibold text-brand-red px-2 py-0.5 rounded bg-brand-red/10">0{i + 1}</span>
+                          {m.t}
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{m.d}</div>
                       </div>
                     </motion.div>
                   ))}

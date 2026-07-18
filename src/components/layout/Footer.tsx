@@ -54,10 +54,12 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-foreground mb-6">Services</h4>
             <ul className="space-y-4">
-              <li><Link to="/services" className="text-muted-foreground hover:text-brand transition-colors">SAP S/4HANA</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-brand transition-colors">Salesforce</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-brand transition-colors">Custom Dev</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-brand transition-colors">Cybersecurity</Link></li>
+              <li><Link to="/services/sap" className="text-muted-foreground hover:text-brand transition-colors">SAP</Link></li>
+              <li><Link to="/services/salesforce" className="text-muted-foreground hover:text-brand transition-colors">Salesforce</Link></li>
+              <li><Link to="/services/zoho" className="text-muted-foreground hover:text-brand transition-colors">Zoho</Link></li>
+              <li><Link to="/services/cyber-security" className="text-muted-foreground hover:text-brand transition-colors">Cyber Security</Link></li>
+              <li><Link to="/services/software-development" className="text-muted-foreground hover:text-brand transition-colors">Software Dev</Link></li>
+              <li><Link to="/services/analytics" className="text-muted-foreground hover:text-brand transition-colors">Analytics</Link></li>
             </ul>
           </div>
 
