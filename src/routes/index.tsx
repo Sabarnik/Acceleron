@@ -128,6 +128,36 @@ function SlideZoho() {
   );
 }
 
+function SlideSAPCloud() {
+  return (
+    <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_40%_50%,oklch(0.68_0.19_240/0.45),transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_45%_at_80%_40%,oklch(0.62_0.22_260/0.35),transparent_65%)]" />
+      <div className="absolute inset-0 grid-lines opacity-25" />
+      {[...Array(18)].map((_, i) => {
+        const angle = (i / 18) * Math.PI * 2;
+        const r = 200 + (i % 3) * 75;
+        return (
+          <motion.div
+            key={i}
+            className="absolute left-[45%] top-1/2 h-2 w-2 rounded-full bg-cyan shadow-[0_0_15px_var(--cyan-brand)]"
+            style={{ x: Math.cos(angle) * r, y: Math.sin(angle) * r }}
+            animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.9, 0.3], y: [Math.sin(angle) * r, Math.sin(angle) * r - 15, Math.sin(angle) * r] }}
+            transition={{ duration: 3 + (i % 2), delay: i * 0.1, repeat: Infinity, ease: "easeInOut" }}
+          />
+        );
+      })}
+      <motion.div
+        animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        className="absolute left-[45%] top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-cyan/25"
+      >
+        <div className="absolute top-0 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_20px_var(--cyan-brand)]" />
+        <div className="absolute bottom-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-electric shadow-[0_0_20px_var(--electric)]" />
+      </motion.div>
+    </div>
+  );
+}
+
 const SLIDES: Slide[] = [
   {
     eyebrow: "Enterprise IT Consulting, SAP, Salesforce & Software Development",
@@ -154,12 +184,12 @@ const SLIDES: Slide[] = [
     Visual: SlideZoho,
   },
   {
-    eyebrow: "Chapter 04 · Customer 360",
-    title: "Salesforce, ",
-    accent: "reimagined.",
-    sub: "Sales, Service, Marketing and Data Cloud — CRM engineered around your customer.",
-    gradient: "from-[oklch(0.16_0.07_250)] to-[oklch(0.22_0.09_255)]",
-    Visual: SlideSalesforce,
+    eyebrow: "Chapter 04 · SAP Cloud & RISE with SAP",
+    title: "SAP Cloud, ",
+    accent: "at scale.",
+    sub: "RISE with SAP, Business Technology Platform (BTP), and resilient cloud migrations — modernizing your digital core with zero disruption.",
+    gradient: "from-[oklch(0.16_0.07_240)] to-[oklch(0.22_0.09_255)]",
+    Visual: SlideSAPCloud,
   },
 ];
 
@@ -249,27 +279,27 @@ const CONSOLES: ConsoleData[] = [
     badge: { icon: Award, kicker: "Zoho Premium Partner", text: "Advanced tier · 2025" },
   },
   {
-    brand: "Salesforce",
-    app: "acceleron · crm ops",
-    nav: ["Sales Cloud", "Service Cloud", "Marketing", "Data Cloud", "Einstein"],
-    region: "us-east-1",
+    brand: "SAP Cloud & BTP",
+    app: "acceleron · cloud cockpit",
+    nav: ["RISE with SAP", "BTP Apps", "Cloud Migration", "Integration", "Analytics"],
+    region: "global-multi-cloud",
     metrics: [
-      { label: "Pipeline generated", v: "$48M", d: "trailing 90 days" },
-      { label: "Case resolution", v: "3.2×", d: "faster with Einstein" },
-      { label: "Unified profiles", v: "12.4M", d: "in Data Cloud" },
+      { label: "Workloads migrated", v: "100%", d: "zero data loss" },
+      { label: "BTP extensions live", v: "64+", d: "custom enterprise apps" },
+      { label: "Cloud uptime SLA", v: "99.99%", d: "high availability" },
     ],
-    chartLabel: "Opportunities · 24h",
-    slaLabel: "Case SLA by queue",
+    chartLabel: "Cloud API Throughput · 24h",
+    slaLabel: "Migration health by phase",
     slaRows: [
-      { label: "Tier 1", value: 94 },
-      { label: "Tier 2", value: 81 },
-      { label: "Field", value: 76 },
-      { label: "VIP", value: 98 },
+      { label: "Assessment", value: 100 },
+      { label: "Core Move", value: 98 },
+      { label: "BTP Sync", value: 94 },
+      { label: "Go-Live", value: 99 },
     ],
-    eventsLabel: "Flow events",
-    events: ["Einstein · lead scored ×214", "Flow · opp stage → Closed Won", "Data Cloud · segment refreshed"],
-    floater: { label: "NPS", value: "72" },
-    badge: { icon: Cloud, kicker: "Salesforce Consulting", text: "Summit Partner" },
+    eventsLabel: "Cloud telemetry",
+    events: ["RISE · S/4HANA private cloud sync", "BTP · CAP extension active", "Migration · zero downtime cutover OK"],
+    floater: { label: "Cloud Uptime", value: "99.99%" },
+    badge: { icon: Cloud, kicker: "SAP Cloud Transformation", text: "RISE & BTP Certified Partner" },
   },
 ];
 
@@ -439,7 +469,7 @@ function Hero() {
   }, []);
 
   const s = SLIDES[index];
-  const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#3a497f"];
+  const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#0FAAFF"];
   const tone = TONES[index];
 
   /* partner logos with real SVGs */
@@ -508,23 +538,13 @@ function Hero() {
             <MagneticButton href="#contact">
               Start your journey <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </MagneticButton>
-            <a href="#services"
+            <a href="#story"
               className="group inline-flex items-center gap-2.5 rounded-full border border-border px-6 py-4 text-sm font-medium text-foreground transition-all hover:border-border hover:bg-muted/5">
               <span className="grid h-6 w-6 place-items-center rounded-full border border-border transition-transform group-hover:scale-110">
                 <Play className="h-2.5 w-2.5 fill-foreground" />
               </span>
               Watch the story
             </a>
-            <Link
-              to="/careers"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-brand-red/30 bg-brand-red/10 px-6 py-4 text-sm font-medium text-brand-red transition-all hover:bg-brand-red/20 hover:border-brand-red hover:scale-[1.02] shadow-sm"
-            >
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-brand-red/20 transition-transform group-hover:scale-110">
-                <Briefcase className="h-3.5 w-3.5 text-brand-red" />
-              </span>
-              Explore Careers
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
           </motion.div>
 
           <motion.a
@@ -1848,15 +1868,15 @@ function Contact() {
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Name</label>
-                  <input type="text" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <input type="text" placeholder="Name" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Email</label>
-                  <input type="email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <input type="email" placeholder="Email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Message</label>
-                  <textarea rows={4} className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <textarea rows={4} placeholder="Message" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <button type="submit" className="w-full rounded-xl bg-brand-gradient py-4 text-white font-bold shadow-glow hover:scale-[1.02] transition-transform">Send Message</button>
               </form>

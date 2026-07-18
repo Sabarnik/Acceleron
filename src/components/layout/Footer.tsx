@@ -23,8 +23,12 @@ export function Footer() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-block mb-6">
-              <img src="/logo.png" alt="Acceleron Solutions" className="h-10 object-contain dark:brightness-0 dark:invert opacity-90" />
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-block mb-6 cursor-pointer"
+            >
+              <img src="/logo.png" alt="Acceleron Solutions" className="h-10 object-contain dark:brightness-0 dark:invert opacity-90 transition-opacity hover:opacity-100" />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm">
               Engineering digital excellence through modern enterprise platforms, SAP, and Salesforce.
@@ -45,7 +49,7 @@ export function Footer() {
               <div className="text-lg font-semibold text-foreground">Get the Acceleron dispatch</div>
               <div className="text-sm text-muted-foreground mt-1 mb-4">One email a month. Enterprise transformation, decoded.</div>
               <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="you@company.com" className="w-full sm:w-auto min-w-0 flex-1 rounded-full border border-border bg-muted/5 px-5 py-3 text-sm outline-none placeholder:text-foreground/40 focus:border-cyan" />
+                <input type="email" placeholder="Email Address" className="w-full sm:w-auto min-w-0 flex-1 rounded-full border border-border bg-muted/5 px-5 py-3 text-sm outline-none placeholder:text-foreground/40 focus:border-cyan" />
                 <button className="w-full sm:w-auto rounded-full bg-brand-gradient px-6 py-3 text-sm font-medium text-[#FFFFFF] shadow-glow transition-all hover:scale-105">Subscribe</button>
               </form>
             </div>

@@ -27,15 +27,15 @@ function ContactPage() {
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Name</label>
-                  <input type="text" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <input type="text" placeholder="Name" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Email</label>
-                  <input type="email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <input type="email" placeholder="Email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Message</label>
-                  <textarea rows={4} className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                  <textarea rows={4} placeholder="Message" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
                 </div>
                 <button type="button" className="w-full rounded-xl bg-brand-gradient py-4 text-white font-bold shadow-glow hover:scale-[1.02] transition-transform">Send Message</button>
               </form>
