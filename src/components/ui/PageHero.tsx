@@ -36,10 +36,20 @@ export function PageHero({
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
-          <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-40 mix-blend-multiply`} />
         </div>
+
+        {/* Top Navbar Vignette for crisp separation */}
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-[5] pointer-events-none" />
+
+        {/* Light Mode Overlay: Deep Navy / Slate gradient that keeps image vibrant while separating from white navbar */}
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/70 to-transparent" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/40 to-transparent" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-br from-brand-red/10 via-transparent to-brand/20 mix-blend-overlay" />
+
+        {/* Dark Mode Overlay: Rich Midnight / Background gradient */}
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent" />
+        <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-30 mix-blend-multiply`} />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-6 max-w-7xl pb-16 pt-32">
@@ -60,10 +70,10 @@ export function PageHero({
                   {icon}
                 </motion.div>
               )}
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 leading-[1.05]">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.05]">
                 {title}
               </h1>
-              <p className="text-lg md:text-xl text-foreground/70 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
                 {subtitle}
               </p>
               <Link

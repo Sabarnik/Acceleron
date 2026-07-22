@@ -16,7 +16,7 @@ function ProductPage() {
         subtitle="Plan optimized visit routes, monitor field sales activities with geo-fenced verify check-ins, and secure your marketing budgets."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "PJP" }]}
         image="https://images.unsplash.com/photo-1548345680-f5475ea90f83?q=80&w=2073&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-glow"><TrendingUp className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/IFSM.png" alt="PJP IFSM" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

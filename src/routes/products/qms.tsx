@@ -16,7 +16,7 @@ function ProductPage() {
         subtitle="Drive workshop efficiency, maintain regulatory compliance, and eliminate quality non-conformances with an SAP-integrated floor management engine."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "QMS" }]}
         image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-fuchsia-500 to-violet-600 text-white shadow-glow"><Layers className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/qms.png" alt="QMS" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

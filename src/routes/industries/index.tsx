@@ -1,75 +1,96 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, HardHat, Factory, Zap } from "lucide-react";
+import { ArrowRight, Pickaxe, Factory, Boxes, Truck, Zap, Building2 } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { Link } from "@tanstack/react-router";
+import { INDUSTRIES_DATA } from "../../data/industriesData";
 
 export const Route = createFileRoute("/industries/")({
+  head: () => ({
+    meta: [
+      { title: "Industries & Verticals — Acceleron Solutions" },
+      { name: "description", content: "Deep operational tech solutions across Mining, Discrete Manufacturing, Capital Goods, Logistics, Utilities, and Construction." },
+    ],
+  }),
   component: IndustriesHub,
 });
 
+const ICON_MAP = {
+  mining: Pickaxe,
+  "discrete-manufacturing": Factory,
+  "capital-goods": Boxes,
+  "transportation-services-logistics": Truck,
+  utilities: Zap,
+  "engineering-construction-operations": Building2,
+};
+
 function IndustriesHub() {
-  const INDUSTRIES = [
-    {
-      name: "Mining",
-      desc: "Optimizing production scheduling, equipment maintenance, and field safety.",
-      url: "/industries/mining",
-      icon: HardHat,
-      image: "https://images.unsplash.com/photo-1578508493188-f54f738b584d?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      name: "Discrete Manufacturing",
-      desc: "Connecting production floors, reducing cycle times, and minimizing downtime.",
-      url: "/industries/discrete-manufacturing",
-      icon: Factory,
-      image: "https://images.unsplash.com/photo-1565158145899-79f90f10c663?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      name: "Utilities",
-      desc: "Managing complex infrastructure, asset lifecycles, and billing operations.",
-      url: "/industries/utilities",
-      icon: Zap,
-      image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop"
-    }
-  ];
+  const industriesList = Object.values(INDUSTRIES_DATA);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
-        title="We Build for the Physical World"
-        subtitle="Our solutions are forged in the reality of mines, manufacturing floors, and utility grids—where software bugs don't just cause downtime, they stop production."
+        title="We Build for Heavy Industry & Enterprise Operations"
+        subtitle="Our solutions are forged in the reality of mines, manufacturing plants, logistics hubs, and utility grids—where software reliability directly impacts production and safety."
         breadcrumbs={[{ label: "Industries" }]}
-        image="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=2071&auto=format&fit=crop"
-        ctaText="See Our Work"
+        image="/1.png"
+        ctaText="Discuss Your Industry Needs"
+        ctaHref="/contact"
       />
 
       {/* Industries Grid */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid md:grid-cols-3 gap-8">
-          {INDUSTRIES.map((ind, idx) => (
-            <Reveal key={ind.name} delay={0.1 * idx}>
-              <Link to={ind.url as any} className="block group rounded-3xl overflow-hidden border border-border/50 bg-background/50 hover:border-brand/30 transition-all hover:shadow-soft hover:-translate-y-1 h-full flex flex-col">
-                <div className="relative h-48 w-full overflow-hidden">
-                  <img src={ind.image} alt={ind.name} className="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity hover:mix-blend-normal" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-                  <div className="absolute bottom-4 left-6 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-glow">
-                    <ind.icon className="h-6 w-6" />
+      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Sectors We Transform</div>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Industry Verticals & <span className="text-gradient">Domain Mastery</span>
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {industriesList.map((ind, idx) => {
+            const IconComp = ICON_MAP[ind.slug as keyof typeof ICON_MAP] || Factory;
+            return (
+              <Reveal key={ind.slug} delay={0.08 * idx}>
+                <Link
+                  to={`/industries/${ind.slug}` as any}
+                  className="block group rounded-3xl overflow-hidden border border-border/50 bg-muted/20 hover:border-brand/40 hover:bg-muted/40 transition-all duration-300 hover:shadow-glow h-full flex flex-col justify-between"
+                >
+                  <div className="relative h-52 w-full overflow-hidden bg-muted">
+                    <img
+                      src={ind.image}
+                      alt={ind.title}
+                      loading="lazy"
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                    <div className="absolute bottom-4 left-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow">
+                      <IconComp className="h-6 w-6" />
+                    </div>
                   </div>
-                </div>
-                <div className="p-8 pt-4 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">{ind.name}</h3>
-                  <p className="text-muted-foreground mb-8 flex-1">
-                    {ind.desc}
-                  </p>
-                  <div className="flex items-center text-sm font-semibold text-brand mt-auto">
-                    View Sector Solutions <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <div className="p-8 pt-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
+                        {ind.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}
+                      </h3>
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-6">
+                        {ind.overview}
+                      </p>
+                    </div>
+                    <div className="flex items-center text-xs font-bold text-brand mt-auto group-hover:translate-x-1 transition-transform">
+                      Explore Vertical Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
+
+      <WaveDivider from="dark" to="white" />
     </main>
   );
 }

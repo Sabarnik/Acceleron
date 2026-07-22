@@ -10,8 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
@@ -32,14 +34,23 @@ import { Route as ProductsQmsRouteImport } from './routes/products/qms'
 import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
 import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
 import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
+import { Route as IndustriesTransportationServicesLogisticsRouteImport } from './routes/industries/transportation-services-logistics'
 import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
+import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from './routes/industries/engineering-construction-operations'
 import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
+import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
+import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -50,6 +61,11 @@ const ContactRoute = ContactRouteImport.update({
 const CareersRoute = CareersRouteImport.update({
   id: '/careers',
   path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -154,17 +170,39 @@ const IndustriesUtilitiesRoute = IndustriesUtilitiesRouteImport.update({
   path: '/industries/utilities',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesTransportationServicesLogisticsRoute =
+  IndustriesTransportationServicesLogisticsRouteImport.update({
+    id: '/industries/transportation-services-logistics',
+    path: '/industries/transportation-services-logistics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
   id: '/industries/mining',
   path: '/industries/mining',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesEngineeringConstructionOperationsRoute =
+  IndustriesEngineeringConstructionOperationsRouteImport.update({
+    id: '/industries/engineering-construction-operations',
+    path: '/industries/engineering-construction-operations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndustriesDiscreteManufacturingRoute =
   IndustriesDiscreteManufacturingRouteImport.update({
     id: '/industries/discrete-manufacturing',
     path: '/industries/discrete-manufacturing',
     getParentRoute: () => rootRouteImport,
   } as any)
+const IndustriesCapitalGoodsRoute = IndustriesCapitalGoodsRouteImport.update({
+  id: '/industries/capital-goods',
+  path: '/industries/capital-goods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesDetailSlugRoute = ServicesDetailSlugRouteImport.update({
   id: '/services/detail/$slug',
   path: '/services/detail/$slug',
@@ -179,11 +217,17 @@ const ServicesCategoryServiceRoute = ServicesCategoryServiceRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
   '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
   '/products/cwms': typeof ProductsCwmsRoute
   '/products/pjp': typeof ProductsPjpRoute
@@ -208,11 +252,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
   '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
   '/products/cwms': typeof ProductsCwmsRoute
   '/products/pjp': typeof ProductsPjpRoute
@@ -238,11 +288,17 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/team': typeof TeamRoute
+  '/blog_/$slug': typeof BlogSlugRoute
+  '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
+  '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
   '/industries/mining': typeof IndustriesMiningRoute
+  '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
   '/products/cwms': typeof ProductsCwmsRoute
   '/products/pjp': typeof ProductsPjpRoute
@@ -269,11 +325,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/contact'
+    | '/gallery'
     | '/team'
+    | '/blog/$slug'
+    | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
+    | '/industries/engineering-construction-operations'
     | '/industries/mining'
+    | '/industries/transportation-services-logistics'
     | '/industries/utilities'
     | '/products/cwms'
     | '/products/pjp'
@@ -298,11 +360,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/contact'
+    | '/gallery'
     | '/team'
+    | '/blog/$slug'
+    | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
+    | '/industries/engineering-construction-operations'
     | '/industries/mining'
+    | '/industries/transportation-services-logistics'
     | '/industries/utilities'
     | '/products/cwms'
     | '/products/pjp'
@@ -327,11 +395,17 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
     | '/careers'
     | '/contact'
+    | '/gallery'
     | '/team'
+    | '/blog_/$slug'
+    | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
+    | '/industries/engineering-construction-operations'
     | '/industries/mining'
+    | '/industries/transportation-services-logistics'
     | '/industries/utilities'
     | '/products/cwms'
     | '/products/pjp'
@@ -357,11 +431,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
   TeamRoute: typeof TeamRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
   IndustriesDiscreteManufacturingRoute: typeof IndustriesDiscreteManufacturingRoute
+  IndustriesEngineeringConstructionOperationsRoute: typeof IndustriesEngineeringConstructionOperationsRoute
   IndustriesMiningRoute: typeof IndustriesMiningRoute
+  IndustriesTransportationServicesLogisticsRoute: typeof IndustriesTransportationServicesLogisticsRoute
   IndustriesUtilitiesRoute: typeof IndustriesUtilitiesRoute
   ProductsCwmsRoute: typeof ProductsCwmsRoute
   ProductsPjpRoute: typeof ProductsPjpRoute
@@ -393,6 +473,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -405,6 +492,13 @@ declare module '@tanstack/react-router' {
       path: '/careers'
       fullPath: '/careers'
       preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -547,6 +641,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesUtilitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/transportation-services-logistics': {
+      id: '/industries/transportation-services-logistics'
+      path: '/industries/transportation-services-logistics'
+      fullPath: '/industries/transportation-services-logistics'
+      preLoaderRoute: typeof IndustriesTransportationServicesLogisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/mining': {
       id: '/industries/mining'
       path: '/industries/mining'
@@ -554,11 +655,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesMiningRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/engineering-construction-operations': {
+      id: '/industries/engineering-construction-operations'
+      path: '/industries/engineering-construction-operations'
+      fullPath: '/industries/engineering-construction-operations'
+      preLoaderRoute: typeof IndustriesEngineeringConstructionOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/discrete-manufacturing': {
       id: '/industries/discrete-manufacturing'
       path: '/industries/discrete-manufacturing'
       fullPath: '/industries/discrete-manufacturing'
       preLoaderRoute: typeof IndustriesDiscreteManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/capital-goods': {
+      id: '/industries/capital-goods'
+      path: '/industries/capital-goods'
+      fullPath: '/industries/capital-goods'
+      preLoaderRoute: typeof IndustriesCapitalGoodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog_/$slug': {
+      id: '/blog_/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/detail/$slug': {
@@ -581,11 +703,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
   TeamRoute: TeamRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  IndustriesCapitalGoodsRoute: IndustriesCapitalGoodsRoute,
   IndustriesDiscreteManufacturingRoute: IndustriesDiscreteManufacturingRoute,
+  IndustriesEngineeringConstructionOperationsRoute:
+    IndustriesEngineeringConstructionOperationsRoute,
   IndustriesMiningRoute: IndustriesMiningRoute,
+  IndustriesTransportationServicesLogisticsRoute:
+    IndustriesTransportationServicesLogisticsRoute,
   IndustriesUtilitiesRoute: IndustriesUtilitiesRoute,
   ProductsCwmsRoute: ProductsCwmsRoute,
   ProductsPjpRoute: ProductsPjpRoute,

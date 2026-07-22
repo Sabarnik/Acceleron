@@ -16,7 +16,7 @@ function ProductPage() {
         subtitle="Eliminate manual processing delays and optimize supply chains by automating POs, invoices, ASNs, and compliance tracking."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Supplier Portal" }]}
         image="https://images.unsplash.com/photo-1586528116311-ad8ed7c15f5f?q=80&w=2070&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-glow"><ShoppingBag className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/vanijya.png" alt="Vanijya Supplier Portal" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

@@ -39,7 +39,7 @@ function SalesforcePage() {
                   <div>
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="h-6 w-6 text-brand-red shrink-0 mt-0.5" />
+                        <SalesforceLogo className="h-6 w-6 text-sky-500 shrink-0 mt-0.5" />
                         <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">{s.title}</h3>
                       </div>
                       <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />

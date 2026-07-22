@@ -597,6 +597,57 @@ function Hero() {
   );
 }
 
+/* ═══════════════════ ECOSYSTEM MARQUEE ═══════════════════ */
+
+function EcosystemMarquee() {
+  const ECOSYSTEM_LOGOS = [
+    { name: "SAP S/4HANA", logo: "/sap_s4hana-transparentbg.png" },
+    { name: "RISE with SAP", logo: "/vital-wires-Rise-with-SAP-3.png" },
+    { name: "Zoho Suite", logo: "/ZOHO_logo_2023.svg_.png" },
+    { name: "AWS Cloud", logo: "/AWS_Logo.png" },
+    { name: "Microsoft", logo: "/Microsoft_logo.png" },
+    { name: "Trimble", logo: "/TRIMBLE.png" },
+    { name: "Tulip Compression", logo: "/TulipCompression.png" },
+    { name: "Sitech", logo: "/SITECH.png" },
+    { name: "SEM", logo: "/SEM.png" },
+    { name: "RPM Global", logo: "/rpmglobal.png" },
+    { name: "Ontrak", logo: "/ontrak.png" },
+    { name: "Lintec & Linnhoff", logo: "/lintec&linhoff.png" },
+    { name: "Paus", logo: "/PAUS.png" },
+    { name: "TIPL CAT", logo: "/TIPL.jpg" },
+    { name: "Gainwell", logo: "/Gainwell.jpg" },
+    { name: "Gainwell CAT", logo: "/GainwellCAT.jpg" },
+    { name: "Gainwell Engineering", logo: "/GainwellEngineering.jpg" },
+    { name: "PCM", logo: "/PCM.png" },
+    { name: "TMC", logo: "/TMC-removebg-preview.png" },
+    { name: "Livpure", logo: "/Livpure_LOGO_Purple_2048x2048_8465dc4a-1c7e-472e-ab6c-b78e8af8446f.png" },
+    { name: "Equipcare", logo: "/equipcare.png" },
+    { name: "Ambey Mining", logo: "/Ampl.png" },
+  ];
+
+  return (
+    <section className="relative bg-muted/30 border-y border-border/50 py-10 overflow-hidden z-20">
+      <div className="mx-auto max-w-7xl px-6 mb-6 text-center">
+        <div className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-red">Trusted Technology Partners & Global Clients</div>
+      </div>
+      <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="flex items-center gap-8 shrink-0 pr-8"
+        >
+          {[...ECOSYSTEM_LOGOS, ...ECOSYSTEM_LOGOS].map((item, idx) => (
+            <div key={idx} className="flex items-center gap-3 shrink-0 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-muted/40 border border-border/50 backdrop-blur-md shadow-soft hover:border-brand/40 transition-all">
+              <img src={item.logo} alt={item.name} loading="lazy" className="h-8 max-w-[110px] object-contain" />
+              <span className="text-xs font-bold text-foreground/80">{item.name}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 /* ═══════════════════ SCROLL STORYTELLING ═══════════════════ */
 
 const STORY_CHAPTERS = [
@@ -1585,48 +1636,64 @@ function Process() {
 function Events() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const eventSlides = [
     {
       id: 1,
-      title: "Acceleron Global Tech Summit 2025",
-      date: "March 14, 2025",
-      location: "Bangalore Innovation Hub",
-      category: "Summit",
-      desc: "Our annual leadership summit exploring enterprise AI adoption, SAP S/4HANA transformations, and next-gen cybersecurity frameworks with 500+ industry executives.",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-      customImage: undefined
+      title: "EXCON International Expo 2024",
+      date: "December 12–16, 2024",
+      location: "BIEC, Bengaluru",
+      category: "Conferences & Expo",
+      desc: "Showcasing Acceleron Solutions' Suraksha Field Safety, Tyre Health, and SAP S/4HANA enterprise platforms to 50,000+ heavy industry delegates at Stall OD 4A01.",
+      image: "/Excon pic 1.jpg",
     },
     {
       id: 2,
-      title: "CXO Advisory & Cloud Transformation Workshop",
-      date: "February 22, 2025",
-      location: "Singapore / Hybrid",
-      category: "Workshop",
-      desc: "An exclusive round-table workshop where C-suite leaders align strategic multi-cloud investments with tangible operational ROI and risk mitigation.",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop",
-      customImage: undefined
+      title: "Global Enterprise Leadership Keynotes",
+      date: "March 14, 2025",
+      location: "Tech Innovation Center, Kolkata",
+      category: "Leadership Summit",
+      desc: "Arindam Hari, Meena Chaturvedi, and executive leaders sharing insights on SAP cloud migrations, AI agent deployment, and industrial digital transformation.",
+      image: "/Arindam Hari Speaking.JPG",
     },
     {
       id: 3,
-      title: "Zoho & Salesforce Ecosystem Hackathon",
-      date: "January 18, 2025",
-      location: "Delhi NCR Tech Center",
-      category: "Hackathon",
-      desc: "Over 200 developers and solution architects competing to build automated custom CRM workflows, AI agents, and enterprise integrations in 48 hours.",
-      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop",
-      customImage: undefined
+      title: "Tech Innovation & SAP Cloud Workshops",
+      date: "February 20, 2025",
+      location: "Acceleron Delivery Hub",
+      category: "Workshops",
+      desc: "Interactive technical deep-dives with enterprise solution architects on RISE with SAP, S/4HANA migration frameworks, and Salesforce Lightning integrations.",
+      image: "/Rishabh Nair Speaking.JPG",
     },
     {
       id: 4,
-      title: "Industrial Safety & Suraksha Launch Event",
-      date: "December 05, 2024",
-      location: "Kolkata Delivery Center",
-      category: "Product Launch",
-      desc: "Official unveiling of our Suraksha Field Safety and Tyre Health platforms tailored for heavy manufacturing, mining, and logistics fleets across India.",
-      image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?q=80&w=2070&auto=format&fit=crop",
-      customImage: undefined
-    }
+      title: "Modern Tech Center Inauguration",
+      date: "January 15, 2025",
+      location: "STPI IT Park, Sector V, Kolkata",
+      category: "Celebration",
+      desc: "Grand opening of our expanded 3rd floor technology delivery hub in Kolkata, powering global projects across mining, manufacturing, and utilities.",
+      image: "/Inaguration Photo.JPG",
+    },
+    {
+      id: 5,
+      title: "Annual Team Culture & Excellence Fest",
+      date: "November 28, 2024",
+      location: "Acceleron Campus",
+      category: "Team & Culture",
+      desc: "Recognizing outstanding engineering contributions and celebrating our shared journey, diversity, and team spirit.",
+      image: "/DSC03909.JPG",
+    },
+    {
+      id: 6,
+      title: "Green Future Community CSR Drive",
+      date: "June 20, 2025",
+      location: "Kolkata & Regional Centers",
+      category: "CSR Activities",
+      desc: "Acceleron Cares community outreach initiative focusing on environmental sustainability, tree planting, and educational support.",
+      image: "/IMG_20250620_083216430_HDR_AE.jpg",
+    },
   ];
 
   useEffect(() => {
@@ -1639,6 +1706,28 @@ function Events() {
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % eventSlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + eventSlides.length) % eventSlides.length);
+
+  // Swipe handling
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   return (
     <section id="events" className="section-dark relative overflow-hidden bg-muted py-32 text-foreground">
@@ -1658,6 +1747,12 @@ function Events() {
           </div>
           <Reveal delay={0.2}>
             <div className="flex items-center gap-3">
+              <Link
+                to="/gallery"
+                className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-5 py-2.5 text-xs font-bold text-foreground hover:bg-brand hover:text-white hover:border-brand transition-all shadow-soft mr-2"
+              >
+                View Full Gallery <ArrowUpRight className="h-4 w-4" />
+              </Link>
               <button
                 onClick={prevSlide}
                 aria-label="Previous Slide"
@@ -1676,28 +1771,32 @@ function Events() {
           </Reveal>
         </div>
 
-        {/* Slideshow Container */}
+        {/* Slideshow Container with Touch / Swipe */}
         <div
           className="relative rounded-3xl border border-border bg-background/60 backdrop-blur-xl overflow-hidden shadow-glow"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div className="grid lg:grid-cols-12 min-h-[480px]">
             {/* Image Section */}
-            <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-full bg-muted/30">
+            <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-full bg-[#0d1330]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
-                  initial={{ opacity: 0, scale: 1.05 }}
+                  initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
                   <img
-                    src={eventSlides[currentSlide].customImage || eventSlides[currentSlide].image}
+                    src={eventSlides[currentSlide].image}
                     alt={eventSlides[currentSlide].title}
-                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    className="h-full w-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
                 </motion.div>
@@ -1738,23 +1837,40 @@ function Events() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Indicators */}
-              <div className="flex items-center justify-between pt-8 border-t border-border mt-8">
-                <div className="flex gap-2">
-                  {eventSlides.map((_, idx) => (
+              {/* Indicators & Thumbnails */}
+              <div className="pt-8 border-t border-border mt-8 space-y-4">
+                {/* Thumbnails strip */}
+                <div className="grid grid-cols-6 gap-2">
+                  {eventSlides.map((slide, idx) => (
                     <button
-                      key={idx}
+                      key={slide.id}
                       onClick={() => setCurrentSlide(idx)}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        idx === currentSlide ? "w-8 bg-brand-gradient shadow-sm" : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                      className={`relative h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                        idx === currentSlide ? "border-brand scale-105 shadow-md" : "border-transparent opacity-50 hover:opacity-100"
                       }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
+                    >
+                      <img src={slide.image} alt="" className="w-full h-full object-cover" />
+                    </button>
                   ))}
                 </div>
-                <span className="text-xs font-bold text-muted-foreground tabular-nums">
-                  {String(currentSlide + 1).padStart(2, "0")} / {String(eventSlides.length).padStart(2, "0")}
-                </span>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {eventSlides.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentSlide(idx)}
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                          idx === currentSlide ? "w-8 bg-brand-gradient shadow-sm" : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                        }`}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs font-bold text-muted-foreground tabular-nums">
+                    {String(currentSlide + 1).padStart(2, "0")} / {String(eventSlides.length).padStart(2, "0")}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1926,6 +2042,7 @@ function Home() {
       <Nav />
       <main>
         <Hero />
+        <EcosystemMarquee />
         <ScrollStory />
         <WaveDivider from="dark" to="light" />
         <About />

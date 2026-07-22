@@ -16,7 +16,7 @@ function ProductPage() {
         subtitle="Automate contractor registration, eliminate compliance risks, and track shift attendance with seamless on-site biometric and facial recognition."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "CWMS" }]}
         image="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-glow"><Boxes className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/LMS.png" alt="CWMS LMS" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

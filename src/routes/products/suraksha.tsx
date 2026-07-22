@@ -16,7 +16,7 @@ function ProductPage() {
         subtitle="A centralized, PWA-based safety management platform built for real-time observation, automated CAPA management, and proactive safety compliance in hazardous mining and industrial environments."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Suraksha" }]}
         image="https://images.unsplash.com/photo-1541888081630-109033333306?q=80&w=2070&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white shadow-glow"><ShieldCheck className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/suraksha.png" alt="Suraksha" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

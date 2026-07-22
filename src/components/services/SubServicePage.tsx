@@ -36,8 +36,14 @@ export function SubServicePageView({ data }: SubServicePageProps) {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-foreground shadow-soft">
-                <Sparkles className="h-3.5 w-3.5 text-brand-red" />
+              <div className="inline-flex items-center gap-3 rounded-full border border-border bg-background/80 backdrop-blur-md px-4 py-2 text-xs font-bold text-foreground shadow-soft">
+                {data.customLogo ? (
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white p-1 shadow-sm shrink-0">
+                    <img src={data.customLogo} alt={data.title} className="h-full w-full object-contain" />
+                  </span>
+                ) : (
+                  <Sparkles className="h-4 w-4 text-brand-red" />
+                )}
                 <span>Acceleron {data.category} Practice</span>
               </div>
 
@@ -261,30 +267,23 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
               <div className="mt-10 space-y-6">
                 <div className="flex items-center gap-4 text-muted-foreground text-sm">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="font-bold text-foreground">Direct Email</div>
-                    <div>contact@acceleronsolutions.com</div>
+                    <a href="mailto:enquiry@acceleronsolutions.io" className="hover:text-brand transition-colors">
+                      enquiry@acceleronsolutions.io
+                    </a>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 text-muted-foreground text-sm">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground">Global Desk</div>
-                    <div>+91 33 2345 6789</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 text-muted-foreground text-sm">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand">
+                <div className="flex items-start gap-4 text-muted-foreground text-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0 mt-0.5">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Global Delivery Centers</div>
-                    <div>Kolkata · Delhi NCR · Singapore · West Virginia · NSW</div>
+                    <div className="font-bold text-foreground">Headquarters</div>
+                    <div>3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India</div>
                   </div>
                 </div>
               </div>

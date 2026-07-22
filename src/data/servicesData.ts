@@ -10,6 +10,7 @@ export interface SubServiceData {
   process: Array<{ step: string; title: string; desc: string }>;
   image: string;
   customImage?: string; // Slot for user custom image
+  customLogo?: string; // Product software logo
 }
 
 export const SUB_SERVICES_DATA: SubServiceData[] = [
@@ -39,7 +40,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Integration & Migration", desc: "Connecting core ERP, payroll, and legacy CRM systems securely." },
       { step: "04", title: "Adoption & Go-Live", desc: "Role-based user training and hyper-care monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/sap-cx-logo.jpg"
   },
   {
     slug: "sap-analytics",
@@ -66,7 +68,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Dashboard Engineering", desc: "Building interactive SAC stories and planning input sheets." },
       { step: "04", title: "Enablement", desc: "Training power users and establishing self-service BI governance." }
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/Sap_analytics-cloud.png"
   },
   {
     slug: "sap-cloud-migration",
@@ -147,7 +150,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Agile Implementation", desc: "Iterative sprints deploying core modules and custom BTP apps." },
       { step: "04", title: "Operational Transition", desc: "Handover to SAP Cloud Operations and continuous SLA monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/vital-wires-Rise-with-SAP-3.png"
   },
   {
     slug: "sap-s4-hana-transformation",
@@ -174,7 +178,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Functional Testing & UAT", desc: "Rigorous validation of end-to-end business scenarios and Fiori apps." },
       { step: "04", title: "Go-Live & Hyper-care", desc: "Final data synchronization and intensive post-launch support." }
     ],
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/sap_s4hana-transparentbg.png"
   },
 
   // ─── ZOHO ───
@@ -203,7 +208,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Security Configuration", desc: "Setting up DLP rules, external sharing policies, and 2FA." },
       { step: "04", title: "User Training", desc: "Conducting workshops on collaborative editing and sync tool usage." }
     ],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+    customLogo: "/workdrive.png"
   },
   {
     slug: "zoho-analytics",
@@ -230,7 +236,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Dashboard Construction", desc: "Engineering tailored reports for Sales, Finance, HR, and Operations." },
       { step: "04", title: "Governance & Rollout", desc: "Setting row-level security permissions and rolling out to executives." }
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    customLogo: "/Zoho-Analytics-TrasparentBG.png"
   },
   {
     slug: "zoho-crm",
@@ -257,7 +264,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Data Migration & Integration", desc: "Importing legacy contacts and connecting email, telephony, and ERP." },
       { step: "04", title: "Rep Training & Go-Live", desc: "Hands-on coaching for sales teams to drive 100% daily adoption." }
     ],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/Zoho_CRM_application.svg_.png"
   },
   {
     slug: "zoho-people-payroll",
@@ -284,7 +292,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Parallel Payroll Run", desc: "Executing test payroll cycles alongside legacy system to verify 100% accuracy." },
       { step: "04", title: "Employee Rollout", desc: "Launching the self-service mobile app and HR admin dashboards." }
     ],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop",
+    customLogo: "/zoho_people-trasparentbg.png"
   },
   {
     slug: "zoho-books",
@@ -311,7 +320,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Template & Workflow Setup", desc: "Customizing invoice layouts, approval chains, and automated reminders." },
       { step: "04", title: "Go-Live & Support", desc: "Final ledger audit and onboarding accountants to daily workflows." }
     ],
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/zoho-books_logo.png"
   },
   {
     slug: "zoho-erp",
@@ -338,7 +348,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Hardware & Barcode Integration", desc: "Setting up barcode scanners, thermal printers, and shipping APIs." },
       { step: "04", title: "UAT & Full Cutover", desc: "Conducting physical stock verification and switching over all operations." }
     ],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    customLogo: "/ZohoERP-colored.png"
   },
 
   // ─── SOFTWARE DEVELOPMENT ───

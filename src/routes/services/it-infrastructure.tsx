@@ -20,7 +20,7 @@ function ITInfraPage() {
         subtitle="The operational backbone that keeps your enterprise running — from network design to cloud management and beyond."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "IT Infrastructure" }]}
         image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><Server className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/AWS_Logo.png" alt="IT Infra & Cloud" className="h-10 w-10 object-contain" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
@@ -38,7 +38,13 @@ function ITInfraPage() {
                   <div>
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="h-6 w-6 text-brand-red shrink-0 mt-0.5" />
+                        {s.customLogo ? (
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
+                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                          </div>
+                        ) : (
+                          <Server className="h-6 w-6 text-brand shrink-0 mt-0.5" />
+                        )}
                         <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">{s.title}</h3>
                       </div>
                       <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
