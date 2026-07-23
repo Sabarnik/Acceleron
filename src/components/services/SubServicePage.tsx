@@ -85,7 +85,6 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                       alt={data.title}
                       className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                     />
-                  </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   </div>
 
