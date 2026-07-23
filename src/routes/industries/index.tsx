@@ -33,7 +33,7 @@ function IndustriesHub() {
         title="We Build for Heavy Industry & Enterprise Operations"
         subtitle="Our solutions are forged in the reality of mines, manufacturing plants, logistics hubs, and utility grids—where software reliability directly impacts production and safety."
         breadcrumbs={[{ label: "Industries" }]}
-        image="/1.png"
+        image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=1200&auto=format&fit=crop"
         ctaText="Discuss Your Industry Needs"
         ctaHref="/contact"
       />

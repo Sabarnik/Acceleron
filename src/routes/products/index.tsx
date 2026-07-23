@@ -60,7 +60,7 @@ function ProductsHub() {
         title="Products We Built Because We Needed Them Too"
         subtitle="Off-the-shelf tools were either too rigid for mining and manufacturing, or too broad to solve the specific problem in front of us. So we built the solutions ourselves, refined them in the field, and made them enterprise-ready."
         breadcrumbs={[{ label: "Products" }]}
-        image="https://images.unsplash.com/photo-1504917595217-d4bffc64684d?q=80&w=2074&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1504917595217-d4bffc64684d?q=75&w=1200&auto=format&fit=crop"
         ctaText="Request a Demo"
       />
 

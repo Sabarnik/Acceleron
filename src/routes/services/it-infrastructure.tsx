@@ -19,7 +19,7 @@ function ITInfraPage() {
         title="IT Infrastructure"
         subtitle="The operational backbone that keeps your enterprise running — from network design to cloud management and beyond."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "IT Infrastructure" }]}
-        image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/AWS_Logo.png" alt="IT Infra & Cloud" className="h-10 w-10 object-contain" /></div>}
       />
 

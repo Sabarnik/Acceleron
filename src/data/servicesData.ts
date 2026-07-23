@@ -40,7 +40,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Integration & Migration", desc: "Connecting core ERP, payroll, and legacy CRM systems securely." },
       { step: "04", title: "Adoption & Go-Live", desc: "Role-based user training and hyper-care monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/sap-cx-logo.jpg"
   },
   {
@@ -68,7 +68,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Dashboard Engineering", desc: "Building interactive SAC stories and planning input sheets." },
       { step: "04", title: "Enablement", desc: "Training power users and establishing self-service BI governance." }
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/Sap_analytics-cloud.png"
   },
   {
@@ -96,7 +96,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Production Cutover", desc: "Final delta sync and DNS switchover during planned maintenance window." },
       { step: "04", title: "Hyper-care & FinOps", desc: "Monitoring performance and right-sizing cloud instances post-launch." }
     ],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "sap-managed-services",
@@ -123,7 +123,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Steady-State Support", desc: "Daily ticket handling, weekly maintenance, and patch deployments." },
       { step: "04", title: "Continuous Improvement", desc: "Quarterly reviews identifying automation and performance optimization areas." }
     ],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "rise-with-sap",
@@ -150,7 +150,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Agile Implementation", desc: "Iterative sprints deploying core modules and custom BTP apps." },
       { step: "04", title: "Operational Transition", desc: "Handover to SAP Cloud Operations and continuous SLA monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/vital-wires-Rise-with-SAP-3.png"
   },
   {
@@ -178,7 +178,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Functional Testing & UAT", desc: "Rigorous validation of end-to-end business scenarios and Fiori apps." },
       { step: "04", title: "Go-Live & Hyper-care", desc: "Final data synchronization and intensive post-launch support." }
     ],
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
 
@@ -208,7 +208,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Security Configuration", desc: "Setting up DLP rules, external sharing policies, and 2FA." },
       { step: "04", title: "User Training", desc: "Conducting workshops on collaborative editing and sync tool usage." }
     ],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/workdrive.png"
   },
   {
@@ -236,7 +236,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Dashboard Construction", desc: "Engineering tailored reports for Sales, Finance, HR, and Operations." },
       { step: "04", title: "Governance & Rollout", desc: "Setting row-level security permissions and rolling out to executives." }
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/Zoho-Analytics-TrasparentBG.png"
   },
   {
@@ -264,7 +264,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Data Migration & Integration", desc: "Importing legacy contacts and connecting email, telephony, and ERP." },
       { step: "04", title: "Rep Training & Go-Live", desc: "Hands-on coaching for sales teams to drive 100% daily adoption." }
     ],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/Zoho_CRM_application.svg_.png"
   },
   {
@@ -292,7 +292,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Parallel Payroll Run", desc: "Executing test payroll cycles alongside legacy system to verify 100% accuracy." },
       { step: "04", title: "Employee Rollout", desc: "Launching the self-service mobile app and HR admin dashboards." }
     ],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/zoho_people-trasparentbg.png"
   },
   {
@@ -320,7 +320,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Template & Workflow Setup", desc: "Customizing invoice layouts, approval chains, and automated reminders." },
       { step: "04", title: "Go-Live & Support", desc: "Final ledger audit and onboarding accountants to daily workflows." }
     ],
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/zoho-books_logo.png"
   },
   {
@@ -348,7 +348,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Hardware & Barcode Integration", desc: "Setting up barcode scanners, thermal printers, and shipping APIs." },
       { step: "04", title: "UAT & Full Cutover", desc: "Conducting physical stock verification and switching over all operations." }
     ],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=75&w=1200&auto=format&fit=crop",
     customLogo: "/ZohoERP-colored.png"
   },
 
@@ -378,7 +378,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "UAT & Exception Handling", desc: "Testing edge cases and configuring automated failure alerts." },
       { step: "04", title: "Production Deployment", desc: "Scheduling bot runs and ongoing L3 bot maintenance." }
     ],
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "software-development-service",
@@ -405,7 +405,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Automated QA & Security Audit", desc: "Executing end-to-end load testing and penetration scans." },
       { step: "04", title: "Continuous Delivery & Scale", desc: "Automated deployment to production and continuous performance monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "web-development",
@@ -432,7 +432,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Performance Optimization", desc: "Asset optimization, caching strategies, and cross-browser testing." },
       { step: "04", title: "Launch & SEO Handover", desc: "Deploying to edge networks with structured schema and analytics." }
     ],
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "mobile-web-application-development",
@@ -459,7 +459,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Device & Field Testing", desc: "Testing across 50+ real device profiles and low-bandwidth scenarios." },
       { step: "04", title: "Store Submission & Launch", desc: "Managing Apple App Store and Google Play compliance and rollout." }
     ],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=75&w=1200&auto=format&fit=crop"
   },
 
   // ─── IT INFRASTRUCTURE ───
@@ -488,7 +488,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Preventive Maintenance Cycles", desc: "Executing planned quarterly maintenance and patch schedules." },
       { step: "04", title: "Emergency Response SLA", desc: "Immediate ticket escalation and onsite engineer dispatch when alerts fire." }
     ],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "network-setup-monitoring",
@@ -515,7 +515,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Physical Deployment & Testing", desc: "Installing racks, running cable tests, and verifying failover pathways." },
       { step: "04", title: "NOC Handover & Management", desc: "Integrating into our 24/7 Network Operations Center for continuous monitoring." }
     ],
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "cloud-infrastructure-management",
@@ -542,7 +542,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Workload Migration & IaC Setup", desc: "Converting infrastructure definitions to Terraform and migrating databases." },
       { step: "04", title: "Managed Cloud Operations", desc: "24/7 monitoring, auto-scaling tuning, and monthly FinOps optimization reports." }
     ],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "email-management",
@@ -569,7 +569,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Background Sync & Cutover", desc: "Syncing historical emails and switching MX records during low-traffic windows." },
       { step: "04", title: "Post-Migration Support", desc: "Assisting users with Outlook/mobile client setup and monitoring mail flows." }
     ],
-    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=75&w=1200&auto=format&fit=crop"
   },
 
   // ─── SALESFORCE ───
@@ -598,7 +598,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Full Extraction & Transformation", desc: "Executing ETL scripts, transforming schemas, and loading production records." },
       { step: "04", title: "Validation & User Sign-off", desc: "Conducting data audits with stakeholders before retiring legacy systems." }
     ],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "salesforce-implementation-ams-ads",
@@ -625,7 +625,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Rigorous QA & Governor Limit Testing", desc: "Validating performance across bulk data uploads and complex triggers." },
       { step: "04", title: "Transition to AMS Support", desc: "Seamless handover to our dedicated 24/7 application management team." }
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "lightning-platform",
@@ -652,7 +652,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Flow & Apex Integration", desc: "Orchestrating backend data logic with optimized bulkified Apex controllers." },
       { step: "04", title: "Security Review & Deployment", desc: "Ensuring strict CRUD/FLS checks and deploying via unlocked packages." }
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "salesforce-service-cloud",
@@ -679,7 +679,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Einstein AI & Knowledge Setup", desc: "Migrating articles and training chatbot intent models on historical logs." },
       { step: "04", title: "Agent Training & Launch", desc: "Coaching support teams on the unified console and monitoring live queues." }
     ],
-    image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "salesforce-sales-cloud",
@@ -706,7 +706,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Email & Calendar Integration", desc: "Connecting enterprise Microsoft 365 or Google Workspace accounts." },
       { step: "04", title: "Sales Leadership Enablement", desc: "Training executives on pipeline dashboards and forecasting modules." }
     ],
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "salesforce-cpq",
@@ -733,7 +733,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Quote-to-Cash Integration", desc: "Connecting CPQ outputs with ERP billing and e-signature tools." },
       { step: "04", title: "Sales & Legal Rollout", desc: "Coaching sales reps on guided selling and quote generation workflows." }
     ],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=75&w=1200&auto=format&fit=crop"
   },
 
   // ─── CYBER SECURITY ───
@@ -762,7 +762,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Internal Audit & Management Review", desc: "Conducting rigorous mock assessment and briefing executive leadership." },
       { step: "04", title: "External Certification Audit Support", desc: "Supporting your team onsite/remotely during Stage 1 and Stage 2 audits." }
     ],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "cyber-security-awareness-programs",
@@ -789,7 +789,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Monthly Simulation & Micro-Learning", desc: "Rolling out continuous monthly simulations and automated remedial training." },
       { step: "04", title: "Executive Risk Reporting", desc: "Presenting quarterly progress reports showing risk reduction to stakeholders." }
     ],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "vulnerability-assessment-and-penetration-testing-vapt",
@@ -816,7 +816,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Executive & Technical Reporting", desc: "Delivering detailed report categorized by CVSS severity scores." },
       { step: "04", title: "Remediation Support & Retest", desc: "Collaborating with developers to fix flaws and verifying patches." }
     ],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "email-security",
@@ -843,7 +843,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Policy Tuning & Sandboxing Activation", desc: "Fine-tuning DLP thresholds, URL rewriting rules, and exceptions." },
       { step: "04", title: "Continuous Monitoring & DMARC Lock", desc: "Transitioning DMARC policy from monitoring to strict enforcement (`p=reject`)." }
     ],
-    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "detection-on-demand",
@@ -870,7 +870,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Containment & Eradication", desc: "Isolating infected endpoints, revoking compromised tokens, and removing malware." },
       { step: "04", title: "Executive Briefing & Hardening", desc: "Presenting findings and implementing architectural hardening rules." }
     ],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "network-security-forensics",
@@ -897,7 +897,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Forensic Evidence Acquisition", desc: "Creating write-blocked forensic bit-stream copies of drives and logs during investigations." },
       { step: "04", title: "Forensic Analysis & Expert Testimony", desc: "Correlating artifacts, building timelines, and delivering formal forensic reports." }
     ],
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "endpoint-security",
@@ -924,7 +924,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Tuning & False-Positive Elimination", desc: "Configuring exclusions for proprietary internal software and business apps." },
       { step: "04", title: "24/7 SOC Monitoring Activation", desc: "Integrating EDR telemetry into our continuous SOC monitoring alerts." }
     ],
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=75&w=1200&auto=format&fit=crop"
   },
 
   // ─── CXO ADVISORY ───
@@ -953,7 +953,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Strategic Roadmap Engineering", desc: "Drafting multi-year transformation initiatives prioritized by ROI and effort." },
       { step: "04", title: "Governance & Execution Oversight", desc: "Establishing steering committees and tracking quarterly value realization." }
     ],
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "digital-transformation-guidance",
@@ -980,7 +980,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Pilot Execution & Change Rollout", desc: "Launching high-impact pilot projects and initiating change management." },
       { step: "04", title: "Scaling & Continuous Adaptation", desc: "Scaling successful models across global business units and refining KPIs." }
     ],
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "it-roadmap-creation",
@@ -1007,7 +1007,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Roadmap & Financial Synthesis", desc: "Drafting interactive visual roadmaps and multi-year budget spreadsheets." },
       { step: "04", title: "Executive Endorsement & Governance", desc: "Presenting to Board of Directors and establishing quarterly roadmap reviews." }
     ],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "strategic-it-investment",
@@ -1034,7 +1034,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Negotiation & Business Case", desc: "Structuring SLAs, pricing terms, and risk mitigation clauses." },
       { step: "04", title: "Execution Governance", desc: "Overseeing vendor mobilization and initial project kickoff integrity." }
     ],
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=75&w=1200&auto=format&fit=crop"
   },
 
   // ─── ANALYTICS ───
@@ -1063,7 +1063,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "ETL Pipeline Engineering", desc: "Building automated ingestion pipelines transforming raw data into Parquet/Delta." },
       { step: "04", title: "Cataloging & Consumer Onboarding", desc: "Indexing metadata and connecting BI/ML platforms to the curated data lake." }
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "data-visualization-reporting",
@@ -1090,7 +1090,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Dashboard Construction & Styling", desc: "Developing interactive visualizations aligned with brand design guidelines." },
       { step: "04", title: "UAT, Security Setup & Rollout", desc: "Validating data accuracy, setting role permissions, and conducting training." }
     ],
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "enterprise-data-warehousing",
@@ -1117,7 +1117,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Historical Migration & Pipeline Sync", desc: "Migrating legacy data from on-premise warehouses and starting automated pipelines." },
       { step: "04", title: "Performance Tuning & Governance", desc: "Clustering tables, optimizing SQL queries, and setting resource monitors." }
     ],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop"
   },
   {
     slug: "analytics-advisory-services",
@@ -1144,7 +1144,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Governance & Roadmap Design", desc: "Drafting data stewardship policies and multi-year data architecture blueprints." },
       { step: "04", title: "Executive Presentation & Rollout", desc: "Presenting to C-suite leadership and mobilizing data transformation teams." }
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop"
   }
 ];
 

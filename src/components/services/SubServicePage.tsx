@@ -18,21 +18,12 @@ export function SubServicePageView({ data }: SubServicePageProps) {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
       {/* ═══════════════════ HERO SECTION ═══════════════════ */}
-      <section className="section-dark relative pt-36 pb-28 bg-muted overflow-hidden">
+      <section className="section-dark relative pt-36 pb-20 bg-muted overflow-hidden">
         <div className="absolute inset-0 grid-lines opacity-15" />
         <div className="absolute top-1/4 right-10 h-96 w-96 rounded-full bg-brand/20 blur-[140px]" />
         <div className="absolute bottom-10 left-1/4 h-80 w-80 rounded-full bg-brand-red/15 blur-[120px]" />
 
         <div className="mx-auto max-w-7xl px-6 relative z-10">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs font-semibold text-muted-foreground mb-8">
-            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link to={`/services/${data.categorySlug}` as any} className="hover:text-foreground transition-colors">{data.category}</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-brand-red">{data.title}</span>
-          </nav>
-
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
@@ -88,12 +79,13 @@ export function SubServicePageView({ data }: SubServicePageProps) {
             <div className="lg:col-span-5 relative">
               <Reveal delay={0.2}>
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl bg-background/30 group">
-                  <div className="aspect-[4/3] w-full relative overflow-hidden">
+                  <div className="aspect-[4/3] w-full relative overflow-hidden bg-black/40 flex items-center justify-center">
                     <img
                       src={data.customImage || data.image}
                       alt={data.title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                     />
+                  </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   </div>
 
@@ -120,6 +112,19 @@ export function SubServicePageView({ data }: SubServicePageProps) {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumbs Bar Below Banner */}
+      <div className="w-full border-y border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <nav className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <Link to={`/services/${data.categorySlug}` as any} className="hover:text-foreground transition-colors">{data.category}</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-brand-red">{data.title}</span>
+          </nav>
+        </div>
+      </div>
 
       <WaveDivider from="dark" to="light" />
 
@@ -266,6 +271,19 @@ export function SubServicePageView({ data }: SubServicePageProps) {
               </Reveal>
 
               <div className="mt-10 space-y-6">
+                <div className="flex items-center gap-4 text-muted-foreground text-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">Phone Support</div>
+                    <div className="flex flex-wrap items-center gap-x-2 font-medium">
+                      <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
+                      <span>/</span>
+                      <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
+                    </div>
+                  </div>
+                </div>
                 <div className="flex items-center gap-4 text-muted-foreground text-sm">
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0">
                     <Mail className="h-5 w-5" />

@@ -19,7 +19,7 @@ function SoftwareDevPage() {
         title="Software Development"
         subtitle="Custom web, mobile, and enterprise software built using modern tech stacks and AI-assisted development to accelerate delivery."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Software Development" }]}
-        image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><Code2 className="h-8 w-8" /></div>}
       />
 

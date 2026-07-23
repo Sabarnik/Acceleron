@@ -53,7 +53,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "July 12, 2026",
     category: "SAP",
     tags: ["SAP S/4HANA", "ERP", "Mining", "Asset Management"],
-    image: "/1.png",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=75",
     readTime: "6 min read",
     featured: true
   },
@@ -78,7 +78,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "June 28, 2026",
     category: "AI & Analytics",
     tags: ["GenAI", "RAG", "Python", "Vector DB"],
-    image: "/2.png",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=75",
     readTime: "8 min read",
     featured: true
   },
@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "June 15, 2026",
     category: "Salesforce",
     tags: ["Salesforce", "CRM", "Data Cloud", "Lightning"],
-    image: "/3.png",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=75",
     readTime: "5 min read"
   },
   {
@@ -119,7 +119,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 30, 2026",
     category: "Digital Transformation",
     tags: ["EHS", "Field Safety", "Suraksha", "Contractor Management"],
-    image: "/4.png",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=75",
     readTime: "7 min read"
   },
   {
@@ -139,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 10, 2026",
     category: "Cloud & Security",
     tags: ["Cybersecurity", "Zero Trust", "VAPT", "ISO 27001"],
-    image: "/6.png",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=75",
     readTime: "9 min read"
   },
   {
@@ -159,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "April 22, 2026",
     category: "Digital Transformation",
     tags: ["Zoho", "Low-Code", "Analytics", "Workflow Automation"],
-    image: "/7.png",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75",
     readTime: "4 min read"
   }
 ];

@@ -19,7 +19,7 @@ function CyberSecurityPage() {
         title="Cyber Security"
         subtitle="Zero-trust security architecture, compliance readiness, and 24/7 threat protection for enterprise environments."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Cyber Security" }]}
-        image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><ShieldCheck className="h-8 w-8" /></div>}
       />
 

@@ -657,7 +657,7 @@ const STORY_CHAPTERS = [
     title: "Move fast without breaking what works.",
     body: "The enterprises we love are trying to become AI-native, without abandoning the systems that built them. That's the tension we resolve.",
     tone: "oklch(0.62 0.22 260)",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=75&w=1200",
   },
   {
     n: "02",
@@ -665,7 +665,7 @@ const STORY_CHAPTERS = [
     title: "One partner. Whole stack. Accountable outcomes.",
     body: "SAP core. Salesforce edge. Zoho velocity. AI on top. We orchestrate the layers so your people don't have to.",
     tone: "oklch(0.82 0.14 210)",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=75&w=1200",
   },
   {
     n: "03",
@@ -673,7 +673,7 @@ const STORY_CHAPTERS = [
     title: "Systems that feel less like software.",
     body: "Interfaces employees actually open. Data leaders trust. Automations that don't need babysitting. Enterprise-grade, human-shaped.",
     tone: "oklch(0.62 0.22 300)",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=75&w=1200",
   },
 ];
 
@@ -2008,20 +2008,44 @@ function Contact() {
                   Let's build the <span className="text-gradient">next chapter.</span>
                 </h2>
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-6">Global Delivery Centers</h2>
               <div className="space-y-6">
-                {[
-                  "Kolkata, India",
-                  "Delhi NCR, India",
-                  "Bangalore, India",
-                  "West Virginia, USA",
-                  "NSW, Australia",
-                  "Singapore"
-                ].map((loc, i) => (
-                  <div key={i} className="flex items-center gap-4 text-muted-foreground">
-                    <MapPin className="h-5 w-5 text-brand" /> <span>{loc}</span>
+                <div className="rounded-2xl border border-border/60 bg-background/40 p-6 backdrop-blur-md">
+                  <div className="text-xs uppercase tracking-wider font-bold text-brand-red mb-3">Direct Contact</div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center gap-3">
+                      <Phone className="h-5 w-5 text-brand shrink-0" />
+                      <div className="flex flex-wrap items-center gap-x-2 font-semibold text-foreground">
+                        <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
+                        <span className="text-muted-foreground">/</span>
+                        <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Mail className="h-5 w-5 text-brand shrink-0" />
+                      <a href="mailto:enquiry@acceleronsolutions.io" className="font-semibold text-foreground hover:text-brand transition-colors">
+                        enquiry@acceleronsolutions.io
+                      </a>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Global Delivery Centers</h3>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    {[
+                      "Kolkata, India",
+                      "Delhi NCR, India",
+                      "Bangalore, India",
+                      "West Virginia, USA",
+                      "NSW, Australia",
+                      "Singapore"
+                    ].map((loc, i) => (
+                      <div key={i} className="flex items-center gap-2 text-muted-foreground">
+                        <MapPin className="h-4 w-4 text-brand shrink-0" /> <span>{loc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>

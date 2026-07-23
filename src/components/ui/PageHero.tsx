@@ -28,43 +28,40 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <>
-      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img
-            src={image}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+      <section className="relative min-h-[58vh] flex items-end overflow-hidden bg-black">
+        {/* Full-Bleed Background Image */}
+        {image && (
+          <div className="absolute inset-0">
+            <img
+              src={image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+          </div>
+        )}
 
-        {/* Top Navbar Vignette for crisp separation */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-[5] pointer-events-none" />
+        {/* Top Navbar Vignette */}
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-[5] pointer-events-none" />
 
-        {/* Light Mode Overlay: Deep Navy / Slate gradient that keeps image vibrant while separating from white navbar */}
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/70 to-transparent" />
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/40 to-transparent" />
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-br from-brand-red/10 via-transparent to-brand/20 mix-blend-overlay" />
+        {/* Light Mode Overlay */}
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0b132b] via-[#0b132b]/75 to-transparent" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-r from-[#0b132b]/95 via-[#0b132b]/60 to-transparent" />
 
-        {/* Dark Mode Overlay: Rich Midnight / Background gradient */}
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent" />
+        {/* Dark Mode Overlay */}
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/85 to-transparent" />
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
         <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-30 mix-blend-multiply`} />
 
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl pb-16 pt-32">
+        {/* Banner Content Container */}
+        <div className="relative z-10 container mx-auto px-6 max-w-7xl pt-36 pb-20">
           <Reveal>
-            <div className="mb-6">
-              <Breadcrumbs items={breadcrumbs} />
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
             <div className="flex flex-col items-start max-w-4xl">
               {icon && (
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
+                  transition={{ delay: 0.1, duration: 0.4 }}
                   className="mb-6"
                 >
                   {icon}
@@ -73,7 +70,7 @@ export function PageHero({
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.05]">
                 {title}
               </h1>
-              <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-10 max-w-2xl">
                 {subtitle}
               </p>
               <Link
@@ -86,7 +83,15 @@ export function PageHero({
           </Reveal>
         </div>
       </section>
-      <WaveDivider from="dark" to="white" />
+
+      {/* Breadcrumbs Bar Below Banner */}
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <div className="w-full border-y border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
+          <div className="container mx-auto px-6 max-w-7xl">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { LinkedInIcon, XTwitterIcon, GitHubIcon } from "../ui/Icons";
 import { Link } from "@tanstack/react-router";
 import { OFFICIAL_HQ } from "../../routes/about";
@@ -88,6 +88,14 @@ export function Footer() {
                 <div>
                   <span className="font-bold text-foreground block">{OFFICIAL_HQ.company}</span>
                   <span>{OFFICIAL_HQ.address}</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-brand shrink-0" />
+                <div className="flex flex-wrap items-center gap-x-2 font-medium">
+                  <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
+                  <span>/</span>
+                  <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">

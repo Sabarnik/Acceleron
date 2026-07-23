@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Users, Target, HeartPulse, Rocket, Award, MapPin, Mail, Compass, ShieldCheck, Zap, Globe, Sparkles, Building2, ArrowRight, CheckCircle2, Trophy, Heart, Cpu } from "lucide-react";
+import { Users, Target, HeartPulse, Rocket, Award, MapPin, Mail, Phone, Compass, ShieldCheck, Zap, Globe, Sparkles, Building2, ArrowRight, CheckCircle2, Trophy, Heart, Cpu } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 
@@ -18,6 +18,8 @@ export const OFFICIAL_HQ = {
   company: "Acceleron Solutions Pvt. Ltd.",
   address: "3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India",
   email: "enquiry@acceleronsolutions.io",
+  phone: "033-35346200 / 033-35346222",
+  phones: ["033-35346200", "033-35346222"],
 };
 
 // SVG Outline maps for locations
@@ -60,6 +62,8 @@ const LOCATION_CARDS = [
     label: "Global Headquarters & Center of Excellence",
     address: "3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India",
     email: "enquiry@acceleronsolutions.io",
+    phone: "033-35346200 / 033-35346222",
+    phones: ["033-35346200", "033-35346222"],
     MapComponent: IndiaMapSvg,
     isHq: true,
   },
@@ -117,7 +121,7 @@ function AboutPage() {
         title="Driving Digital Transformation & Enterprise Growth"
         subtitle="Acceleron Solutions is committed to delivering tailored IT solutions that drive business transformation, cloud adoption, cybersecurity, and strategic SAP consulting."
         breadcrumbs={[{ label: "About Us" }]}
-        image="/Office View 1.JPG"
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=75&w=1200&auto=format&fit=crop"
         ctaText="Explore Career Opportunities"
         ctaHref="/careers"
       />
@@ -485,12 +489,22 @@ function AboutPage() {
 
                   <p className="text-xs font-bold text-brand-red uppercase tracking-wider mb-2">{loc.label}</p>
 
-                  {(loc.address || loc.email) && (
+                  {(loc.address || loc.email || loc.phone) && (
                     <div className="space-y-3 text-xs text-muted-foreground leading-relaxed mt-4 pt-4 border-t border-border/50">
                       {loc.address && (
                         <div className="flex items-start gap-2.5">
                           <MapPin className="h-4 w-4 text-brand shrink-0 mt-0.5" />
                           <span>{loc.address}</span>
+                        </div>
+                      )}
+                      {loc.phone && (
+                        <div className="flex items-center gap-2.5">
+                          <Phone className="h-4 w-4 text-brand shrink-0" />
+                          <div className="flex flex-wrap items-center gap-x-2 font-medium text-foreground">
+                            <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
+                            <span className="text-muted-foreground">/</span>
+                            <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
+                          </div>
                         </div>
                       )}
                       {loc.email && (

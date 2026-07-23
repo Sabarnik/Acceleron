@@ -43,7 +43,7 @@ function BlogListingPage() {
         title="Acceleron Insights & Tech Dispatch"
         subtitle="Perspectives on enterprise transformation, SAP migrations, Applied AI pipelines, and industrial software architecture."
         breadcrumbs={[{ label: "Blog" }]}
-        image="/1.png"
+        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
         ctaText="Explore Featured Article"
         ctaHref={`/blog/${featuredPost.slug}`}
       />

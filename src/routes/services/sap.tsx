@@ -20,7 +20,7 @@ function SAPPage() {
         title="SAP Services"
         subtitle="End-to-end SAP consulting, implementation, and managed services — from S/4HANA transformation to RISE with SAP."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "SAP" }]}
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/sap_s4hana-transparentbg.png" alt="SAP S/4HANA" className="h-10 w-10 object-contain" /></div>}
       />
 

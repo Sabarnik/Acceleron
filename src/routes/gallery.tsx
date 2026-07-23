@@ -46,7 +46,7 @@ function GalleryPage() {
         title="Events, Culture & Moments in Tech"
         subtitle="Inside Acceleron Solutions — showcasing our conferences, workshops, team celebrations, global offices, and community initiatives."
         breadcrumbs={[{ label: "Gallery" }]}
-        image="/DSC07543.JPG"
+        image="https://images.unsplash.com/photo-1511578314322-379afb476865?q=75&w=1200&auto=format&fit=crop"
         ctaText="Join Our Team"
         ctaHref="/careers"
       />

@@ -20,7 +20,7 @@ function ZohoPage() {
         title="Zoho Services"
         subtitle="Premium Zoho partner — deploying CRM, ERP, Analytics, and the full Zoho One suite in weeks, not months."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Zoho" }]}
-        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/ZOHO_logo_2023.svg_.png" alt="Zoho" className="h-10 w-10 object-contain" /></div>}
       />
 

@@ -19,7 +19,7 @@ function CXOAdvisoryPage() {
         title="CXO Advisory"
         subtitle="Strategic technology advisory for C-suite executives — bridging the gap between business vision and technology execution."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "CXO Advisory" }]}
-        image="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><Briefcase className="h-8 w-8" /></div>}
       />
 

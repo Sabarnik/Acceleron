@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Building2, Globe } from "lucide-react";
+import { Mail, MapPin, Building2, Globe, Phone } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { OFFICIAL_HQ } from "./about";
@@ -21,7 +21,7 @@ export function ContactPage() {
         title="Let's Build The Next Chapter Together"
         subtitle="Ready to transform your enterprise operations? Connect directly with our SAP, Salesforce, and custom software practice leads."
         breadcrumbs={[{ label: "Contact" }]}
-        image="/Office Entrace Photo.JPG"
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=75&w=1200&auto=format&fit=crop"
         ctaText="Send us a message"
         ctaHref="#form"
       />
@@ -91,7 +91,18 @@ export function ContactPage() {
 
                 <div className="space-y-4 pt-6 border-t border-border/50 text-sm">
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-brand" />
+                    <Phone className="h-5 w-5 text-brand shrink-0" />
+                    <div>
+                      <div className="text-xs text-muted-foreground">Phone Numbers</div>
+                      <div className="flex flex-wrap items-center gap-x-2 font-semibold text-foreground">
+                        <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
+                        <span className="text-muted-foreground">/</span>
+                        <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-brand shrink-0" />
                     <div>
                       <div className="text-xs text-muted-foreground">General Enquiries</div>
                       <a href={`mailto:${OFFICIAL_HQ.email}`} className="font-semibold text-foreground hover:text-brand transition-colors">

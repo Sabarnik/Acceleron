@@ -56,7 +56,7 @@ function CareersPage() {
         title="Build Your Career at Acceleron Solutions"
         subtitle="Acceleron Solutions offers a culture of growth, innovation, and collaboration. We empower our team members with opportunities for career development, exposure to cutting-edge technologies, and a dynamic work environment."
         breadcrumbs={[{ label: "Careers" }]}
-        image="/DSC03576.JPG"
+        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=1200&auto=format&fit=crop"
         ctaText="Explore Open Roles"
         ctaHref="#roles"
       />

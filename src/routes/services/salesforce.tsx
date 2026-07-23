@@ -20,7 +20,7 @@ function SalesforcePage() {
         title="Salesforce Services"
         subtitle="Sales, Service, Marketing, and Data Cloud — CRM engineered around your customer journey."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Salesforce" }]}
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-glow p-2"><SalesforceLogo className="h-10 w-10" /></div>}
       />
 

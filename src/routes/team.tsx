@@ -24,7 +24,7 @@ export function TeamPage() {
           { label: "About Us", href: "/about" },
           { label: "Our Team" }
         ]}
-        image="/Arindam Hari Speaking.JPG"
+        image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=75&w=1200&auto=format&fit=crop"
         ctaText="Explore Careers"
         ctaHref="/careers"
       />

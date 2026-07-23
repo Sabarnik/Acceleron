@@ -19,7 +19,7 @@ function AnalyticsPage() {
         title="Analytics"
         subtitle="Turn raw data into actionable intelligence — from data lake architecture to real-time dashboards and enterprise BI."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Analytics" }]}
-        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/Sap_analytics-cloud.png" alt="Analytics" className="h-10 w-10 object-contain" /></div>}
       />
 
